@@ -25,41 +25,41 @@ Node 24.22.1, Bun 1.4.4; separate root/website packages and lockfiles. Node APIs
 
 ## Deliverables
 
-| Deliverable | Paths | Scope |
-|---|---|---|
-| Normative contract | `doc/reference/tooling.md` | Tool behavior only; IR specification not applicable yet |
-| JSON Schema | `tests/harness/expectation.schema.json` | Test metadata only, not an IR schema |
-| Reference validator | `src/validator/`, `src/cli/` | Parse/diagnostics/CLI foundation; IR support deferred |
-| Conformance suite | `tests/harness/` | Harness self-tests; IR cases deferred to Step 1 |
-| Runnable examples | CLI help/version and test fixtures | No conforming IR examples exist yet |
-| Documentation | `doc/`, `website/` | Single-source documentation build |
-| Adapters | Not applicable | Deferred |
+| Deliverable         | Paths                                   | Scope                                                   |
+| ------------------- | --------------------------------------- | ------------------------------------------------------- |
+| Normative contract  | `doc/reference/tooling.md`              | Tool behavior only; IR specification not applicable yet |
+| JSON Schema         | `tests/harness/expectation.schema.json` | Test metadata only, not an IR schema                    |
+| Reference validator | `src/validator/`, `src/cli/`            | Parse/diagnostics/CLI foundation; IR support deferred   |
+| Conformance suite   | `tests/harness/`                        | Harness self-tests; IR cases deferred to Step 1         |
+| Runnable examples   | CLI help/version and test fixtures      | No conforming IR examples exist yet                     |
+| Documentation       | `doc/`, `website/`                      | Single-source documentation build                       |
+| Adapters            | Not applicable                          | Deferred                                                |
 
 ## Rule traceability
 
-| Rule | Enforcement | Diagnostics | Cases |
-|---|---|---|---|
-| TOOL-001 | CLI argument handling | AFIR-TOOL-001 | help/version and invalid-argument tests |
-| TOOL-002 | JSON parser | AFIR-PARSE-001 | malformed and primitive JSON tests |
-| TOOL-003 | validator entry | AFIR-TOOL-003 | parseable JSON never accepted as IR |
-| TOOL-004 | file and tool error handling | AFIR-TOOL-002/004 | injected read failure, compiled missing/directory tests |
-| TOOL-005 | result renderer | all | JSON stream, status, exit-code tests |
-| HARNESS-001 | sidecar schema/loader/matcher | harness errors | harness self-tests |
+| Rule        | Enforcement                   | Diagnostics       | Cases                                                   |
+| ----------- | ----------------------------- | ----------------- | ------------------------------------------------------- |
+| TOOL-001    | CLI argument handling         | AFIR-TOOL-001     | help/version and invalid-argument tests                 |
+| TOOL-002    | JSON parser                   | AFIR-PARSE-001    | malformed and primitive JSON tests                      |
+| TOOL-003    | validator entry               | AFIR-TOOL-003     | parseable JSON never accepted as IR                     |
+| TOOL-004    | file and tool error handling  | AFIR-TOOL-002/004 | injected read failure, compiled missing/directory tests |
+| TOOL-005    | result renderer               | all               | JSON stream, status, exit-code tests                    |
+| HARNESS-001 | sidecar schema/loader/matcher | harness errors    | harness self-tests                                      |
 
 ## Verification results
 
 All commands ran from the repository root on Windows with Node 24.22.1 and Bun 1.4.4. Bun's bin directory was added to the process PATH because the agent shell did not inherit it.
 
-| Command | Actual result |
-|---|---|
-| `bun install` | Initial sandbox lockfile replacement failed (EBADF); approved retry outside sandbox succeeded and removed unused Bun typings |
-| `bun install --frozen-lockfile` | Passed; root lockfile unchanged |
-| `bun install --cwd website --frozen-lockfile` | Passed; website lockfile unchanged |
-| `bun run check` | Passed: strict type checks, Node ESM build, 24 tests in five files, website type checks, production site build and link checks |
-| `bun run test:harness` | Passed: four harness self-tests |
-| `bun run cli --help` | Passed; usage output and exit 0 |
-| `bun run cli --version` | Passed; 0.0.0 and exit 0 |
-| `git ls-files -- bun.lock website/bun.lock` | Both lockfiles tracked in the local index |
+| Command                                       | Actual result                                                                                                                  |
+| --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `bun install`                                 | Initial sandbox lockfile replacement failed (EBADF); approved retry outside sandbox succeeded and removed unused Bun typings   |
+| `bun install --frozen-lockfile`               | Passed; root lockfile unchanged                                                                                                |
+| `bun install --cwd website --frozen-lockfile` | Passed; website lockfile unchanged                                                                                             |
+| `bun run check`                               | Passed: strict type checks, Node ESM build, 24 tests in five files, website type checks, production site build and link checks |
+| `bun run test:harness`                        | Passed: four harness self-tests                                                                                                |
+| `bun run cli --help`                          | Passed; usage output and exit 0                                                                                                |
+| `bun run cli --version`                       | Passed; 0.0.0 and exit 0                                                                                                       |
+| `git ls-files -- bun.lock website/bun.lock`   | Both lockfiles tracked in the local index                                                                                      |
 
 The documentation builder emitted an optional update-notifier cache permission message after successful builds. It did not prevent output generation or fail the build. No system config permissions were changed.
 

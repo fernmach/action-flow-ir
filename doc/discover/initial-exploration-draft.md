@@ -115,11 +115,11 @@ else 0
 
 Example decision table:
 
-| IsPremium | Total | Discount |
-|---|---|---|
-| `true` | `>= 100` | `Total * 0.10` |
-| `true` | `< 100` | `0` |
-| `false` | `-` | `0` |
+| IsPremium | Total    | Discount       |
+| --------- | -------- | -------------- |
+| `true`    | `>= 100` | `Total * 0.10` |
+| `true`    | `< 100`  | `0`            |
+| `false`   | `-`      | `0`            |
 
 `-` means any value. A **Unique** hit policy requires at most one matching rule.
 

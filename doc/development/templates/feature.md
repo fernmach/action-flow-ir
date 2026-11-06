@@ -23,21 +23,21 @@ Write observable, verifiable outcomes. State relevant valid, invalid, and bounda
 
 ## Deliverables
 
-| Deliverable | Paths | Required changes or reason not applicable | Completion evidence |
-|---|---|---|---|
-| Normative specification | | | |
-| JSON Schema | | | |
-| Reference validator | | | |
-| Conformance suite | | | |
-| Runnable examples | | | |
-| Explanatory/reference documentation | | | |
-| Adapters | | Deferred unless explicitly scoped | |
+| Deliverable                         | Paths | Required changes or reason not applicable | Completion evidence |
+| ----------------------------------- | ----- | ----------------------------------------- | ------------------- |
+| Normative specification             |       |                                           |                     |
+| JSON Schema                         |       |                                           |                     |
+| Reference validator                 |       |                                           |                     |
+| Conformance suite                   |       |                                           |                     |
+| Runnable examples                   |       |                                           |                     |
+| Explanatory/reference documentation |       |                                           |                     |
+| Adapters                            |       | Deferred unless explicitly scoped         |                     |
 
 ## Rule traceability
 
 | Rule ID and spec link | Schema constraint / semantic enforcement | Diagnostic code(s), if applicable | Positive / negative / boundary case IDs |
-|---|---|---|---|
-| | | | |
+| --------------------- | ---------------------------------------- | --------------------------------- | --------------------------------------- |
+|                       |                                          |                                   |                                         |
 
 ## Implementation tasks
 
@@ -50,8 +50,8 @@ Write observable, verifiable outcomes. State relevant valid, invalid, and bounda
 ## Verification results
 
 | Exact command and working directory | Actual result | Limitations |
-|---|---|---|
-| | | |
+| ----------------------------------- | ------------- | ----------- |
+|                                     |               |             |
 
 ## Completion and handoff
 

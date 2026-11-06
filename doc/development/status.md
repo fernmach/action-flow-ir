@@ -9,6 +9,7 @@ Updated: 2026-11-06
 - [Step 0](iterations/000-tooling-foundation.md): NodeNext build, CLI skeleton, JSON parsing/diagnostics, Ajv integration test, Vitest harness, Docusaurus integration, Windows/Linux CI configuration.
 - Git initialized; the user created initial commit `3ff8434` after Step 0.
 - [Type-aware linting follow-up](iterations/000a-eslint.md): ESLint/typescript-eslint configuration and aggregate check integration.
+- [Formatting follow-up](iterations/000b-formatting.md): default Prettier and selected braces/blank-line readability rules.
 
 ## Current iteration
 
@@ -25,12 +26,12 @@ Step 0 complete locally. Step 1 not started. No IR schema, supported IR version,
 
 ## Pending decisions
 
-| Topic | Needed by |
-|---|---|
-| Envelope fields, IR version syntax, supported-version policy, schema IDs | Step 1 |
-| Type/default/null/numeric semantics | Steps 3–5 |
-| Cycles, loops, calls and failure behavior | Steps 7–8 |
-| Hosting URL, remote repository, hosted CI execution | When connecting a remote/publishing |
+| Topic                                                                    | Needed by                           |
+| ------------------------------------------------------------------------ | ----------------------------------- |
+| Envelope fields, IR version syntax, supported-version policy, schema IDs | Step 1                              |
+| Type/default/null/numeric semantics                                      | Steps 3–5                           |
+| Cycles, loops, calls and failure behavior                                | Steps 7–8                           |
+| Hosting URL, remote repository, hosted CI execution                      | When connecting a remote/publishing |
 
 ## Next action
 
@@ -38,4 +39,4 @@ Open a Step 1 feature record. Define the envelope and version policy, then deliv
 
 ## Verification
 
-Aggregate checks passed locally on Windows after ESLint installation: zero lint warnings/errors, 24 tests across five files, root/website type checks, Node emit, production documentation build. Both frozen installs passed. Type-aware probes verified source/test/website coverage and generated-file exclusions. Hosted CI/Linux execution has not been observed in this increment. See iteration and command registry for verification scope.
+Aggregate checks passed locally on Windows after default formatting and readability configuration: Prettier check, zero lint warnings/errors, 24 tests across five files, root/website type checks, Node emit, production documentation build. Both frozen installs passed. Readability probes verified braces/padding enforcement and compatibility with default Prettier; fixture text remains unchanged. Hosted CI/Linux execution has not been observed in this increment. See iteration and command registry for verification scope.

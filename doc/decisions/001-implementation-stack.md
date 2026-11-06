@@ -19,14 +19,14 @@ The project needs a versioned structural contract, semantic validation, implemen
 
 Use the following stack, explicitly selected by the user in this chat:
 
-| Component | Responsibility |
-|---|---|
-| TypeScript | Validator, semantic passes, CLI, and test implementation |
-| Node.js | Runtime and development tooling |
-| Ajv | JSON Schema structural validation |
+| Component                         | Responsibility                                                                            |
+| --------------------------------- | ----------------------------------------------------------------------------------------- |
+| TypeScript                        | Validator, semantic passes, CLI, and test implementation                                  |
+| Node.js                           | Runtime and development tooling                                                           |
+| Ajv                               | JSON Schema structural validation                                                         |
 | Custom TypeScript semantic passes | References, types, flow/data-flow analysis, and optional target checks as features arrive |
-| Vitest | Automated implementation tests and the conformance harness |
-| Docusaurus | Documentation site for specification, reference, and guides |
+| Vitest                            | Automated implementation tests and the conformance harness                                |
+| Docusaurus                        | Documentation site for specification, reference, and guides                               |
 
 The published schema remains the structural contract and normative prose defines semantics. TypeScript types do not replace either. Keep conformance inputs and expectations independent of Vitest and validator internals.
 

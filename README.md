@@ -16,7 +16,7 @@ bun run cli --help
 bun run docs:dev
 ```
 
-`check` includes ESLint type-aware linting, type checks, build, compiled CLI tests, and documentation build. Run `bun run lint` independently or `bun run lint:fix` for automatic corrections (review changes afterward). ESLint checks maintained source, tests and website TypeScript; generated files are excluded. Formatting is not enforced by a separate formatter.
+`check` includes Prettier formatting, ESLint type-aware/readability rules, type checks, build, compiled CLI tests, and documentation build. Run `bun run lint` or `bun run format:check` independently. Apply automatic corrections with `bun run lint:fix` followed by `bun run format`, then review changes. Prettier uses its default settings; ESLint additionally requires braces and blank-line separation. Generated output, lockfiles, static assets and fixture data are excluded from formatting.
 
 Build first with `bun run build` when running tests individually. `bun run cli validate <file> --format json` reports malformed JSON or explicitly unavailable IR validation; it does not yet accept IR documents. See the [tooling contract](doc/reference/tooling.md).
 
@@ -37,18 +37,18 @@ Both lockfiles belong in version control. CI performs frozen installs and runs c
 
 ## Repository layout
 
-| Path | Responsibility |
-|---|---|
-| `doc/discover/` | Historical exploration; proposals rather than normative rules |
-| `doc/development/` | Workflow, roadmap, status, templates, and iteration records |
-| `doc/decisions/` | Significant design choices and rationale |
-| `doc/spec/` | Enduring normative language specification |
-| `doc/reference/` | Field and diagnostic reference, added as features arrive |
-| `doc/tutorials/` | Explanatory usage guides, added as features arrive |
-| `schema/<version>/` | Versioned structural contract, created during implementation |
-| `src/validator/` | Validation stages and shared diagnostics, created during implementation |
-| `src/cli/` | Command-line entry point, created during implementation |
-| `tests/conformance/` | Implementation-independent documents and expected results |
-| `examples/` | Complete examples validated by the toolchain |
+| Path                 | Responsibility                                                          |
+| -------------------- | ----------------------------------------------------------------------- |
+| `doc/discover/`      | Historical exploration; proposals rather than normative rules           |
+| `doc/development/`   | Workflow, roadmap, status, templates, and iteration records             |
+| `doc/decisions/`     | Significant design choices and rationale                                |
+| `doc/spec/`          | Enduring normative language specification                               |
+| `doc/reference/`     | Field and diagnostic reference, added as features arrive                |
+| `doc/tutorials/`     | Explanatory usage guides, added as features arrive                      |
+| `schema/<version>/`  | Versioned structural contract, created during implementation            |
+| `src/validator/`     | Validation stages and shared diagnostics, created during implementation |
+| `src/cli/`           | Command-line entry point, created during implementation                 |
+| `tests/conformance/` | Implementation-independent documents and expected results               |
+| `examples/`          | Complete examples validated by the toolchain                            |
 
 Paths describing future deliverables are intentionally not populated with dummy implementations. See verification documentation for current tooling availability.

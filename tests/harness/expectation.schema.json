@@ -24,11 +24,7 @@
       }
     },
     "status": {
-      "enum": [
-        "valid",
-        "invalid",
-        "tool-error"
-      ]
+      "enum": ["valid", "invalid", "tool-error"]
     },
     "allowAdditionalDiagnostics": {
       "type": "boolean"
@@ -38,20 +34,14 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "code",
-          "severity"
-        ],
+        "required": ["code", "severity"],
         "properties": {
           "code": {
             "type": "string",
             "minLength": 1
           },
           "severity": {
-            "enum": [
-              "error",
-              "warning"
-            ]
+            "enum": ["error", "warning"]
           },
           "path": {
             "type": "string",

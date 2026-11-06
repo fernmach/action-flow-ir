@@ -7,6 +7,8 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --max-warnings 0",
     "lint:fix": "eslint . --fix --max-warnings 0",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
     "build": "tsc -p tsconfig.build.json",
     "test": "vitest run",
     "test:watch": "vitest",
@@ -15,12 +17,15 @@
     "docs:typecheck": "bun run --cwd website typecheck",
     "docs:build": "bun run --cwd website build",
     "docs:dev": "bun run --cwd website start",
-    "check": "bun run lint && bun run typecheck && bun run build && bun run test && bun run docs:typecheck && bun run docs:build"
+    "check": "bun run format:check && bun run lint && bun run typecheck && bun run build && bun run test && bun run docs:typecheck && bun run docs:build"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",
+    "@stylistic/eslint-plugin": "5.10.0",
     "@types/node": "26.6.6",
     "eslint": "10.14.0",
+    "eslint-config-prettier": "10.1.8",
+    "prettier": "3.9.10",
     "typescript": "6.0.2",
     "typescript-eslint": "8.72.1",
     "vitest": "5.1.0"

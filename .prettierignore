@@ -1,0 +1,12 @@
+**/node_modules/
+dist/
+coverage/
+.vitest/
+website/build/
+website/.docusaurus/
+website/static/
+bun.lock
+website/bun.lock
+# Fixtures are test data, including deliberately malformed input.
+tests/harness/samples/
+tests/conformance/

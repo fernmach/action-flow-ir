@@ -24,6 +24,7 @@ Build a language-independent, typed representation of application logic, a refer
 - The accepted stack is TypeScript on Node.js, Ajv for structural validation, custom TypeScript semantic passes, Vitest for tests, and Docusaurus for documentation. Follow `doc/decisions/001-implementation-stack.md`. Select compatible versions and record reproducible commands during Step 0.
 - JSON Schema Draft 2020-12 is the planned structural baseline. Treat a different dialect as a documented design change.
 - Use the root ESLint/typescript-eslint configuration for maintained TypeScript, tests and website code. Run `bun run lint`; use `bun run lint:fix` only for deliberate automatic corrections and review the diff. Do not suppress type-aware rules globally to bypass unsafe code. Compiler upgrades must stay within the linter's supported range; see ADR-003.
+- Use default Prettier formatting (`bun run format`) without custom style options. Require braces around conditionals/loops. Separate functions, declarations, returns and control-flow groups with blank lines; consecutive imports and related variable declarations may remain grouped. Add blank lines for meaningful subgroups the rules cannot infer. Apply lint fixes before formatting and review the diff. Do not format ignored fixtures or generated files.
 - No adapters, generators, custom textual parser, publishing, or execution engine are required until explicitly scoped by an iteration.
 
 ## Definition of done
@@ -36,4 +37,4 @@ Update the iteration record and `doc/development/status.md` before handing off. 
 
 ## Repository map and commands
 
-See `README.md` for the repository map and `doc/development/verification.md` for actual commands. Run `bun run check` for lint, root type checks, Node build, tests, website type checks, and documentation build. No IR versions are supported yet: parseable JSON returns an explicit tool error. Do not invent schema/conformance/example commands before Step 1 implements them.
+See `README.md` for the repository map and `doc/development/verification.md` for actual commands. Run `bun run check` for formatting, lint, root type checks, Node build, tests, website type checks, and documentation build. No IR versions are supported yet: parseable JSON returns an explicit tool error. Do not invent schema/conformance/example commands before Step 1 implements them.

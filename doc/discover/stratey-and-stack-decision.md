@@ -4,14 +4,14 @@ One adjustment to your approach: **write documentation alongside each feature**,
 
 ### 1. Separate the deliverables
 
-| Deliverable | Purpose |
-|---|---|
-| Specification | Defines what every construct means |
-| JSON Schema | Defines the permitted document structure |
-| Reference validator | Checks structure, references, types, and flow rules |
-| Conformance suite | Supplies valid and invalid documents with expected results |
-| Documentation | Explains concepts, fields, semantics, errors, and examples |
-| Adapters, later | Import OutSystems and generate target implementations |
+| Deliverable         | Purpose                                                    |
+| ------------------- | ---------------------------------------------------------- |
+| Specification       | Defines what every construct means                         |
+| JSON Schema         | Defines the permitted document structure                   |
+| Reference validator | Checks structure, references, types, and flow rules        |
+| Conformance suite   | Supplies valid and invalid documents with expected results |
+| Documentation       | Explains concepts, fields, semantics, errors, and examples |
+| Adapters, later     | Import OutSystems and generate target implementations      |
 
 JSON Schema is a good foundation for the structural contract. I would explicitly select **Draft 2020-12**, which has established validator support. OpenAPI 3.1 also aligned its schema model with this draft. Your IR would have its own schema and semantics. [JSON Schema specification](https://json-schema.org/draft/2020-12), [OpenAPI migration guide](https://learn.openapis.org/upgrading/v3.0-to-v3.1.html)
 
@@ -23,18 +23,18 @@ For **each feature**, follow this cycle:
 
 A practical sequence would be:
 
-| Step | Define | Validate |
-|---|---|---|
-| 1. Document envelope | IR version, document identity, action collection, metadata | Required fields, supported versions, unknown fields |
-| 2. Minimal action | Action ID, start node, end node, connections | Unique IDs, valid endpoints, valid entry node, connection rules |
-| 3. Variables and types | Inputs, outputs, locals, initial primitive types | Names, scope, valid type references |
-| 4. Expressions | Literals, variable references, operators | Operand types, result types, reference resolution |
-| 5. Assignment | Writable destination and source expression | Assignment compatibility, writable references |
-| 6. Branches | Boolean conditions and labeled outgoing connections | Boolean result, required branches, branch uniqueness |
-| 7. Loops | Loop form, iteration variable, collection, exit behavior | Collection types, variable scope, legal connections |
-| 8. Action calls | Action signatures, input binding, output mapping | Existing callees, argument compatibility, output destinations |
-| 9. Flow analysis | Reachability, initialization, termination rules | Unreachable nodes, use before initialization, required output assignments |
-| 10. Compatibility | Supported features and target profiles | Unsupported constructs for a particular adapter |
+| Step                   | Define                                                     | Validate                                                                  |
+| ---------------------- | ---------------------------------------------------------- | ------------------------------------------------------------------------- |
+| 1. Document envelope   | IR version, document identity, action collection, metadata | Required fields, supported versions, unknown fields                       |
+| 2. Minimal action      | Action ID, start node, end node, connections               | Unique IDs, valid endpoints, valid entry node, connection rules           |
+| 3. Variables and types | Inputs, outputs, locals, initial primitive types           | Names, scope, valid type references                                       |
+| 4. Expressions         | Literals, variable references, operators                   | Operand types, result types, reference resolution                         |
+| 5. Assignment          | Writable destination and source expression                 | Assignment compatibility, writable references                             |
+| 6. Branches            | Boolean conditions and labeled outgoing connections        | Boolean result, required branches, branch uniqueness                      |
+| 7. Loops               | Loop form, iteration variable, collection, exit behavior   | Collection types, variable scope, legal connections                       |
+| 8. Action calls        | Action signatures, input binding, output mapping           | Existing callees, argument compatibility, output destinations             |
+| 9. Flow analysis       | Reachability, initialization, termination rules            | Unreachable nodes, use before initialization, required output assignments |
+| 10. Compatibility      | Supported features and target profiles                     | Unsupported constructs for a particular adapter                           |
 
 At each step, make the validator work end to end. For example, after assignment support you should already have a command that accepts a valid assignment flow and explains why an invalid one fails.
 
@@ -83,15 +83,15 @@ Stable error codes can connect validator output directly to documentation and co
 
 For example, the assignment section should answer:
 
-| Part | Questions it answers |
-|---|---|
-| Purpose | What does an assignment represent? |
-| Representation | Which fields are required? |
-| Static rules | Which destinations and expression types are allowed? |
+| Part                | Questions it answers                                          |
+| ------------------- | ------------------------------------------------------------- |
+| Purpose             | What does an assignment represent?                            |
+| Representation      | Which fields are required?                                    |
+| Static rules        | Which destinations and expression types are allowed?          |
 | Execution semantics | When is the expression evaluated and the destination updated? |
-| Failure behavior | What happens if evaluation fails? |
-| Examples | What are valid and invalid assignments? |
-| Diagnostics | Which rule violations can the validator report? |
+| Failure behavior    | What happens if evaluation fails?                             |
+| Examples            | What are valid and invalid assignments?                       |
+| Diagnostics         | Which rule violations can the validator report?               |
 
 For a node containing multiple assignments, specify whether they execute sequentially or evaluate all expressions before updating destinations. That distinction can change program behavior.
 
@@ -99,11 +99,11 @@ For a node containing multiple assignments, specify whether they execute sequent
 
 These are three reasonable options. All can implement the same language-independent format.
 
-| Stack | Suggested components | Best fit | Main tradeoff |
-|---|---|---|---|
-| **TypeScript** | Node.js, Ajv, custom semantic passes, Vitest, Docusaurus | CLI plus a future browser editor or validator | Numeric execution semantics need deliberate handling |
-| **C# / .NET** | System.Text.Json, JsonSchema.Net, custom semantic passes, xUnit, Markdown documentation | Tooling close to an existing C# integration | A browser playground would usually need a separate frontend |
-| **Python** | `jsonschema`, custom semantic passes, pytest, Sphinx | Rapid exploration and a readable reference implementation | A browser validator would usually require a service or another implementation |
+| Stack          | Suggested components                                                                    | Best fit                                                  | Main tradeoff                                                                 |
+| -------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| **TypeScript** | Node.js, Ajv, custom semantic passes, Vitest, Docusaurus                                | CLI plus a future browser editor or validator             | Numeric execution semantics need deliberate handling                          |
+| **C# / .NET**  | System.Text.Json, JsonSchema.Net, custom semantic passes, xUnit, Markdown documentation | Tooling close to an existing C# integration               | A browser playground would usually need a separate frontend                   |
+| **Python**     | `jsonschema`, custom semantic passes, pytest, Sphinx                                    | Rapid exploration and a readable reference implementation | A browser validator would usually require a service or another implementation |
 
 The structural validator choices are established: [Ajv supports Draft 2020-12](https://ajv.js.org/json-schema.html), [JsonSchema.Net supports it](https://docs.json-everything.net/schema/basics/), and [Python `jsonschema` supports it](https://python-jsonschema.readthedocs.io/en/stable/). Docusaurus also supports versioned documentation, useful when the IR develops multiple released versions. [Docusaurus versioning](https://docusaurus.io/docs/versioning)
 

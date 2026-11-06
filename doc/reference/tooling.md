@@ -26,12 +26,12 @@ Diagnostics contain `code`, `severity` (`error` or `warning`), and human-readabl
 
 ## Diagnostic reference
 
-| Code | Meaning | Exit |
-|---|---|---|
-| AFIR-PARSE-001 | Malformed JSON | 1 |
-| AFIR-TOOL-001 | Invalid command arguments | 2 |
-| AFIR-TOOL-002 | Input cannot be read | 2 |
-| AFIR-TOOL-003 | No IR validation implemented | 2 |
-| AFIR-TOOL-004 | Internal/startup failure | 2 |
+| Code           | Meaning                      | Exit |
+| -------------- | ---------------------------- | ---- |
+| AFIR-PARSE-001 | Malformed JSON               | 1    |
+| AFIR-TOOL-001  | Invalid command arguments    | 2    |
+| AFIR-TOOL-002  | Input cannot be read         | 2    |
+| AFIR-TOOL-003  | No IR validation implemented | 2    |
+| AFIR-TOOL-004  | Internal/startup failure     | 2    |
 
 Missing CLI package metadata also reports TOOL-004. No IR execution, external schema retrieval, target generation, or publication occurs.

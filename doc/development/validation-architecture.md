@@ -15,14 +15,14 @@ Input text
   -> diagnostic result
 ```
 
-| Stage | Responsibility |
-|---|---|
-| Parsing | Report malformed input. JSON is the planned initial serialization; YAML is not implicitly supported. |
+| Stage             | Responsibility                                                                                                                                                                     |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Parsing           | Report malformed input. JSON is the planned initial serialization; YAML is not implicitly supported.                                                                               |
 | Version/structure | Safely inspect version, reject unsupported versions, select the matching schema, validate shape. Bootstrap inspection must handle non-object/malformed envelopes without crashing. |
-| References | Build scoped indexes; detect duplicate identifiers and missing/ambiguous references. |
-| Types | Resolve expression types and check operators, assignments, conditions, and calls. |
-| Flow | Check node connection rules and reachability; perform specified initialization/output analyses with documented limits. |
-| Compatibility | Check a validated core model against an explicitly selected target profile. Core validity and target support are separate results. |
+| References        | Build scoped indexes; detect duplicate identifiers and missing/ambiguous references.                                                                                               |
+| Types             | Resolve expression types and check operators, assignments, conditions, and calls.                                                                                                  |
+| Flow              | Check node connection rules and reachability; perform specified initialization/output analyses with documented limits.                                                             |
+| Compatibility     | Check a validated core model against an explicitly selected target profile. Core validity and target support are separate results.                                                 |
 
 Stop dependent analysis when its prerequisites fail. Continue independent checks where safe; prevent cascades such as type errors caused solely by unresolved references. Define diagnostic ordering so fixture results and CLI output are deterministic.
 

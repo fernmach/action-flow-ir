@@ -1,0 +1,14 @@
+{
+  "id": "harness-parsed",
+  "rules": [
+    "TOOL-003"
+  ],
+  "status": "tool-error",
+  "diagnostics": [
+    {
+      "code": "AFIR-TOOL-003",
+      "severity": "error"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

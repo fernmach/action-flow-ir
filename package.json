@@ -1,0 +1,29 @@
+{
+  "name": "action-flow-ir",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "tsc -p tsconfig.build.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:harness": "vitest run tests/harness",
+    "cli": "node dist/cli/main.js",
+    "docs:typecheck": "bun run --cwd website typecheck",
+    "docs:build": "bun run --cwd website build",
+    "docs:dev": "bun run --cwd website start",
+    "check": "bun run typecheck && bun run build && bun run test && bun run docs:typecheck && bun run docs:build"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.6",
+    "typescript": "7.0.2",
+    "vitest": "5.1.0"
+  },
+  "bin": { "afir": "./dist/cli/main.js" },
+  "engines": { "node": ">=24.22.1 <25" },
+  "packageManager": "bun@1.4.4",
+  "dependencies": {
+    "ajv": "8.20.0"
+  }
+}

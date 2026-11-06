@@ -37,9 +37,11 @@ export async function run(
     const output =
       format === "json"
         ? JSON.stringify(result) + "\n"
-        : result.diagnostics
-            .map((d) => d.severity + " " + d.code + ": " + d.message + "\n")
-            .join("");
+        : result.status === "valid"
+          ? "Document is valid.\n"
+          : result.diagnostics
+              .map((d) => d.severity + " " + d.code + ": " + d.message + "\n")
+              .join("");
 
     return {
       exitCode,

@@ -1,6 +1,6 @@
 # Roadmap
 
-Step 0 is implemented; Steps 1–10 remain planned. Each follows `iteration-workflow.md` and produces the applicable full deliverable set. The sequence may change through a recorded rationale when dependencies or real examples require it. See `iterations/000-tooling-foundation.md` for Step 0 evidence and limits.
+Steps 0–1 are implemented locally; Steps 2–10 remain planned. Each follows `iteration-workflow.md` and produces the applicable full deliverable set. The sequence may change through a recorded rationale when dependencies or real examples require it. See [Step 0](iterations/000-tooling-foundation.md) and [Step 1](iterations/001-document-envelope.md) for evidence and limits.
 
 | Step | Capability          | Key rules and checks                                                                                                                        | Dependencies                                |
 | ---- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |

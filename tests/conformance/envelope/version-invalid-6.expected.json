@@ -1,0 +1,15 @@
+{
+  "id": "version-invalid-6",
+  "rules": [
+    "ENV-002"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-VERSION-001",
+      "severity": "error",
+      "path": "/irVersion"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

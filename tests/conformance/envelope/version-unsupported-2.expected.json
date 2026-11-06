@@ -1,0 +1,15 @@
+{
+  "id": "version-unsupported-2",
+  "rules": [
+    "ENV-002"
+  ],
+  "status": "tool-error",
+  "diagnostics": [
+    {
+      "code": "AFIR-VERSION-002",
+      "severity": "error",
+      "path": "/irVersion"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

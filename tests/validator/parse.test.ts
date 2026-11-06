@@ -9,8 +9,10 @@ test.each(["{}", "[]", "null", "42", '"text"'])(
 
     expect(parseDocument(text)).toEqual({ ok: true, value });
     expect(validateDocument(text)).toMatchObject({
-      status: "tool-error",
-      diagnostics: [{ code: "AFIR-TOOL-003" }],
+      status: "invalid",
+      diagnostics: [
+        { code: text === "{}" ? "AFIR-VERSION-001" : "AFIR-ENV-001" },
+      ],
     });
   },
 );

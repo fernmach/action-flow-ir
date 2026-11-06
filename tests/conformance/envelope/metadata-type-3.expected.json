@@ -1,0 +1,16 @@
+{
+  "id": "metadata-type-3",
+  "rules": [
+    "ENV-004",
+    "ENV-006"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/metadata"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

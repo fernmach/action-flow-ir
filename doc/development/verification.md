@@ -25,13 +25,13 @@ Node 24.22.1 and Bun 1.4.4 on PATH. Run all commands below from the repository r
 | Aggregate local/CI check         | `bun run check`                                                |
 | Local documentation server       | `bun run docs:dev` (stop with Ctrl+C)                          |
 
-No IR schema, version-specific corpus, or supported IR examples exist yet. Schema validity is currently exercised for test metadata and the Ajv integration schema only. Step 1 must add real schema/conformance/example checks to the aggregate command.
+Step 1 adds `bun run schema:check` (bundled Draft 2020-12 schema compilation/meta-validation), `bun run test:conformance` (recursive paired corpus), and `bun run examples:check` (all four supported examples). All are included in `bun run check`.
 
 ESLint 10.14.0, typescript-eslint 8.72.1 and @eslint/js 10.0.1 are root development dependencies. Root TypeScript is pinned to 6.0.2, inside typescript-eslint's documented support range. The root flat config enables recommended type-aware rules using each file's TypeScript project. It covers source, tests, Vitest configuration and website TS/TSX; ESLint configuration itself receives ordinary JavaScript checks. Dependencies, emitted code, website build/generated state, coverage and Vitest artifacts are ignored. No React-specific lint plugin is configured.
 
 Prettier 3.9.10 uses an empty `.prettierrc.json`, preserving all standard defaults. ESLint Stylistic 5.10.0 supplies only statement padding; core `curly` requires braces. Padding is required around functions/types/classes/exports and control-flow blocks, between variable declarations and other statements, after the import group, and before returns. Consecutive imports and variable declarations may stay grouped. Meaningful subgroups remain an author responsibility. `eslint-config-prettier` 10.1.8 disables conflicting formatting rules before the two selected readability rules. There is no broad Stylistic preset or Prettier-as-an-ESLint-rule plugin.
 
-Prettier excludes generated output, dependencies, static assets, lockfiles and fixture directories via `.prettierignore`. Fixture whitespace and malformed data must stay intact; expectation metadata validation remains a separate harness responsibility. Supported examples added later should be formatted unless their exact text is intentionally part of a test.
+Prettier excludes generated output, dependencies, static assets, lockfiles and fixture directories via `.prettierignore`. Fixture whitespace and malformed data must stay intact; expectation metadata validation remains a separate harness responsibility. Supported examples should be formatted unless their exact text is intentionally part of a test.
 
 ## CI
 

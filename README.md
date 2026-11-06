@@ -2,7 +2,7 @@
 
 A language-independent, typed representation of application logic, initially focused on OutSystems server actions. The project will include a versioned specification, JSON Schema, reference validator, conformance suite, and documentation.
 
-**Current state:** Step 0 tooling foundation implemented. No IR versions or language schemas are supported yet. The accepted stack is TypeScript, Node.js, Ajv, custom semantic passes, Vitest, and Docusaurus. See the [stack decision](doc/decisions/001-implementation-stack.md).
+**Current state:** Step 1 supports the strict **0.1.0-draft.1** document envelope and optional source provenance; actions must be empty. The accepted stack is TypeScript, Node.js, Ajv, custom semantic passes, Vitest, and Docusaurus. See the [stack decision](doc/decisions/001-implementation-stack.md).
 
 ## Development
 
@@ -16,9 +16,9 @@ bun run cli --help
 bun run docs:dev
 ```
 
-`check` includes Prettier formatting, ESLint type-aware/readability rules, type checks, build, compiled CLI tests, and documentation build. Run `bun run lint` or `bun run format:check` independently. Apply automatic corrections with `bun run lint:fix` followed by `bun run format`, then review changes. Prettier uses its default settings; ESLint additionally requires braces and blank-line separation. Generated output, lockfiles, static assets and fixture data are excluded from formatting.
+`check` includes Prettier formatting, ESLint type-aware/readability rules, type checks, build, compiled CLI tests, schema validation, conformance corpus, examples, and documentation build. Run `bun run lint` or `bun run format:check` independently. Apply automatic corrections with `bun run lint:fix` followed by `bun run format`, then review changes. Prettier uses its default settings; ESLint additionally requires braces and blank-line separation. Generated output, lockfiles, static assets and fixture data are excluded from formatting.
 
-Build first with `bun run build` when running tests individually. `bun run cli validate <file> --format json` reports malformed JSON or explicitly unavailable IR validation; it does not yet accept IR documents. See the [tooling contract](doc/reference/tooling.md).
+Build first with `bun run build` when running tests individually. `bun run cli validate <file> --format json` validates supported envelopes; invalid documents exit 1 and unsupported versions exit 2. See the [tooling contract](doc/reference/tooling.md).
 
 Both lockfiles belong in version control. CI performs frozen installs and runs checks on Windows and Linux; it does not deploy the website.
 
@@ -51,4 +51,4 @@ Both lockfiles belong in version control. CI performs frozen installs and runs c
 | `tests/conformance/` | Implementation-independent documents and expected results               |
 | `examples/`          | Complete examples validated by the toolchain                            |
 
-Paths describing future deliverables are intentionally not populated with dummy implementations. See verification documentation for current tooling availability.
+The schema, conformance corpus and minimal/OutSystems/C#/JavaScript examples are implemented. See verification documentation for current tooling availability.

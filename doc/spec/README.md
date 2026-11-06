@@ -1,6 +1,6 @@
 # Action-Flow IR specification
 
-Status: not yet specified. This index defines the documentation convention, not a valid IR format.
+Supported: **0.1.0-draft.1**, document envelope only. See [Document envelope and source provenance](document-envelope.md). Actions and execution semantics remain unspecified.
 
 ## Authority
 
@@ -25,4 +25,4 @@ Each chapter describes purpose, representation, static constraints, execution se
 9. Flow-analysis obligations and limits.
 10. Feature/target compatibility.
 
-Chapters become normative only as their iterations define and implement supported behavior. Keep a clear supported-feature/version matrix as versions emerge. No illustrative JSON in development notes is currently a conforming IR document.
+Chapters become normative only as their iterations define and implement supported behavior. The envelope chapter is implemented for 0.1.0-draft.1; all other chapters remain planned. Development proposals do not extend the supported envelope.

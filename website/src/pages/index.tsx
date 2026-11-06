@@ -13,7 +13,10 @@ export default function Home(): ReactNode {
         <p>
           A typed, language-independent representation of application logic.
         </p>
-        <p>Tooling foundation available. No IR version is supported yet.</p>
+        <p>
+          IR 0.1.0-draft.1 envelope validation is available. Actions remain
+          future work.
+        </p>
         <Link to="/docs/spec/">Read the specification status</Link>
       </main>
     </Layout>

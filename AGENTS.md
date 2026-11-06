@@ -37,4 +37,4 @@ Update the iteration record and `doc/development/status.md` before handing off. 
 
 ## Repository map and commands
 
-See `README.md` for the repository map and `doc/development/verification.md` for actual commands. Run `bun run check` for formatting, lint, root type checks, Node build, tests, website type checks, and documentation build. No IR versions are supported yet: parseable JSON returns an explicit tool error. Do not invent schema/conformance/example commands before Step 1 implements them.
+See `README.md` for the repository map and `doc/development/verification.md` for actual commands. Run `bun run check` for formatting, lint, root type checks, Node build, tests, website type checks, and documentation build. IR 0.1.0-draft.1 supports the strict document envelope with empty actions. Run `bun run schema:check`, `bun run test:conformance`, and `bun run examples:check` independently or through `bun run check`.

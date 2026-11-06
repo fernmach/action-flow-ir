@@ -41,7 +41,7 @@ test("read failures produce JSON stdout only", async () => {
 test("parse failure exits 1; unsupported validation exits 2", async () => {
   for (const [text, code] of [
     ["{", 1],
-    ["{}", 2],
+    ['{"irVersion":"1.0.0"}', 2],
   ] as const) {
     const result = await run(
       ["validate", "file", "--format", "json"],

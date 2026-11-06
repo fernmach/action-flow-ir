@@ -10,10 +10,11 @@ Updated: 2026-11-06
 - Git initialized; the user created initial commit `3ff8434` after Step 0.
 - [Type-aware linting follow-up](iterations/000a-eslint.md): ESLint/typescript-eslint configuration and aggregate check integration.
 - [Formatting follow-up](iterations/000b-formatting.md): default Prettier and selected braces/blank-line readability rules.
+- [Step 1](iterations/001-document-envelope.md): normative envelope, Draft 2020-12 schema, exact version dispatch, deterministic diagnostics, recursive conformance corpus, four examples and CLI tutorial.
 
 ## Current iteration
 
-Step 0 complete locally. Step 1 not started. No IR schema, supported IR version, actual IR conformance corpus, semantic passes, adapters, or released language specification exists yet. The CLI explicitly returns a tool error for every parseable JSON input until Step 1.
+Step 1 complete locally. **0.1.0-draft.1** is the only supported IR format: a strict document envelope with optional source provenance and empty actions. Malformed declarations are invalid; well-formed unsupported versions are tool errors. Semantic passes, action objects, adapters and execution remain future work. No release was published.
 
 ## Agreed direction
 
@@ -26,17 +27,16 @@ Step 0 complete locally. Step 1 not started. No IR schema, supported IR version,
 
 ## Pending decisions
 
-| Topic                                                                    | Needed by                           |
-| ------------------------------------------------------------------------ | ----------------------------------- |
-| Envelope fields, IR version syntax, supported-version policy, schema IDs | Step 1                              |
-| Type/default/null/numeric semantics                                      | Steps 3–5                           |
-| Cycles, loops, calls and failure behavior                                | Steps 7–8                           |
-| Hosting URL, remote repository, hosted CI execution                      | When connecting a remote/publishing |
+| Topic                                               | Needed by                           |
+| --------------------------------------------------- | ----------------------------------- |
+| Type/default/null/numeric semantics                 | Steps 3–5                           |
+| Cycles, loops, calls and failure behavior           | Steps 7–8                           |
+| Hosting URL, remote repository, hosted CI execution | When connecting a remote/publishing |
 
 ## Next action
 
-Open a Step 1 feature record. Define the envelope and version policy, then deliver normative rules, versioned Draft 2020-12 schema, validation, real conformance fixtures, examples, and documentation together. Do not infer fields from exploratory examples.
+Open Step 2 to specify minimal action/node identity, start/end, entry and connection rules across all deliverables. Preserve the immutable Step 1 contract; any public contract extension needs a new draft version.
 
 ## Verification
 
-Aggregate checks passed locally on Windows after default formatting and readability configuration: Prettier check, zero lint warnings/errors, 24 tests across five files, root/website type checks, Node emit, production documentation build. Both frozen installs passed. Readability probes verified braces/padding enforcement and compatibility with default Prettier; fixture text remains unchanged. Hosted CI/Linux execution has not been observed in this increment. See iteration and command registry for verification scope.
+Both frozen installs and the aggregate checks passed locally on Windows: default formatting, zero lint warnings/errors, root/website type checks, Node emit, implementation/harness/CLI tests, 84 conformance cases, schema checks, four examples and production documentation/link build. See the iteration record for exact test totals and commands. Hosted CI/Linux execution has not been observed.

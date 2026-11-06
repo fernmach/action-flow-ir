@@ -1,0 +1,15 @@
+{
+  "id": "root-3",
+  "rules": [
+    "ENV-001"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-ENV-001",
+      "severity": "error",
+      "path": ""
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

@@ -1,0 +1,14 @@
+{
+  "id": "malformed",
+  "rules": [
+    "ENV-001"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-PARSE-001",
+      "severity": "error"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

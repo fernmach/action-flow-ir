@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 import { readFile } from "node:fs/promises";
-import { run } from "./run.js";
 
 try {
+  const { run } = await import("./run.js");
   const metadata: unknown = JSON.parse(
     await readFile(new URL("../../package.json", import.meta.url), "utf8"),
   );

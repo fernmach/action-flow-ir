@@ -1,0 +1,9 @@
+{
+  "id": "empty-metadata",
+  "rules": [
+    "ENV-004"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

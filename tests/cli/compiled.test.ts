@@ -18,7 +18,7 @@ test('compiled CLI runs in Node with real filesystem inputs', async () => {
     const unsupported = call(['validate', file, '--format', 'json']);
     expect(unsupported.status).toBe(2);
     expect(unsupported.stderr).toBe('');
-    expect(JSON.parse(unsupported.stdout).status).toBe('tool-error');
+    expect(JSON.parse(unsupported.stdout)).toMatchObject({status: 'tool-error'});
     expect(call(['validate', join(directory, 'missing')]).status).toBe(2);
     expect(call(['validate', directory]).status).toBe(2);
   } finally { await rm(directory, {recursive: true, force: true}); }

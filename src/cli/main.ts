@@ -2,7 +2,10 @@
 import {readFile} from 'node:fs/promises';
 import {run} from './run.js';
 try {
-  const metadata: {version: string} = JSON.parse(await readFile(new URL('../../package.json', import.meta.url), 'utf8'));
+  const metadata: unknown = JSON.parse(await readFile(new URL('../../package.json', import.meta.url), 'utf8'));
+  if (typeof metadata !== 'object' || metadata === null || !('version' in metadata) || typeof metadata.version !== 'string') {
+    throw new Error('Invalid package metadata');
+  }
   const result = await run(process.argv.slice(2), metadata.version);
   process.stdout.write(result.stdout);
   process.stderr.write(result.stderr);

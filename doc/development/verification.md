@@ -10,6 +10,8 @@ Node 24.22.1 and Bun 1.4.4 on PATH. Run all commands below from the repository r
 |---|---|
 | Root dependency setup | `bun install --frozen-lockfile` |
 | Website dependency setup | `bun install --cwd website --frozen-lockfile` |
+| Type-aware implementation lint | `bun run lint` (zero warnings permitted) |
+| Automatic lint corrections | `bun run lint:fix` (review the diff) |
 | Root type checks | `bun run typecheck` |
 | Node.js ESM build | `bun run build` |
 | All implementation/harness tests | `bun run test` (build first for compiled CLI tests) |
@@ -23,6 +25,8 @@ Node 24.22.1 and Bun 1.4.4 on PATH. Run all commands below from the repository r
 
 No IR schema, version-specific corpus, or supported IR examples exist yet. Schema validity is currently exercised for test metadata and the Ajv integration schema only. Step 1 must add real schema/conformance/example checks to the aggregate command.
 
+ESLint 10.14.0, typescript-eslint 8.72.1 and @eslint/js 10.0.1 are root development dependencies. Root TypeScript is pinned to 6.0.2, inside typescript-eslint's documented support range. The root flat config enables recommended type-aware rules using each file's TypeScript project. It covers source, tests, Vitest configuration and website TS/TSX; ESLint configuration itself receives ordinary JavaScript checks. Dependencies, emitted code, website build/generated state, coverage and Vitest artifacts are ignored. There is no separate formatter or React-specific lint plugin in this increment.
+
 ## CI
 
 `.github/workflows/ci.yml` runs frozen installs and aggregate checks on Windows and Linux using selected Node/Bun versions. No deployment or remote publication is configured. Local Windows checks do not prove hosted CI or Linux execution; inspect those results once a remote exists.
@@ -33,7 +37,7 @@ No IR schema, version-specific corpus, or supported IR examples exist yet. Schem
 2. Run all conformance cases for supported versions; fail on an unexpectedly empty corpus.
 3. Exercise semantic algorithms and stage boundaries with meaningful unit/interaction cases.
 4. Validate supported examples against their versions/profiles.
-5. Keep root/website type/build checks passing.
+5. Keep lint and root/website type/build checks passing. Lint runs first in the aggregate command and therefore in CI.
 6. Keep broken Markdown/site links fatal; Docusaurus renders existing doc sources.
 7. Run the same checks in CI and update this registry.
 

@@ -1,6 +1,7 @@
 # ADR-002: Tooling foundation conventions
 
 Status: accepted
+Compiler preservation choice superseded by ADR-003; remaining conventions unchanged.
 Date: 2026-11-06
 Related iteration: ITER-000
 

@@ -10,7 +10,7 @@ for (const args of [[], ['other'], ['validate'], ['validate', 'a', '--format', '
   });
 }
 test('read failures produce JSON stdout only', async () => {
-  const result = await run(['validate', 'missing', '--format', 'json'], '0.0.0', async () => { throw new Error('private detail'); });
+  const result = await run(['validate', 'missing', '--format', 'json'], '0.0.0', () => Promise.reject(new Error('private detail')));
   expect(result.exitCode).toBe(2);
   expect(result.stderr).toBe('');
   expect(JSON.parse(result.stdout)).toMatchObject({status: 'tool-error', diagnostics: [{code: 'AFIR-TOOL-002'}]});
@@ -18,9 +18,11 @@ test('read failures produce JSON stdout only', async () => {
 });
 test('parse failure exits 1; unsupported validation exits 2', async () => {
   for (const [text, code] of [['{', 1], ['{}', 2]] as const) {
-    const result = await run(['validate', 'file', '--format', 'json'], '0.0.0', async () => text);
+    const result = await run(['validate', 'file', '--format', 'json'], '0.0.0', () => Promise.resolve(text));
     expect(result.exitCode).toBe(code);
     expect(result.stderr).toBe('');
-    expect(JSON.parse(result.stdout).diagnostics).toHaveLength(1);
+    const output: unknown = JSON.parse(result.stdout);
+    expect(output).toMatchObject({diagnostics: [expect.objectContaining({severity: 'error'})]});
+    expect(output).toHaveProperty('diagnostics.length', 1);
   }
 });

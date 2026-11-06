@@ -7,7 +7,8 @@ Updated: 2026-11-06
 - Exploration, repository instructions, workflow, roadmap, and templates.
 - Accepted stack in [ADR-001](../decisions/001-implementation-stack.md) and conventions in [ADR-002](../decisions/002-tooling-contract.md).
 - [Step 0](iterations/000-tooling-foundation.md): NodeNext build, CLI skeleton, JSON parsing/diagnostics, Ajv integration test, Vitest harness, Docusaurus integration, Windows/Linux CI configuration.
-- Git initialized locally; lockfiles and package manifests staged. No commit or remote publication created.
+- Git initialized; the user created initial commit `3ff8434` after Step 0.
+- [Type-aware linting follow-up](iterations/000a-eslint.md): ESLint/typescript-eslint configuration and aggregate check integration.
 
 ## Current iteration
 
@@ -20,6 +21,7 @@ Step 0 complete locally. Step 1 not started. No IR schema, supported IR version,
 - Complete increments across specification, schema, validator, tests, examples, and documentation.
 - TypeScript/Node.js, Ajv, custom semantic passes, Vitest, Docusaurus.
 - Node 24.22.1 and Bun 1.4.4; root and website dependencies locked separately.
+- ESLint 10.14.0, typescript-eslint 8.72.1, root TypeScript 6.0.2; see [ADR-003](../decisions/003-type-aware-linting.md).
 
 ## Pending decisions
 
@@ -36,4 +38,4 @@ Open a Step 1 feature record. Define the envelope and version policy, then deliv
 
 ## Verification
 
-Aggregate checks passed locally on Windows: 24 tests across five files, root/website type checks, Node emit, production documentation build. CI is configured but has not run on GitHub or Linux. See iteration and command registry for verification scope.
+Aggregate checks passed locally on Windows after ESLint installation: zero lint warnings/errors, 24 tests across five files, root/website type checks, Node emit, production documentation build. Both frozen installs passed. Type-aware probes verified source/test/website coverage and generated-file exclusions. Hosted CI/Linux execution has not been observed in this increment. See iteration and command registry for verification scope.

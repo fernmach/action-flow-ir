@@ -16,7 +16,9 @@ bun run cli --help
 bun run docs:dev
 ```
 
-`check` includes the compiled CLI tests and documentation build. Build first with `bun run build` when running tests individually. `bun run cli validate <file> --format json` reports malformed JSON or explicitly unavailable IR validation; it does not yet accept IR documents. See the [tooling contract](doc/reference/tooling.md).
+`check` includes ESLint type-aware linting, type checks, build, compiled CLI tests, and documentation build. Run `bun run lint` independently or `bun run lint:fix` for automatic corrections (review changes afterward). ESLint checks maintained source, tests and website TypeScript; generated files are excluded. Formatting is not enforced by a separate formatter.
+
+Build first with `bun run build` when running tests individually. `bun run cli validate <file> --format json` reports malformed JSON or explicitly unavailable IR validation; it does not yet accept IR documents. See the [tooling contract](doc/reference/tooling.md).
 
 Both lockfiles belong in version control. CI performs frozen installs and runs checks on Windows and Linux; it does not deploy the website.
 

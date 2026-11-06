@@ -8,5 +8,6 @@ Record choices affecting public representation, execution semantics, validation 
 |---|---|
 | [ADR-001: Implementation stack](001-implementation-stack.md) | Accepted |
 | [ADR-002: Tooling conventions](002-tooling-contract.md) | Accepted under Step 0 implementation authorization |
+| [ADR-003: Type-aware linting](003-type-aware-linting.md) | Accepted; supersedes ADR-002 compiler preservation choice |
 
 Discovery recommendations do not constitute accepted language decisions. See [current pending decisions](../development/status.md).

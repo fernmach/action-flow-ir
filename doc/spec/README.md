@@ -1,6 +1,6 @@
 # Action-Flow IR specification
 
-Supported: **0.1.0-draft.1**, document envelope only. See [Document envelope and source provenance](document-envelope.md). Actions and execution semantics remain unspecified.
+Supported: **0.1.0-draft.1** (empty envelope) and **0.1.0-draft.2** ([minimal actions and connections](actions.md)). Both use the [document envelope and source provenance](document-envelope.md). Execution remains unimplemented.
 
 ## Authority
 
@@ -12,7 +12,7 @@ Use MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY deliberately for requirements, r
 
 Each chapter describes purpose, representation, static constraints, execution semantics where applicable, failure behavior, version compatibility, and rule-linked examples. Link diagnostics and conformance cases. For purely structural features, explain that execution semantics are not applicable.
 
-## Planned chapters
+## Chapters
 
 1. Document envelope and versioning.
 2. Actions, nodes, connections, and identity.
@@ -25,4 +25,4 @@ Each chapter describes purpose, representation, static constraints, execution se
 9. Flow-analysis obligations and limits.
 10. Feature/target compatibility.
 
-Chapters become normative only as their iterations define and implement supported behavior. The envelope chapter is implemented for 0.1.0-draft.1; all other chapters remain planned. Development proposals do not extend the supported envelope.
+Chapters become normative only as their iterations define and implement supported behavior. The envelope and minimal-actions chapters are implemented; the remaining chapters are planned. Development proposals do not extend the supported envelope.

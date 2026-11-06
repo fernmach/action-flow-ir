@@ -16,4 +16,4 @@ bun run cli validate examples/minimal.json --format json
 
 The result is `{"status":"valid","diagnostics":[]}`. Change the id to an empty string to receive invalid status and exit 1. A declaration such as `1.0.0` is well-formed but unsupported, producing tool-error and exit 2. A missing or malformed declaration is invalid and exits 1.
 
-JSON responses go to stdout; text failures go to stderr. Use codes and JSON Pointer paths to inspect errors. The package version shown by `--version` is independent of the IR version. This draft validates the container only: actions must remain empty. See the [field reference](../reference/envelope.md).
+JSON responses go to stdout; text failures go to stderr. Use codes and JSON Pointer paths to inspect errors. The package version shown by `--version` is independent of the IR version. These examples use draft.1, whose actions must remain empty. Draft.2 supports [minimal actions](minimal-action.md). See the [field reference](../reference/envelope.md).

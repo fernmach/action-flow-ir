@@ -1,0 +1,13 @@
+{
+  "irVersion": "0.1.0-draft.2",
+  "id": "document",
+  "actions": [],
+  "metadata": {
+    "title": "Discount calculations",
+    "description": "Actions used to calculate customer discounts."
+  },
+  "source": {
+    "technology": "outsystems",
+    "version": "11"
+  }
+}

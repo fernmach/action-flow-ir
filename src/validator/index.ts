@@ -1,7 +1,9 @@
 import type { ErrorObject } from "ajv";
 import type { Diagnostic, ValidationResult } from "./diagnostics.js";
 import { parseDocument } from "./parse.js";
-import { validateEnvelope } from "./schema.js";
+import { schemas } from "./schema.js";
+import { validateActions } from "./actions.js";
+import type { ActionDocument } from "./actions.js";
 
 const versionPattern =
   /^(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)(?:-draft\.[1-9][0-9]*)?$(?![\s\S])/;
@@ -37,6 +39,7 @@ function normalize(error: ErrorObject) {
     minLength: "String must not be empty.",
     pattern: "String does not match the required syntax.",
     maxItems: "Actions must be empty in this draft.",
+    enum: "Value is not one of the supported choices.",
   };
   const diagnostic: Diagnostic = {
     code: "AFIR-SCHEMA-001",
@@ -84,7 +87,9 @@ export function validateDocument(text: string): ValidationResult {
     );
   }
 
-  if (value.irVersion !== "0.1.0-draft.1") {
+  const validateEnvelope = schemas.get(value.irVersion);
+
+  if (!validateEnvelope) {
     return failure(
       "tool-error",
       "AFIR-VERSION-002",
@@ -94,7 +99,15 @@ export function validateDocument(text: string): ValidationResult {
   }
 
   if (validateEnvelope(value)) {
-    return { status: "valid", diagnostics: [] };
+    const diagnostics =
+      value.irVersion === "0.1.0-draft.2"
+        ? validateActions(value as ActionDocument)
+        : [];
+
+    return {
+      status: diagnostics.length === 0 ? "valid" : "invalid",
+      diagnostics,
+    };
   }
 
   const errors = (validateEnvelope.errors ?? []).map(normalize);

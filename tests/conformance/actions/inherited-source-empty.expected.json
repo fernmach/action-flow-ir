@@ -1,0 +1,15 @@
+{
+  "id": "actions-inherited-source-empty",
+  "rules": [
+    "ENV-005"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/source/technology"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

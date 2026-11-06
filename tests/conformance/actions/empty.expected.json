@@ -1,0 +1,9 @@
+{
+  "id": "actions-empty",
+  "rules": [
+    "ACT-001"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

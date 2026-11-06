@@ -11,10 +11,11 @@ Updated: 2026-11-06
 - [Type-aware linting follow-up](iterations/000a-eslint.md): ESLint/typescript-eslint configuration and aggregate check integration.
 - [Formatting follow-up](iterations/000b-formatting.md): default Prettier and selected braces/blank-line readability rules.
 - [Step 1](iterations/001-document-envelope.md): normative envelope, Draft 2020-12 schema, exact version dispatch, deterministic diagnostics, recursive conformance corpus, four examples and CLI tutorial.
+- [Step 2](iterations/002-minimal-actions.md): draft.2 minimal actions, scoped identity/reference checks, degree/reachability checks, semantic diagnostics, examples and tutorial; draft.1 remains supported.
 
 ## Current iteration
 
-Step 1 complete locally. **0.1.0-draft.1** is the only supported IR format: a strict document envelope with optional source provenance and empty actions. Malformed declarations are invalid; well-formed unsupported versions are tool errors. Semantic passes, action objects, adapters and execution remain future work. No release was published.
+Step 2 complete locally. Supported formats: **0.1.0-draft.1** (unchanged empty envelope) and **0.1.0-draft.2** (minimal start/end action graphs). Both support optional provenance. Structural validation precedes scoped identity, reference and graph checks. Malformed declarations are invalid; well-formed unsupported versions are tool errors. Variables, operations, adapters and execution remain future work. No release was published.
 
 ## Agreed direction
 
@@ -35,8 +36,8 @@ Step 1 complete locally. **0.1.0-draft.1** is the only supported IR format: a st
 
 ## Next action
 
-Open Step 2 to specify minimal action/node identity, start/end, entry and connection rules across all deliverables. Preserve the immutable Step 1 contract; any public contract extension needs a new draft version.
+Open Step 3 to specify variables and types: inputs, outputs, locals, primitive types, naming, scope and initialization. Preserve both existing draft contracts; public extensions need a new draft version.
 
 ## Verification
 
-Both frozen installs and the aggregate checks passed locally on Windows: default formatting, zero lint warnings/errors, root/website type checks, Node emit, implementation/harness/CLI tests, 84 conformance cases, schema checks, four examples and production documentation/link build. See the iteration record for exact test totals and commands. Hosted CI/Linux execution has not been observed.
+Both frozen installs and aggregate checks passed locally on Windows: formatting, zero lint warnings/errors, root/website type checks, Node emit, 287 tests across 11 files (including 246 conformance cases), both schemas, six examples and production documentation/link build. See the Step 2 iteration record for exact commands. Hosted CI/Linux execution has not been observed.

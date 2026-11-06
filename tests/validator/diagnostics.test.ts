@@ -5,7 +5,9 @@ const { validateEnvelope } = vi.hoisted(() => ({
   validateEnvelope: Object.assign(() => false, { errors: [] as ErrorObject[] }),
 }));
 
-vi.mock("../../src/validator/schema.js", () => ({ validateEnvelope }));
+vi.mock("../../src/validator/schema.js", () => ({
+  schemas: new Map([["0.1.0-draft.1", validateEnvelope]]),
+}));
 
 import { validateDocument } from "../../src/validator/index.js";
 

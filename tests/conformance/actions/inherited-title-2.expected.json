@@ -1,0 +1,20 @@
+{
+  "id": "actions-inherited-title-2",
+  "rules": [
+    "ENV-004"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/metadata/title"
+    },
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/metadata/title"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

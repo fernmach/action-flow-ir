@@ -8,7 +8,16 @@ const files = (await readdir(directory)).filter((file) =>
 );
 
 test("supported examples exist", () => {
-  expect(files.length).toBe(4);
+  expect(files).toEqual(
+    expect.arrayContaining([
+      "minimal.json",
+      "outsystems.json",
+      "csharp.json",
+      "javascript.json",
+      "minimal-action.json",
+      "multiple-actions.json",
+    ]),
+  );
 });
 test.each(files)("example: %s", async (file) => {
   expect(

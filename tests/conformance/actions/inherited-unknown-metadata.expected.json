@@ -1,0 +1,15 @@
+{
+  "id": "actions-inherited-unknown-metadata",
+  "rules": [
+    "ENV-006"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/metadata/extra"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

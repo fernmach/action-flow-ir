@@ -1,0 +1,16 @@
+{
+  "id": "actions-inherited-source-type-2",
+  "rules": [
+    "ENV-005",
+    "ENV-006"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/source"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

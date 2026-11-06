@@ -1,13 +1,18 @@
 import { expect, test } from "vitest";
-import { validateEnvelope } from "../../src/validator/schema.js";
+import { schemas } from "../../src/validator/schema.js";
 import { validateDocument } from "../../src/validator/index.js";
 
+const validateEnvelope = schemas.get("0.1.0-draft.1")!;
+
 // Compilation checks the bundled schema against Draft 2020-12 in strict mode.
-test("bundled schema compiles and validates an envelope", () => {
-  expect(
-    validateEnvelope({ irVersion: "0.1.0-draft.1", id: "test", actions: [] }),
-  ).toBe(true);
-});
+test.each([...schemas])(
+  "bundled schema compiles and validates an envelope: %s",
+  (version, validate) => {
+    expect(validate({ irVersion: version, id: "test", actions: [] })).toBe(
+      true,
+    );
+  },
+);
 
 test("validation preserves data, rejects rather than repairs and is deterministic", () => {
   const input = {

@@ -1,6 +1,6 @@
 # Tooling contract
 
-Tool version: 0.0.0 (development). Supported IR versions: **0.1.0-draft.1**, envelope only.
+Tool version: 0.0.0 (development). Supported IR versions: **0.1.0-draft.1** (empty envelope) and **0.1.0-draft.2** (minimal actions).
 
 ## Commands
 
@@ -37,5 +37,7 @@ Diagnostics contain `code`, `severity` (`error` or `warning`), and human-readabl
 | AFIR-VERSION-001 | Missing/malformed declaration (/irVersion)                      | 1    |
 | AFIR-VERSION-002 | Unsupported version (/irVersion)                                | 2    |
 | AFIR-SCHEMA-001  | Supported envelope violates schema (offending property pointer) | 1    |
+
+See the [semantic diagnostic table](../spec/actions.md#validation-and-diagnostics) for AFIR-ACTION-001, AFIR-NODE-001, AFIR-REF-001 and AFIR-FLOW-001 through 007. All exit 1. Semantic diagnostics sort by path, code, then message and remove identical entries. No action/node context fields are emitted in these drafts.
 
 Missing CLI package metadata also reports TOOL-004. No IR execution, external schema retrieval, target generation, or publication occurs.

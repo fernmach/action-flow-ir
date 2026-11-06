@@ -14,8 +14,8 @@ export default function Home(): ReactNode {
           A typed, language-independent representation of application logic.
         </p>
         <p>
-          IR 0.1.0-draft.1 envelope validation is available. Actions remain
-          future work.
+          IR 0.1.0-draft.2 supports minimal actions and connections. Draft.1
+          envelope validation remains available.
         </p>
         <Link to="/docs/spec/">Read the specification status</Link>
       </main>

@@ -1,0 +1,9 @@
+{
+  "id": "actions-reordered",
+  "rules": [
+    "ACT-009"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

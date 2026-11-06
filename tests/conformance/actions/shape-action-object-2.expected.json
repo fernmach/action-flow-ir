@@ -1,0 +1,15 @@
+{
+  "id": "actions-shape-action-object-2",
+  "rules": [
+    "ACT-001"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/actions/0"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

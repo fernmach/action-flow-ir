@@ -2,7 +2,7 @@
 
 A language-independent, typed representation of application logic, initially focused on OutSystems server actions. The project will include a versioned specification, JSON Schema, reference validator, conformance suite, and documentation.
 
-**Current state:** Step 1 supports the strict **0.1.0-draft.1** document envelope and optional source provenance; actions must be empty. The accepted stack is TypeScript, Node.js, Ajv, custom semantic passes, Vitest, and Docusaurus. See the [stack decision](doc/decisions/001-implementation-stack.md).
+**Current state:** Step 2 supports **0.1.0-draft.2** minimal actions and connections, plus the unchanged **0.1.0-draft.1** empty envelope. Both support optional source provenance. The accepted stack is TypeScript, Node.js, Ajv, custom semantic passes, Vitest, and Docusaurus. See the [stack decision](doc/decisions/001-implementation-stack.md).
 
 ## Development
 
@@ -51,4 +51,4 @@ Both lockfiles belong in version control. CI performs frozen installs and runs c
 | `tests/conformance/` | Implementation-independent documents and expected results               |
 | `examples/`          | Complete examples validated by the toolchain                            |
 
-The schema, conformance corpus and minimal/OutSystems/C#/JavaScript examples are implemented. See verification documentation for current tooling availability.
+Both schemas, the conformance corpus, envelope examples and minimal/multiple-action examples are implemented. See the [minimal-action tutorial](doc/tutorials/minimal-action.md). See verification documentation for current tooling availability.

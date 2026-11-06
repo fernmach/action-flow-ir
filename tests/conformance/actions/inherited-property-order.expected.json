@@ -1,0 +1,9 @@
+{
+  "id": "actions-inherited-property-order",
+  "rules": [
+    "ENV-008"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

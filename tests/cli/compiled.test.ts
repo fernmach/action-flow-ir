@@ -1,5 +1,5 @@
 import { spawnSync } from "node:child_process";
-import { mkdtemp, writeFile, rm, cp, mkdir } from "node:fs/promises";
+import { mkdtemp, writeFile, rm, cp, readFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -57,6 +57,42 @@ test("compiled CLI runs in Node with real filesystem inputs", async () => {
     expect(invalid.status).toBe(1);
     expect(invalid.stdout).toBe("");
     expect(invalid.stderr).toContain("AFIR-VERSION-001");
+
+    const actionExample = await readFile(
+      new URL("../../examples/minimal-action.json", import.meta.url),
+      "utf8",
+    );
+
+    await writeFile(file, actionExample);
+
+    for (const format of ["text", "json"]) {
+      const success = call(["validate", file, "--format", format]);
+
+      expect(success.status).toBe(0);
+      expect(success.stderr).toBe("");
+      expect(success.stdout).toContain(
+        format === "text" ? "Document is valid." : '"status":"valid"',
+      );
+    }
+
+    await writeFile(
+      file,
+      actionExample.replace(
+        '"entryNodeId": "start"',
+        '"entryNodeId": "missing"',
+      ),
+    );
+
+    for (const format of ["text", "json"]) {
+      const failure = call(["validate", file, "--format", format]);
+
+      expect(failure.status).toBe(1);
+      expect(format === "text" ? failure.stdout : failure.stderr).toBe("");
+      expect(format === "text" ? failure.stderr : failure.stdout).toContain(
+        "AFIR-REF-001",
+      );
+    }
+
     expect(call(["validate", join(directory, "missing")]).status).toBe(2);
     expect(call(["validate", directory]).status).toBe(2);
   } finally {
@@ -64,42 +100,47 @@ test("compiled CLI runs in Node with real filesystem inputs", async () => {
   }
 });
 
-test("schema initialization failures are structured tool failures", async () => {
-  // Keep the isolated installation beneath the repository for dependency resolution.
-  const root = fileURLToPath(new URL("../../", import.meta.url));
-  const directory = await mkdtemp(join(root, ".afir-startup-"));
+test.each(["0.1.0-draft.1", "0.1.0-draft.2"])(
+  "schema initialization failures are structured tool failures: %s",
+  async (version) => {
+    // Keep the isolated installation beneath the repository for dependency resolution.
+    const root = fileURLToPath(new URL("../../", import.meta.url));
+    const directory = await mkdtemp(join(root, ".afir-startup-"));
 
-  try {
-    await cp(join(root, "dist"), join(directory, "dist"), { recursive: true });
-    await cp(join(root, "package.json"), join(directory, "package.json"));
-    await mkdir(join(directory, "schema", "0.1.0-draft.1"), {
-      recursive: true,
-    });
-    await writeFile(
-      join(directory, "schema", "0.1.0-draft.1", "action-flow.schema.json"),
-      "{",
-    );
+    try {
+      await cp(join(root, "dist"), join(directory, "dist"), {
+        recursive: true,
+      });
+      await cp(join(root, "package.json"), join(directory, "package.json"));
+      await cp(join(root, "schema"), join(directory, "schema"), {
+        recursive: true,
+      });
+      await writeFile(
+        join(directory, "schema", version, "action-flow.schema.json"),
+        "{",
+      );
 
-    const result = spawnSync(
-      process.execPath,
-      [
-        join(directory, "dist", "cli", "main.js"),
-        "validate",
-        "unused",
-        "--format",
-        "json",
-      ],
-      { encoding: "utf8", cwd: tmpdir() },
-    );
+      const result = spawnSync(
+        process.execPath,
+        [
+          join(directory, "dist", "cli", "main.js"),
+          "validate",
+          "unused",
+          "--format",
+          "json",
+        ],
+        { encoding: "utf8", cwd: tmpdir() },
+      );
 
-    expect(result.status).toBe(2);
-    expect(result.stderr).toBe("");
-    expect(JSON.parse(result.stdout)).toMatchObject({
-      status: "tool-error",
-      diagnostics: [{ code: "AFIR-TOOL-004" }],
-    });
-    expect(result.stdout).not.toContain(directory);
-  } finally {
-    await rm(directory, { recursive: true, force: true });
-  }
-});
+      expect(result.status).toBe(2);
+      expect(result.stderr).toBe("");
+      expect(JSON.parse(result.stdout)).toMatchObject({
+        status: "tool-error",
+        diagnostics: [{ code: "AFIR-TOOL-004" }],
+      });
+      expect(result.stdout).not.toContain(directory);
+    } finally {
+      await rm(directory, { recursive: true, force: true });
+    }
+  },
+);

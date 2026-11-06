@@ -1,0 +1,16 @@
+{
+  "id": "actions-inherited-reference-is-unknown",
+  "rules": [
+    "ENV-006",
+    "ENV-009"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/$ref"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

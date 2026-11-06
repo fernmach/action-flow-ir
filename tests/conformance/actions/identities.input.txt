@@ -1,0 +1,46 @@
+{
+  "irVersion": "0.1.0-draft.2",
+  "id": "__proto__",
+  "actions": [
+    {
+      "id": "__proto__",
+      "entryNodeId": "__proto__",
+      "nodes": [
+        {
+          "id": "__proto__",
+          "kind": "start"
+        },
+        {
+          "id": "constructor",
+          "kind": "end"
+        }
+      ],
+      "connections": [
+        {
+          "fromNodeId": "__proto__",
+          "toNodeId": "constructor"
+        }
+      ]
+    },
+    {
+      "id": "__PROTO__",
+      "entryNodeId": "__proto__",
+      "nodes": [
+        {
+          "id": "__proto__",
+          "kind": "start"
+        },
+        {
+          "id": "constructor",
+          "kind": "end"
+        }
+      ],
+      "connections": [
+        {
+          "fromNodeId": "__proto__",
+          "toNodeId": "constructor"
+        }
+      ]
+    }
+  ]
+}

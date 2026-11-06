@@ -1,0 +1,32 @@
+{
+  "id": "actions-duplicate-action-local",
+  "rules": [
+    "ACT-003",
+    "ACT-007",
+    "ACT-008"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-ACTION-001",
+      "severity": "error",
+      "path": "/actions/1/id"
+    },
+    {
+      "code": "AFIR-FLOW-006",
+      "severity": "error",
+      "path": "/actions/1/nodes/0"
+    },
+    {
+      "code": "AFIR-FLOW-006",
+      "severity": "error",
+      "path": "/actions/1/nodes/1"
+    },
+    {
+      "code": "AFIR-FLOW-007",
+      "severity": "error",
+      "path": "/actions/1/nodes/1"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

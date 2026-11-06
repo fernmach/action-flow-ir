@@ -1,0 +1,12 @@
+{
+  "irVersion": "0.1.0-draft.2",
+  "id": "internal space",
+  "actions": [],
+  "metadata": {
+    "description": "\nmultiple\nlines\n"
+  },
+  "source": {
+    "technology": "custom-language9",
+    "version": "v 1"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "actions-markers-empty",
+  "rules": [
+    "ACT-004",
+    "ACT-005"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-FLOW-001",
+      "severity": "error",
+      "path": "/actions/0/nodes"
+    },
+    {
+      "code": "AFIR-FLOW-002",
+      "severity": "error",
+      "path": "/actions/0/nodes"
+    },
+    {
+      "code": "AFIR-REF-001",
+      "severity": "error",
+      "path": "/actions/0/entryNodeId"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

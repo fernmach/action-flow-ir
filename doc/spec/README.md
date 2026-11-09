@@ -1,6 +1,6 @@
 # Action-Flow IR specification
 
-Supported: **0.1.0-draft.1** (empty envelope), **0.1.0-draft.2** ([minimal actions and connections](actions.md)), **0.1.0-draft.3** ([variables and primitive types](variables-and-types.md)) and **0.1.0-draft.4** ([expressions](expressions.md) and [assignment](assignment.md)). All use the [document envelope and source provenance](document-envelope.md). Execution remains unimplemented.
+Supported: **0.1.0-draft.1** (empty envelope), **0.1.0-draft.2** ([minimal actions and connections](actions.md)), **0.1.0-draft.3** ([variables and primitive types](variables-and-types.md)), **0.1.0-draft.4** ([expressions](expressions.md) and [assignment](assignment.md)) and **0.1.0-draft.5** ([branches and joins](branches.md)). All use the [document envelope and source provenance](document-envelope.md). Execution remains unimplemented.
 
 ## Authority
 
@@ -25,4 +25,4 @@ Each chapter describes purpose, representation, static constraints, execution se
 9. Flow-analysis obligations and limits.
 10. Feature/target compatibility.
 
-Chapters become normative only as their iterations define and implement supported behavior. The envelope, minimal-actions, variables/types, expressions and assignment chapters are implemented; the remaining chapters are planned. Development proposals do not extend the supported envelope.
+Chapters become normative only as their iterations define and implement supported behavior. The envelope, minimal-actions, variables/types, expressions, assignment and branch chapters are implemented; the remaining chapters are planned. Development proposals do not extend the supported envelope.

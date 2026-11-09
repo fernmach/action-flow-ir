@@ -1,0 +1,15 @@
+{
+  "id": "branches-inherited-inherited-inherited-markers-no-end",
+  "rules": [
+    "ACT-004"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-FLOW-002",
+      "severity": "error",
+      "path": "/actions/0/nodes"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

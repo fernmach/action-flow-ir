@@ -16,9 +16,13 @@ Updated: 2026-11-09
 - [Step 3](iterations/003-variables-and-types.md): draft.3 typed inputs, outputs and locals; four non-nullable primitive domains, action-wide variable identities/names, and output-initialization checks. Earlier drafts remain unchanged.
 - [Steps 4 and 5](iterations/004-expressions.md): joint draft.4 expressions and [assignment](iterations/005-assignment.md), exact typing, graph-order initialization, output completion and pre-schema resource protection; all prior drafts preserved.
 
+- [Step 6](iterations/006-branches.md): draft.5 Boolean branches, labeled outcomes, direct DAG joins, definite initialization by predecessor intersection, path-local recovery and bounded iterative analysis; all prior drafts preserved.
+
 ## Current iteration
 
-Steps 4 and 5 complete locally as **0.1.0-draft.4**: strict typed expression trees, one assignment per node, exact matching types, pure evaluation semantics and finite linear graphs with read/output initialization checks. Supported formats draft.1 (empty envelope), draft.2 (minimal actions) and draft.3 (typed declarations) remain unchanged. All support optional provenance. Draft.4 limits resource excess to tool-error status; validation never executes actions. Branches, loops, calls, adapters and execution remain future work. No release was published.
+Step 6 is complete locally as **0.1.0-draft.5** under the approved [implementation plan](iterations/006-implementation-plan.md) and [ADR-006](../decisions/006-branches-and-definite-initialization.md). All five exact formats remain supported: empty envelope, minimal actions, typed declarations, linear computation and acyclic branches/joins. Drafts 1–4 retain their semantics and schemas. Validation checks all incoming paths without executing conditions and distinguishes validator resource limits from invalid input. No release was published.
+
+The first usable **static-validation milestone** is complete: typed CalculateDiscount with assignments/conditional flow, CLI text/JSON diagnostics and full specification/schema/conformance/docs coverage. The [native Server Action fidelity review](reviews/006-outsystems-server-action-fidelity.md) now includes three observed valid manual draft.5 branch mappings and the expected one-arm output-initialization failure. The simplified linear mapping remains valid in draft.4. All fifteen original evidence digests match; raw JSON/native identities stay ignored. This does not prove runtime equivalence or resolve native implicit defaults.
 
 ## Agreed direction
 
@@ -31,16 +35,15 @@ Steps 4 and 5 complete locally as **0.1.0-draft.4**: strict typed expression tre
 
 ## Pending decisions
 
-| Topic                                                      | Needed by                           |
-| ---------------------------------------------------------- | ----------------------------------- |
-| Branch labels, merge semantics and definite initialization | Step 6                              |
-| Cycles, loops, calls and failure behavior                  | Steps 7–8                           |
-| Hosting URL, remote repository, hosted CI execution        | When connecting a remote/publishing |
+| Topic                                               | Needed by                           |
+| --------------------------------------------------- | ----------------------------------- |
+| Cycles, loops, calls and failure behavior           | Steps 7–8                           |
+| Hosting URL, remote repository, hosted CI execution | When connecting a remote/publishing |
 
 ## Next action
 
-Open Step 6 branches: Boolean conditions, labeled connections, branch coverage/uniqueness, merges and definite initialization. Preserve all four existing draft contracts; public extensions require a new draft. Validate against an authorized real OutSystems action before broad expansion, recording fidelity gaps without importing private content into public examples.
+Design Step 7 loops: select the iteration/collection representation, variable scope and order, exits/termination, and initialization/recovery analysis. Use explicit new versioning; preserve all five existing contracts. Native default lowering, adapters, numeric/runtime equivalence and live execution require separate scope.
 
 ## Verification
 
-Final `bun run check` passed locally on Windows: formatting, zero lint warnings/errors, root/website types, Node build, 1,090 tests across 13 files (including 1,030 conformance cases), all four schemas, eight examples and production documentation/link build. Earlier schemas and both lockfiles remain unchanged. See the Step 4/5 records for exact commands, initial corrected failures and the runtime PATH setup. Hosted CI/Linux execution remains unobserved.
+Step 6 verification covers formatting, zero lint warnings/errors, root/website types, Node build, **1,637 tests across 14 files** (including **1,561 conformance cases**), all five schemas, eleven examples and production documentation/link build. The initial aggregate attempt reached the final docs stage and hit Windows sandbox EPERM creating generated output; the documentation build passed when rerun outside the sandbox. The final aggregate rerun and exact outcomes are recorded in [ITER-006](iterations/006-branches.md). Earlier schemas and both lockfiles remain unchanged. Hosted CI/Linux execution and runtime target behavior remain unobserved.

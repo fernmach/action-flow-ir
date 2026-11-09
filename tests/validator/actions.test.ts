@@ -59,6 +59,7 @@ test("all bundled schemas validate against Draft 2020-12 and preserve inputs", (
     "0.1.0-draft.2",
     "0.1.0-draft.3",
     "0.1.0-draft.4",
+    "0.1.0-draft.5",
   ]);
 
   for (const [version, validate] of schemas) {

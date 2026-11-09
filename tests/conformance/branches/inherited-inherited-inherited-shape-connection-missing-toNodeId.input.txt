@@ -1,0 +1,28 @@
+{
+  "irVersion": "0.1.0-draft.5",
+  "id": "module",
+  "actions": [
+    {
+      "id": "do-nothing",
+      "entryNodeId": "start",
+      "nodes": [
+        {
+          "id": "start",
+          "kind": "start"
+        },
+        {
+          "id": "end",
+          "kind": "end"
+        }
+      ],
+      "connections": [
+        {
+          "fromNodeId": "start"
+        }
+      ],
+      "inputs": [],
+      "outputs": [],
+      "locals": []
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "branches-scope-duplicate-name",
+  "rules": [
+    "BRN-007"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-VAR-002",
+      "severity": "error",
+      "path": "/actions/0/locals/0/name"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

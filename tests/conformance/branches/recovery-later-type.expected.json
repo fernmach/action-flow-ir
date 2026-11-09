@@ -1,0 +1,20 @@
+{
+  "id": "branches-recovery-later-type",
+  "rules": [
+    "BRN-006"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-REF-001",
+      "severity": "error",
+      "path": "/actions/0/nodes/2/value/variableId"
+    },
+    {
+      "code": "AFIR-TYPE-003",
+      "severity": "error",
+      "path": "/actions/0/nodes/5/value"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

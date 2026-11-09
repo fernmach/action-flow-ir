@@ -1,0 +1,20 @@
+{
+  "id": "branches-combined-graph-condition",
+  "rules": [
+    "BRN-007"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-FLOW-008",
+      "severity": "error",
+      "path": "/actions/0/nodes"
+    },
+    {
+      "code": "AFIR-BRANCH-001",
+      "severity": "error",
+      "path": "/actions/0/nodes/1/condition"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

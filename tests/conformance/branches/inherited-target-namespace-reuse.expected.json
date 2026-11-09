@@ -1,0 +1,9 @@
+{
+  "id": "branches-inherited-target-namespace-reuse",
+  "rules": [
+    "ASN-002"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

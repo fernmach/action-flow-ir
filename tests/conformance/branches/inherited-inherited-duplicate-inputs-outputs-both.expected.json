@@ -1,0 +1,21 @@
+{
+  "id": "branches-inherited-inherited-duplicate-inputs-outputs-both",
+  "rules": [
+    "VAR-003",
+    "VAR-007"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-VAR-001",
+      "severity": "error",
+      "path": "/actions/0/outputs/0/id"
+    },
+    {
+      "code": "AFIR-VAR-002",
+      "severity": "error",
+      "path": "/actions/0/outputs/0/name"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

@@ -1,0 +1,9 @@
+{
+  "id": "branches-inherited-inherited-inherited-inherited-property-order",
+  "rules": [
+    "ENV-008"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

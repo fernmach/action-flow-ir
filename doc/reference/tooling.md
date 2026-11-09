@@ -1,6 +1,6 @@
 # Tooling contract
 
-Tool version: 0.0.0 (development). Supported IR versions: **0.1.0-draft.1** (empty envelope), **0.1.0-draft.2** (minimal actions), **0.1.0-draft.3** (typed declarations) and **0.1.0-draft.4** (expressions and assignment).
+Tool version: 0.0.0 (development). Supported IR versions: **0.1.0-draft.1** (empty envelope), **0.1.0-draft.2** (minimal actions), **0.1.0-draft.3** (typed declarations), **0.1.0-draft.4** (expressions and assignment) and **0.1.0-draft.5** (branches and joins).
 
 ## Commands
 
@@ -43,5 +43,7 @@ See the [semantic diagnostic table](../spec/actions.md#validation-and-diagnostic
 See the [variable diagnostic reference](variables-and-types.md#diagnostics) for AFIR-VAR-001/002 and AFIR-INIT-001 (all exit 1).
 
 See the [computation diagnostic reference](computation.md#diagnostics) for AFIR-LITERAL-001, AFIR-TYPE-001/002/003, AFIR-ASSIGN-001 and AFIR-INIT-002 (exit 1). Draft.4 pre-schema resource limits report AFIR-LIMIT-001 at root with tool-error status and exit 2; see [resource limits](computation.md#resource-limits).
+
+See the [branch diagnostic reference](branches.md#diagnostics) for AFIR-BRANCH-001 through 005 and AFIR-FLOW-008 (exit 1). Draft.5 adds AFIR-LIMIT-002 for post-schema data-flow estimate excess (tool-error, root pointer, exit 2); its pre-schema container policy retains AFIR-LIMIT-001.
 
 Missing CLI package metadata also reports TOOL-004. No IR execution, external schema retrieval, target generation, or publication occurs.

@@ -1,0 +1,15 @@
+{
+  "id": "branches-graph-cycle-descendant",
+  "rules": [
+    "BRN-004"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-FLOW-008",
+      "severity": "error",
+      "path": "/actions/0/nodes"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

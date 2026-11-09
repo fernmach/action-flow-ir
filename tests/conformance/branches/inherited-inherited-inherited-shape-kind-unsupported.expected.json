@@ -1,0 +1,20 @@
+{
+  "id": "branches-inherited-inherited-inherited-shape-kind-unsupported",
+  "rules": [
+    "ASN-001"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/actions/0/nodes/0/targetVariableId"
+    },
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/actions/0/nodes/0/value"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

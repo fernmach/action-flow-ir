@@ -67,4 +67,4 @@ Cases are paired files under `tests/conformance/actions/`; prefixes denote all m
 | ACT-008 | Iterative graph traversal; AFIR-FLOW-007                        | minimal, missing-edge, reversed-edge                                             |
 | ACT-009 | Explicit entry and references                                   | reordered, multiple; semantic nonmutation/order regressions                      |
 
-The implementation checks supported rules now. Variables are supported by draft.3; expressions and assignment are supported by draft.4. Branching, loops and calls await future drafts.
+The implementation checks supported rules now. Variables are supported by draft.3; expressions and assignment are supported by draft.4. Branching and joins are supported by [draft.5](branches.md); loops and calls await future drafts.

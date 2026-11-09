@@ -1,0 +1,123 @@
+{
+  "irVersion": "0.1.0-draft.5",
+  "id": "branches",
+  "actions": [
+    {
+      "id": "choose",
+      "entryNodeId": "start",
+      "inputs": [
+        {
+          "id": "Flag",
+          "name": "Flag",
+          "type": "Boolean"
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Result",
+          "name": "Result",
+          "type": "Integer"
+        }
+      ],
+      "locals": [],
+      "nodes": [
+        {
+          "id": "start",
+          "kind": "start"
+        },
+        {
+          "id": "a",
+          "kind": "branch",
+          "condition": {
+            "kind": "variable",
+            "variableId": "Flag"
+          }
+        },
+        {
+          "id": "b",
+          "kind": "branch",
+          "condition": {
+            "kind": "variable",
+            "variableId": "Flag"
+          }
+        },
+        {
+          "id": "c",
+          "kind": "branch",
+          "condition": {
+            "kind": "variable",
+            "variableId": "Flag"
+          }
+        },
+        {
+          "id": "d",
+          "kind": "assign",
+          "targetVariableId": "Result",
+          "value": {
+            "kind": "literal",
+            "type": "Integer",
+            "value": "1"
+          }
+        },
+        {
+          "id": "e",
+          "kind": "assign",
+          "targetVariableId": "Result",
+          "value": {
+            "kind": "literal",
+            "type": "Integer",
+            "value": "1"
+          }
+        },
+        {
+          "id": "end",
+          "kind": "end"
+        }
+      ],
+      "connections": [
+        {
+          "fromNodeId": "start",
+          "toNodeId": "a"
+        },
+        {
+          "fromNodeId": "a",
+          "toNodeId": "b",
+          "label": "true"
+        },
+        {
+          "fromNodeId": "a",
+          "toNodeId": "c",
+          "label": "false"
+        },
+        {
+          "fromNodeId": "b",
+          "toNodeId": "d",
+          "label": "true"
+        },
+        {
+          "fromNodeId": "b",
+          "toNodeId": "e",
+          "label": "false"
+        },
+        {
+          "fromNodeId": "c",
+          "toNodeId": "e",
+          "label": "true"
+        },
+        {
+          "fromNodeId": "c",
+          "toNodeId": "d",
+          "label": "false"
+        },
+        {
+          "fromNodeId": "d",
+          "toNodeId": "end"
+        },
+        {
+          "fromNodeId": "e",
+          "toNodeId": "end"
+        }
+      ]
+    }
+  ]
+}

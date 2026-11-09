@@ -1,0 +1,15 @@
+{
+  "id": "branches-independent-actions",
+  "rules": [
+    "BRN-006"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-BRANCH-001",
+      "severity": "error",
+      "path": "/actions/1/nodes/1/condition"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

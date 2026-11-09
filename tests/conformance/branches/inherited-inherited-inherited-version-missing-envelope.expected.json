@@ -1,0 +1,20 @@
+{
+  "id": "branches-inherited-inherited-inherited-version-missing-envelope",
+  "rules": [
+    "ENV-002"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/id"
+    },
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/actions"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

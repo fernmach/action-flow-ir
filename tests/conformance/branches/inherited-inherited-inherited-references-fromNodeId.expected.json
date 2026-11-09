@@ -1,0 +1,15 @@
+{
+  "id": "branches-inherited-inherited-inherited-references-fromNodeId",
+  "rules": [
+    "ACT-005"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-REF-001",
+      "severity": "error",
+      "path": "/actions/0/connections/0/fromNodeId"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

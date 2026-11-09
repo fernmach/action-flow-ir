@@ -1,0 +1,20 @@
+{
+  "id": "branches-edge-duplicate-triple",
+  "rules": [
+    "BRN-003"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-FLOW-004",
+      "severity": "error",
+      "path": "/actions/0/connections/5"
+    },
+    {
+      "code": "AFIR-BRANCH-003",
+      "severity": "error",
+      "path": "/actions/0/connections/5/label"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

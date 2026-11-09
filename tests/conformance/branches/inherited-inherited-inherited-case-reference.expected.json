@@ -1,0 +1,16 @@
+{
+  "id": "branches-inherited-inherited-inherited-case-reference",
+  "rules": [
+    "ACT-002",
+    "ACT-005"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-REF-001",
+      "severity": "error",
+      "path": "/actions/0/entryNodeId"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

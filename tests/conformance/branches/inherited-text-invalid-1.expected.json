@@ -1,0 +1,15 @@
+{
+  "id": "branches-inherited-text-invalid-1",
+  "rules": [
+    "EXP-002"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-LITERAL-001",
+      "severity": "error",
+      "path": "/actions/0/nodes/1/value/value"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

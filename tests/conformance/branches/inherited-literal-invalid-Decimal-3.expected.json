@@ -1,0 +1,15 @@
+{
+  "id": "branches-inherited-literal-invalid-Decimal-3",
+  "rules": [
+    "EXP-002"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/actions/0/nodes/1/value/value"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

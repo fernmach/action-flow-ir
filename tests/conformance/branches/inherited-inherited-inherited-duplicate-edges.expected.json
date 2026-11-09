@@ -1,0 +1,15 @@
+{
+  "id": "branches-inherited-inherited-inherited-duplicate-edges",
+  "rules": [
+    "ACT-006"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-FLOW-004",
+      "severity": "error",
+      "path": "/actions/0/connections/1"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

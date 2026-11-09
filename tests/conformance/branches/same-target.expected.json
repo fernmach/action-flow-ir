@@ -1,0 +1,10 @@
+{
+  "id": "branches-same-target",
+  "rules": [
+    "BRN-003",
+    "BRN-005"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

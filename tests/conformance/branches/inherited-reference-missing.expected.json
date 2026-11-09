@@ -1,0 +1,15 @@
+{
+  "id": "branches-inherited-reference-missing",
+  "rules": [
+    "EXP-003"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-REF-001",
+      "severity": "error",
+      "path": "/actions/0/nodes/1/value/variableId"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

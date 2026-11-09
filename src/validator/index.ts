@@ -6,7 +6,12 @@ import { validateActions } from "./actions.js";
 import type { ActionDocument } from "./actions.js";
 import type { TypedActionDocument } from "./variables.js";
 import type { ComputationDocument } from "./computation.js";
-import { exceedsContainerLimits } from "./limits.js";
+import {
+  exceedsContainerLimits,
+  dataFlowWordUnits,
+  DATA_FLOW_WORD_LIMIT,
+} from "./limits.js";
+import type { BranchDocument } from "./branches.js";
 
 const versionPattern =
   /^(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)(?:-draft\.[1-9][0-9]*)?$(?![\s\S])/;
@@ -101,7 +106,11 @@ export function validateDocument(text: string): ValidationResult {
     );
   }
 
-  if (value.irVersion === "0.1.0-draft.4" && exceedsContainerLimits(value)) {
+  if (
+    (value.irVersion === "0.1.0-draft.4" ||
+      value.irVersion === "0.1.0-draft.5") &&
+    exceedsContainerLimits(value)
+  ) {
     return failure(
       "tool-error",
       "AFIR-LIMIT-001",
@@ -113,12 +122,29 @@ export function validateDocument(text: string): ValidationResult {
   const version = value.irVersion;
 
   if (validateEnvelope(value)) {
+    if (
+      version === "0.1.0-draft.5" &&
+      dataFlowWordUnits(value as BranchDocument) > DATA_FLOW_WORD_LIMIT
+    ) {
+      return failure(
+        "tool-error",
+        "AFIR-LIMIT-002",
+        "",
+        "Document exceeds validator data-flow limits.",
+      );
+    }
+
     const diagnostics =
       value.irVersion === "0.1.0-draft.2" ||
       value.irVersion === "0.1.0-draft.3" ||
-      value.irVersion === "0.1.0-draft.4"
+      value.irVersion === "0.1.0-draft.4" ||
+      value.irVersion === "0.1.0-draft.5"
         ? validateActions(
-            value as ActionDocument | TypedActionDocument | ComputationDocument,
+            value as
+              | ActionDocument
+              | TypedActionDocument
+              | ComputationDocument
+              | BranchDocument,
           )
         : [];
 
@@ -129,7 +155,11 @@ export function validateDocument(text: string): ValidationResult {
   }
 
   const errors = (validateEnvelope.errors ?? [])
-    .filter((error) => version !== "0.1.0-draft.4" || error.keyword !== "if")
+    .filter(
+      (error) =>
+        (version !== "0.1.0-draft.4" && version !== "0.1.0-draft.5") ||
+        error.keyword !== "if",
+    )
     .map(normalize);
 
   errors.sort((a, b) => {

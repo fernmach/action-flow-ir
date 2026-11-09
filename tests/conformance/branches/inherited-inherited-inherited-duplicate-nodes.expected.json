@@ -1,0 +1,16 @@
+{
+  "id": "branches-inherited-inherited-inherited-duplicate-nodes",
+  "rules": [
+    "ACT-003",
+    "ACT-005"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-NODE-001",
+      "severity": "error",
+      "path": "/actions/0/nodes/1/id"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

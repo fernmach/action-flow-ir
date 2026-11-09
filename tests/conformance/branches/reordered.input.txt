@@ -1,0 +1,87 @@
+{
+  "irVersion": "0.1.0-draft.5",
+  "id": "branches",
+  "actions": [
+    {
+      "id": "choose",
+      "entryNodeId": "start",
+      "inputs": [
+        {
+          "id": "Flag",
+          "name": "Flag",
+          "type": "Boolean"
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Result",
+          "name": "Result",
+          "type": "Integer"
+        }
+      ],
+      "locals": [],
+      "nodes": [
+        {
+          "id": "end",
+          "kind": "end"
+        },
+        {
+          "id": "right",
+          "kind": "assign",
+          "targetVariableId": "Result",
+          "value": {
+            "kind": "literal",
+            "type": "Integer",
+            "value": "2"
+          }
+        },
+        {
+          "id": "left",
+          "kind": "assign",
+          "targetVariableId": "Result",
+          "value": {
+            "kind": "literal",
+            "type": "Integer",
+            "value": "1"
+          }
+        },
+        {
+          "id": "check",
+          "kind": "branch",
+          "condition": {
+            "kind": "variable",
+            "variableId": "Flag"
+          }
+        },
+        {
+          "id": "start",
+          "kind": "start"
+        }
+      ],
+      "connections": [
+        {
+          "fromNodeId": "right",
+          "toNodeId": "end"
+        },
+        {
+          "fromNodeId": "left",
+          "toNodeId": "end"
+        },
+        {
+          "fromNodeId": "check",
+          "toNodeId": "right",
+          "label": "false"
+        },
+        {
+          "fromNodeId": "check",
+          "toNodeId": "left",
+          "label": "true"
+        },
+        {
+          "fromNodeId": "start",
+          "toNodeId": "check"
+        }
+      ]
+    }
+  ]
+}

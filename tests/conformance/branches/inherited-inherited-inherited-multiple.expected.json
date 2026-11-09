@@ -1,0 +1,10 @@
+{
+  "id": "branches-inherited-inherited-inherited-multiple",
+  "rules": [
+    "ACT-003",
+    "ACT-009"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

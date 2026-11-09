@@ -1,0 +1,9 @@
+{
+  "id": "branches-join-assignment",
+  "rules": [
+    "BRN-005"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

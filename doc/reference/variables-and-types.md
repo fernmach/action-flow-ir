@@ -1,6 +1,6 @@
 # Variable and type field reference
 
-Available in **0.1.0-draft.3** and **0.1.0-draft.4**. See the [normative variable/type rules](../spec/variables-and-types.md) and [authoring guide](../guide/variables-and-types.md).
+Available in **0.1.0-draft.3**, **0.1.0-draft.4** and **0.1.0-draft.5**. See the [normative variable/type rules](../spec/variables-and-types.md) and [authoring guide](../guide/variables-and-types.md).
 
 | Field            | Required | Value                                                                                               |
 | ---------------- | -------- | --------------------------------------------------------------------------------------------------- |
@@ -13,7 +13,7 @@ Available in **0.1.0-draft.3** and **0.1.0-draft.4**. See the [normative variabl
 
 All objects are closed; nulls, defaults, values, initializer expressions and nullable flags are invalid. IDs and names are separately unique across all three arrays within an action. Identity is exact and case-sensitive. Variable IDs may equal node/action/document IDs and may repeat across different actions. No names are reserved.
 
-Inputs are initialized and read-only. Outputs and locals start uninitialized; no defaults exist. In draft.3 only start/end nodes are supported, so every otherwise valid action with outputs is invalid. Draft.4 [assignment nodes](computation.md) can initialize outputs and locals. These are static validation rules, not an invocation or execution API.
+Inputs are initialized and read-only. Outputs and locals start uninitialized; no defaults exist. In draft.3 only start/end nodes are supported, so every otherwise valid action with outputs is invalid. Draft.4/5 [assignment nodes](computation.md) can initialize outputs and locals. These are static validation rules, not an invocation or execution API.
 
 ## Diagnostics
 

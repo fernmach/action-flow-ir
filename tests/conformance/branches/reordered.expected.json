@@ -1,0 +1,9 @@
+{
+  "id": "branches-reordered",
+  "rules": [
+    "BRN-007"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

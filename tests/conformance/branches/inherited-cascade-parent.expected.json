@@ -1,0 +1,15 @@
+{
+  "id": "branches-inherited-cascade-parent",
+  "rules": [
+    "EXP-007"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-TYPE-001",
+      "severity": "error",
+      "path": "/actions/0/nodes/1/value/left/operand"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

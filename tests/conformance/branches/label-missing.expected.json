@@ -1,0 +1,20 @@
+{
+  "id": "branches-label-missing",
+  "rules": [
+    "BRN-003"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-BRANCH-004",
+      "severity": "error",
+      "path": "/actions/0/connections/1/label"
+    },
+    {
+      "code": "AFIR-BRANCH-002",
+      "severity": "error",
+      "path": "/actions/0/nodes/1"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

@@ -1,0 +1,117 @@
+{
+  "irVersion": "0.1.0-draft.5",
+  "id": "branches",
+  "actions": [
+    {
+      "id": "CalculateDiscount",
+      "entryNodeId": "start",
+      "inputs": [
+        {
+          "id": "Total",
+          "name": "Total",
+          "type": "Decimal"
+        },
+        {
+          "id": "IsPremium",
+          "name": "IsPremium",
+          "type": "Boolean"
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Discount",
+          "name": "Discount",
+          "type": "Decimal"
+        }
+      ],
+      "locals": [],
+      "nodes": [
+        {
+          "id": "start",
+          "kind": "start"
+        },
+        {
+          "id": "initialize",
+          "kind": "assign",
+          "targetVariableId": "Discount",
+          "value": {
+            "kind": "literal",
+            "type": "Decimal",
+            "value": "0"
+          }
+        },
+        {
+          "id": "eligible",
+          "kind": "branch",
+          "condition": {
+            "kind": "binary",
+            "operator": "and",
+            "left": {
+              "kind": "variable",
+              "variableId": "IsPremium"
+            },
+            "right": {
+              "kind": "binary",
+              "operator": "greaterThanOrEqual",
+              "left": {
+                "kind": "variable",
+                "variableId": "Total"
+              },
+              "right": {
+                "kind": "literal",
+                "type": "Decimal",
+                "value": "100"
+              }
+            }
+          }
+        },
+        {
+          "id": "apply",
+          "kind": "assign",
+          "targetVariableId": "Discount",
+          "value": {
+            "kind": "binary",
+            "operator": "multiply",
+            "left": {
+              "kind": "variable",
+              "variableId": "Total"
+            },
+            "right": {
+              "kind": "literal",
+              "type": "Decimal",
+              "value": "0.10"
+            }
+          }
+        },
+        {
+          "id": "end",
+          "kind": "end"
+        }
+      ],
+      "connections": [
+        {
+          "fromNodeId": "start",
+          "toNodeId": "initialize"
+        },
+        {
+          "fromNodeId": "initialize",
+          "toNodeId": "eligible"
+        },
+        {
+          "fromNodeId": "eligible",
+          "toNodeId": "apply",
+          "label": "true"
+        },
+        {
+          "fromNodeId": "eligible",
+          "toNodeId": "end",
+          "label": "false"
+        },
+        {
+          "fromNodeId": "apply",
+          "toNodeId": "end"
+        }
+      ]
+    }
+  ]
+}

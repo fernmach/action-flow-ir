@@ -1,0 +1,51 @@
+{
+  "id": "branches-inherited-inherited-inherited-combined-reference",
+  "rules": [
+    "ACT-005",
+    "ACT-006"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-REF-001",
+      "severity": "error",
+      "path": "/actions/0/entryNodeId"
+    },
+    {
+      "code": "AFIR-REF-001",
+      "severity": "error",
+      "path": "/actions/0/connections/0/fromNodeId"
+    },
+    {
+      "code": "AFIR-REF-001",
+      "severity": "error",
+      "path": "/actions/0/connections/0/toNodeId"
+    },
+    {
+      "code": "AFIR-FLOW-005",
+      "severity": "error",
+      "path": "/actions/0/connections/0"
+    },
+    {
+      "code": "AFIR-REF-001",
+      "severity": "error",
+      "path": "/actions/0/connections/1/fromNodeId"
+    },
+    {
+      "code": "AFIR-REF-001",
+      "severity": "error",
+      "path": "/actions/0/connections/1/toNodeId"
+    },
+    {
+      "code": "AFIR-FLOW-004",
+      "severity": "error",
+      "path": "/actions/0/connections/1"
+    },
+    {
+      "code": "AFIR-FLOW-005",
+      "severity": "error",
+      "path": "/actions/0/connections/1"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

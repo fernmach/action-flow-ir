@@ -1,0 +1,49 @@
+{
+  "irVersion": "0.1.0-draft.5",
+  "id": "module",
+  "actions": [
+    {
+      "id": "calculate",
+      "entryNodeId": "start",
+      "inputs": [],
+      "outputs": [
+        {
+          "id": "result",
+          "name": "result",
+          "type": "Decimal"
+        }
+      ],
+      "locals": [],
+      "nodes": [
+        {
+          "id": "end",
+          "kind": "end"
+        },
+        {
+          "id": "write",
+          "kind": "assign",
+          "targetVariableId": "result",
+          "value": {
+            "kind": "literal",
+            "type": "Decimal",
+            "value": "0.10"
+          }
+        },
+        {
+          "id": "start",
+          "kind": "start"
+        }
+      ],
+      "connections": [
+        {
+          "fromNodeId": "write",
+          "toNodeId": "end"
+        },
+        {
+          "fromNodeId": "start",
+          "toNodeId": "write"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "branches-inherited-short-circuit-read",
+  "rules": [
+    "EXP-006"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-INIT-002",
+      "severity": "error",
+      "path": "/actions/0/nodes/1/value/right/variableId"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

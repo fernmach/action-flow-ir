@@ -18,6 +18,9 @@ test("supported examples exist", () => {
       "multiple-actions.json",
       "typed-action.json",
       "calculate-discount.json",
+      "conditional-discount.json",
+      "branch-rate.json",
+      "nested-branches.json",
     ]),
   );
 });

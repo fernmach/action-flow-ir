@@ -1,0 +1,25 @@
+{
+  "id": "branches-inherited-graph-disconnected-cycle",
+  "rules": [
+    "ASN-005"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-FLOW-007",
+      "severity": "error",
+      "path": "/actions/0/nodes/3"
+    },
+    {
+      "code": "AFIR-FLOW-007",
+      "severity": "error",
+      "path": "/actions/0/nodes/4"
+    },
+    {
+      "code": "AFIR-FLOW-008",
+      "severity": "error",
+      "path": "/actions/0/nodes"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

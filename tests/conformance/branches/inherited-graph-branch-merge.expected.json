@@ -1,0 +1,15 @@
+{
+  "id": "branches-inherited-graph-branch-merge",
+  "rules": [
+    "ASN-005"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-FLOW-006",
+      "severity": "error",
+      "path": "/actions/0/nodes/0"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

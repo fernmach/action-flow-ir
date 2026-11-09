@@ -1,0 +1,119 @@
+{
+  "irVersion": "0.1.0-draft.5",
+  "id": "branches",
+  "actions": [
+    {
+      "id": "DiscountByRate",
+      "entryNodeId": "start",
+      "inputs": [
+        {
+          "id": "Total",
+          "name": "Total",
+          "type": "Decimal"
+        },
+        {
+          "id": "IsPremium",
+          "name": "IsPremium",
+          "type": "Boolean"
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Discount",
+          "name": "Discount",
+          "type": "Decimal"
+        }
+      ],
+      "locals": [
+        {
+          "id": "Rate",
+          "name": "Rate",
+          "type": "Decimal"
+        }
+      ],
+      "nodes": [
+        {
+          "id": "start",
+          "kind": "start"
+        },
+        {
+          "id": "premium",
+          "kind": "branch",
+          "condition": {
+            "kind": "variable",
+            "variableId": "IsPremium"
+          }
+        },
+        {
+          "id": "premiumRate",
+          "kind": "assign",
+          "targetVariableId": "Rate",
+          "value": {
+            "kind": "literal",
+            "type": "Decimal",
+            "value": "0.10"
+          }
+        },
+        {
+          "id": "normalRate",
+          "kind": "assign",
+          "targetVariableId": "Rate",
+          "value": {
+            "kind": "literal",
+            "type": "Decimal",
+            "value": "0.05"
+          }
+        },
+        {
+          "id": "calculate",
+          "kind": "assign",
+          "targetVariableId": "Discount",
+          "value": {
+            "kind": "binary",
+            "operator": "multiply",
+            "left": {
+              "kind": "variable",
+              "variableId": "Total"
+            },
+            "right": {
+              "kind": "variable",
+              "variableId": "Rate"
+            }
+          }
+        },
+        {
+          "id": "end",
+          "kind": "end"
+        }
+      ],
+      "connections": [
+        {
+          "fromNodeId": "start",
+          "toNodeId": "premium"
+        },
+        {
+          "fromNodeId": "premium",
+          "toNodeId": "premiumRate",
+          "label": "true"
+        },
+        {
+          "fromNodeId": "premium",
+          "toNodeId": "normalRate",
+          "label": "false"
+        },
+        {
+          "fromNodeId": "premiumRate",
+          "toNodeId": "calculate"
+        },
+        {
+          "fromNodeId": "normalRate",
+          "toNodeId": "calculate"
+        },
+        {
+          "fromNodeId": "calculate",
+          "toNodeId": "end"
+        }
+      ]
+    }
+  ]
+}

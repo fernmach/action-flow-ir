@@ -35,4 +35,5 @@ export const schemas = new Map([
   ["0.1.0-draft.2", loadSchema("0.1.0-draft.2")],
   ["0.1.0-draft.3", loadSchema("0.1.0-draft.3")],
   ["0.1.0-draft.4", loadSchema("0.1.0-draft.4")],
+  ["0.1.0-draft.5", loadSchema("0.1.0-draft.5")],
 ]);

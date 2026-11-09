@@ -1,0 +1,77 @@
+{
+  "irVersion": "0.1.0-draft.5",
+  "id": "module",
+  "actions": [
+    {
+      "id": "calculate",
+      "entryNodeId": "start",
+      "inputs": [],
+      "outputs": [
+        {
+          "id": "result",
+          "name": "result",
+          "type": "Decimal"
+        }
+      ],
+      "locals": [],
+      "nodes": [
+        {
+          "id": "start",
+          "kind": "start"
+        },
+        {
+          "id": "write",
+          "kind": "assign",
+          "targetVariableId": "result",
+          "value": {
+            "kind": "literal",
+            "type": "Decimal",
+            "value": "0.10"
+          }
+        },
+        {
+          "id": "end",
+          "kind": "end"
+        },
+        {
+          "id": "cycle1",
+          "kind": "assign",
+          "targetVariableId": "result",
+          "value": {
+            "kind": "literal",
+            "type": "Decimal",
+            "value": "1"
+          }
+        },
+        {
+          "id": "cycle2",
+          "kind": "assign",
+          "targetVariableId": "result",
+          "value": {
+            "kind": "literal",
+            "type": "Decimal",
+            "value": "1"
+          }
+        }
+      ],
+      "connections": [
+        {
+          "fromNodeId": "start",
+          "toNodeId": "write"
+        },
+        {
+          "fromNodeId": "write",
+          "toNodeId": "end"
+        },
+        {
+          "fromNodeId": "cycle1",
+          "toNodeId": "cycle2"
+        },
+        {
+          "fromNodeId": "cycle2",
+          "toNodeId": "cycle1"
+        }
+      ]
+    }
+  ]
+}

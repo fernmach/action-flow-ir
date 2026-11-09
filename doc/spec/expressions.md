@@ -81,3 +81,5 @@ Cases are paired files under `tests/conformance/computation/`; prefixes below in
 | EXP-006 | Pre-state initialized set                    | read-, short-circuit-                                            |
 | EXP-007 | Independent checks and explicit gates        | recovery-, scope-, graph-independent-; deterministic unit checks |
 | EXP-008 | Iterative preflight                          | Resource unit/CLI boundary checks                                |
+
+Draft.5 [branches](branches.md) reuse these expression semantics for conditions and values, including applicable-only schema diagnostics and container limits. The added data-flow resource policy and path-local analysis are versioned separately.

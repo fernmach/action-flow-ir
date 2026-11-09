@@ -1,4 +1,7 @@
 import type { Diagnostic } from "./diagnostics.js";
+import { normalizeSemanticDiagnostics } from "./diagnostics.js";
+import { validateBranchDocument } from "./branches.js";
+import type { BranchDocument } from "./branches.js";
 import { validateVariables } from "./variables.js";
 import type { TypedActionDocument } from "./variables.js";
 import { validateComputation } from "./computation.js";
@@ -187,8 +190,13 @@ function checkAction(
 
 // Called only after the matching structural schema has succeeded.
 export function validateActions(
-  document: ActionDocument | TypedActionDocument | ComputationDocument,
+  document:
+    ActionDocument | TypedActionDocument | ComputationDocument | BranchDocument,
 ): Diagnostic[] {
+  if (document.irVersion === "0.1.0-draft.5") {
+    return validateBranchDocument(document);
+  }
+
   const diagnostics: Diagnostic[] = [];
   const actionIds = new Set<string>();
 
@@ -239,34 +247,5 @@ export function validateActions(
     }
   });
 
-  diagnostics.sort((a, b) => {
-    for (const key of ["path", "code", "message"] as const) {
-      const left = a[key] ?? "";
-      const right = b[key] ?? "";
-
-      if (left < right) {
-        return -1;
-      }
-
-      if (left > right) {
-        return 1;
-      }
-    }
-
-    return 0;
-  });
-
-  const seen = new Set<string>();
-
-  return diagnostics.filter((diagnostic) => {
-    const key = JSON.stringify(diagnostic);
-
-    if (seen.has(key)) {
-      return false;
-    }
-
-    seen.add(key);
-
-    return true;
-  });
+  return normalizeSemanticDiagnostics(diagnostics);
 }

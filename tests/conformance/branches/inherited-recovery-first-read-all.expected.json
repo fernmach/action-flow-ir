@@ -1,0 +1,20 @@
+{
+  "id": "branches-inherited-recovery-first-read-all",
+  "rules": [
+    "ASN-007"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-INIT-002",
+      "severity": "error",
+      "path": "/actions/0/nodes/1/value/left/variableId"
+    },
+    {
+      "code": "AFIR-INIT-002",
+      "severity": "error",
+      "path": "/actions/0/nodes/1/value/right/variableId"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

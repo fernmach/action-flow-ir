@@ -1,0 +1,15 @@
+{
+  "id": "branches-inherited-shape-unary-missing-operand",
+  "rules": [
+    "EXP-001"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/actions/0/nodes/1/value/operand"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

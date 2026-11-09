@@ -1,0 +1,20 @@
+{
+  "id": "branches-label-unresolved-source",
+  "rules": [
+    "BRN-007"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-REF-001",
+      "severity": "error",
+      "path": "/actions/0/connections/1/fromNodeId"
+    },
+    {
+      "code": "AFIR-BRANCH-002",
+      "severity": "error",
+      "path": "/actions/0/nodes/1"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

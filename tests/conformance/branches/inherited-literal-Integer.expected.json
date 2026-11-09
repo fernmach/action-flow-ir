@@ -1,0 +1,10 @@
+{
+  "id": "branches-inherited-literal-Integer",
+  "rules": [
+    "EXP-002",
+    "ASN-003"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

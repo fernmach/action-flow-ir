@@ -1,0 +1,15 @@
+{
+  "id": "branches-condition-Text",
+  "rules": [
+    "BRN-002"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-BRANCH-001",
+      "severity": "error",
+      "path": "/actions/0/nodes/1/condition"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

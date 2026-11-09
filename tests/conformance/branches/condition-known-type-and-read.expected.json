@@ -1,0 +1,20 @@
+{
+  "id": "branches-condition-known-type-and-read",
+  "rules": [
+    "BRN-002"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-BRANCH-001",
+      "severity": "error",
+      "path": "/actions/0/nodes/1/condition"
+    },
+    {
+      "code": "AFIR-INIT-002",
+      "severity": "error",
+      "path": "/actions/0/nodes/1/condition/variableId"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

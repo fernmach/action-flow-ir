@@ -1,0 +1,235 @@
+{
+  "irVersion": "0.1.0-draft.5",
+  "id": "branches",
+  "actions": [
+    {
+      "id": "ClassifyRequest",
+      "entryNodeId": "start",
+      "inputs": [
+        {
+          "id": "Score",
+          "name": "Score",
+          "type": "Integer"
+        },
+        {
+          "id": "IsPriority",
+          "name": "IsPriority",
+          "type": "Boolean"
+        }
+      ],
+      "outputs": [
+        {
+          "id": "RouteCode",
+          "name": "RouteCode",
+          "type": "Integer"
+        }
+      ],
+      "locals": [
+        {
+          "id": "Tier",
+          "name": "Tier",
+          "type": "Integer"
+        }
+      ],
+      "nodes": [
+        {
+          "id": "start",
+          "kind": "start"
+        },
+        {
+          "id": "priority",
+          "kind": "branch",
+          "condition": {
+            "kind": "variable",
+            "variableId": "IsPriority"
+          }
+        },
+        {
+          "id": "highScore",
+          "kind": "branch",
+          "condition": {
+            "kind": "binary",
+            "operator": "greaterThanOrEqual",
+            "left": {
+              "kind": "variable",
+              "variableId": "Score"
+            },
+            "right": {
+              "kind": "literal",
+              "type": "Integer",
+              "value": "80"
+            }
+          }
+        },
+        {
+          "id": "normalScore",
+          "kind": "branch",
+          "condition": {
+            "kind": "binary",
+            "operator": "greaterThanOrEqual",
+            "left": {
+              "kind": "variable",
+              "variableId": "Score"
+            },
+            "right": {
+              "kind": "literal",
+              "type": "Integer",
+              "value": "50"
+            }
+          }
+        },
+        {
+          "id": "tier3",
+          "kind": "assign",
+          "targetVariableId": "Tier",
+          "value": {
+            "kind": "literal",
+            "type": "Integer",
+            "value": "3"
+          }
+        },
+        {
+          "id": "tier2",
+          "kind": "assign",
+          "targetVariableId": "Tier",
+          "value": {
+            "kind": "literal",
+            "type": "Integer",
+            "value": "2"
+          }
+        },
+        {
+          "id": "tier1",
+          "kind": "assign",
+          "targetVariableId": "Tier",
+          "value": {
+            "kind": "literal",
+            "type": "Integer",
+            "value": "1"
+          }
+        },
+        {
+          "id": "tier0",
+          "kind": "assign",
+          "targetVariableId": "Tier",
+          "value": {
+            "kind": "literal",
+            "type": "Integer",
+            "value": "0"
+          }
+        },
+        {
+          "id": "route",
+          "kind": "branch",
+          "condition": {
+            "kind": "binary",
+            "operator": "greaterThanOrEqual",
+            "left": {
+              "kind": "variable",
+              "variableId": "Tier"
+            },
+            "right": {
+              "kind": "literal",
+              "type": "Integer",
+              "value": "2"
+            }
+          }
+        },
+        {
+          "id": "route10",
+          "kind": "assign",
+          "targetVariableId": "RouteCode",
+          "value": {
+            "kind": "literal",
+            "type": "Integer",
+            "value": "10"
+          }
+        },
+        {
+          "id": "route20",
+          "kind": "assign",
+          "targetVariableId": "RouteCode",
+          "value": {
+            "kind": "literal",
+            "type": "Integer",
+            "value": "20"
+          }
+        },
+        {
+          "id": "end",
+          "kind": "end"
+        }
+      ],
+      "connections": [
+        {
+          "fromNodeId": "start",
+          "toNodeId": "priority"
+        },
+        {
+          "fromNodeId": "priority",
+          "toNodeId": "highScore",
+          "label": "true"
+        },
+        {
+          "fromNodeId": "priority",
+          "toNodeId": "normalScore",
+          "label": "false"
+        },
+        {
+          "fromNodeId": "highScore",
+          "toNodeId": "tier3",
+          "label": "true"
+        },
+        {
+          "fromNodeId": "highScore",
+          "toNodeId": "tier2",
+          "label": "false"
+        },
+        {
+          "fromNodeId": "normalScore",
+          "toNodeId": "tier1",
+          "label": "true"
+        },
+        {
+          "fromNodeId": "normalScore",
+          "toNodeId": "tier0",
+          "label": "false"
+        },
+        {
+          "fromNodeId": "tier3",
+          "toNodeId": "route"
+        },
+        {
+          "fromNodeId": "tier2",
+          "toNodeId": "route"
+        },
+        {
+          "fromNodeId": "tier1",
+          "toNodeId": "route"
+        },
+        {
+          "fromNodeId": "tier0",
+          "toNodeId": "route"
+        },
+        {
+          "fromNodeId": "route",
+          "toNodeId": "route10",
+          "label": "true"
+        },
+        {
+          "fromNodeId": "route",
+          "toNodeId": "route20",
+          "label": "false"
+        },
+        {
+          "fromNodeId": "route10",
+          "toNodeId": "end"
+        },
+        {
+          "fromNodeId": "route20",
+          "toNodeId": "end"
+        }
+      ]
+    }
+  ]
+}

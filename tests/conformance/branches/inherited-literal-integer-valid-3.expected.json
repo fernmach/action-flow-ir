@@ -1,0 +1,9 @@
+{
+  "id": "branches-inherited-literal-integer-valid-3",
+  "rules": [
+    "EXP-002"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

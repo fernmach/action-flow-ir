@@ -1,0 +1,15 @@
+{
+  "id": "branches-label-forbidden-start",
+  "rules": [
+    "BRN-003"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-BRANCH-005",
+      "severity": "error",
+      "path": "/actions/0/connections/0/label"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

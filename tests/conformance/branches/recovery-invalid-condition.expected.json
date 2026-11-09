@@ -1,0 +1,15 @@
+{
+  "id": "branches-recovery-invalid-condition",
+  "rules": [
+    "BRN-006"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-BRANCH-001",
+      "severity": "error",
+      "path": "/actions/0/nodes/1/condition"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

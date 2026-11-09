@@ -1,0 +1,30 @@
+{
+  "id": "branches-inherited-inherited-combined-action-local",
+  "rules": [
+    "VAR-007"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-REF-001",
+      "severity": "error",
+      "path": "/actions/1/entryNodeId"
+    },
+    {
+      "code": "AFIR-ACTION-001",
+      "severity": "error",
+      "path": "/actions/1/id"
+    },
+    {
+      "code": "AFIR-VAR-001",
+      "severity": "error",
+      "path": "/actions/1/inputs/1/id"
+    },
+    {
+      "code": "AFIR-VAR-002",
+      "severity": "error",
+      "path": "/actions/1/inputs/1/name"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

@@ -1,0 +1,9 @@
+{
+  "id": "branches-same-target-end",
+  "rules": [
+    "BRN-003"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

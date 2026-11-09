@@ -1,0 +1,10 @@
+{
+  "id": "branches-crossing",
+  "rules": [
+    "BRN-004",
+    "BRN-005"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

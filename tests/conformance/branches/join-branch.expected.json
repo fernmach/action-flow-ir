@@ -1,0 +1,9 @@
+{
+  "id": "branches-join-branch",
+  "rules": [
+    "BRN-005"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

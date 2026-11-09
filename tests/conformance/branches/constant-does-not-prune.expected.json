@@ -1,0 +1,15 @@
+{
+  "id": "branches-constant-does-not-prune",
+  "rules": [
+    "BRN-005"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-INIT-002",
+      "severity": "error",
+      "path": "/actions/0/nodes/3/value/variableId"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

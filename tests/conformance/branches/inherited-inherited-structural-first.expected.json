@@ -1,0 +1,15 @@
+{
+  "id": "branches-inherited-inherited-structural-first",
+  "rules": [
+    "VAR-007"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/actions/0/extra"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

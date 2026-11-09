@@ -1,0 +1,15 @@
+{
+  "id": "branches-inherited-inherited-inherited-shape-connection-object-1",
+  "rules": [
+    "ACT-001"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/actions/0/connections/0"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

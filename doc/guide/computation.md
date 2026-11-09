@@ -91,7 +91,7 @@ The following action follows start → initializeRate → computeDiscount → en
 }
 ```
 
-The initialized set begins with total, adds rate after the first assignment, then discount after the second. All outputs are initialized at end, so the document is valid. It computes a fixed rate expression; branches are not supported yet.
+The initialized set begins with total, adds rate after the first assignment, then discount after the second. All outputs are initialized at end, so the document is valid. It computes a fixed rate expression; this draft.4 example has no branches. [Draft.5 branches](branches.md) add conditional paths and joins.
 
 Build and validate the repository example:
 
@@ -120,4 +120,4 @@ Removing the Discount assignment while keeping a valid linear graph produces AFI
 
 ## Versioning
 
-Draft.3 continues to reject output-bearing start/end actions because it has no assignments. Migration requires an explicit version change and valid assignment nodes/connections; validation does not repair documents. No defaults, optional inputs, branches, calls or execution engine are introduced. The [field and diagnostic reference](../reference/computation.md) explains draft.4's resource limits and tool-error distinction.
+Draft.3 continues to reject output-bearing start/end actions because it has no assignments. Migration requires an explicit version change and valid assignment nodes/connections; validation does not repair documents. No defaults, optional inputs, calls or execution engine are introduced. Branching requires [draft.5](branches.md). The [field and diagnostic reference](../reference/computation.md) explains draft.4's resource limits and tool-error distinction.

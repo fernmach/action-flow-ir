@@ -1,0 +1,20 @@
+{
+  "id": "branches-recovery-independent-arms",
+  "rules": [
+    "BRN-006"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-REF-001",
+      "severity": "error",
+      "path": "/actions/0/nodes/2/targetVariableId"
+    },
+    {
+      "code": "AFIR-INIT-002",
+      "severity": "error",
+      "path": "/actions/0/nodes/3/value/variableId"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

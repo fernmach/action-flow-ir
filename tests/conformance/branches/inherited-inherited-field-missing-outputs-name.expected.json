@@ -1,0 +1,15 @@
+{
+  "id": "branches-inherited-inherited-field-missing-outputs-name",
+  "rules": [
+    "VAR-001"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/actions/0/outputs/0/name"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

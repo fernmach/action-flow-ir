@@ -1,0 +1,15 @@
+{
+  "id": "branches-shape-label-0",
+  "rules": [
+    "BRN-001"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/actions/0/connections/1/label"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

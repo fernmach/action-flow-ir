@@ -1,0 +1,20 @@
+{
+  "id": "branches-inherited-graph-independent-type",
+  "rules": [
+    "ASN-007"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-REF-001",
+      "severity": "error",
+      "path": "/actions/0/entryNodeId"
+    },
+    {
+      "code": "AFIR-TYPE-003",
+      "severity": "error",
+      "path": "/actions/0/nodes/1/value"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

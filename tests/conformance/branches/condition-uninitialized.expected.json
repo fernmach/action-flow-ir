@@ -1,0 +1,15 @@
+{
+  "id": "branches-condition-uninitialized",
+  "rules": [
+    "BRN-002"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-INIT-002",
+      "severity": "error",
+      "path": "/actions/0/nodes/1/condition/variableId"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

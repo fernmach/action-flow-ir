@@ -1,0 +1,15 @@
+{
+  "id": "branches-inherited-inherited-inherited-shape-action-type-entryNodeId",
+  "rules": [
+    "ACT-001"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/actions/0/entryNodeId"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

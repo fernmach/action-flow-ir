@@ -1,0 +1,15 @@
+{
+  "id": "branches-inherited-read-local",
+  "rules": [
+    "EXP-006"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-INIT-002",
+      "severity": "error",
+      "path": "/actions/0/nodes/1/value/variableId"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

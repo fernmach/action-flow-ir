@@ -1,0 +1,15 @@
+{
+  "id": "branches-inherited-short-circuit-type",
+  "rules": [
+    "EXP-004"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-TYPE-001",
+      "severity": "error",
+      "path": "/actions/0/nodes/1/value/right"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

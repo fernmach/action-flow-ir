@@ -4,6 +4,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { expect, test } from "vitest";
+import { branchBudgetDocument } from "../harness/branch-budget.js";
 
 test("compiled CLI runs in Node with real filesystem inputs", async () => {
   const directory = await mkdtemp(join(tmpdir(), "afir-"));
@@ -197,7 +198,88 @@ test("compiled draft.4 CLI handles computation and tool limits", async () => {
   }
 });
 
-test.each(["0.1.0-draft.1", "0.1.0-draft.2", "0.1.0-draft.3", "0.1.0-draft.4"])(
+test("compiled draft.5 CLI validates branches and condition failures", async () => {
+  const directory = await mkdtemp(join(tmpdir(), "afir-branches-"));
+  const cli = fileURLToPath(new URL("../../dist/cli/main.js", import.meta.url));
+  const file = join(directory, "input.json");
+  const call = (format: string) =>
+    spawnSync(process.execPath, [cli, "validate", file, "--format", format], {
+      encoding: "utf8",
+      cwd: directory,
+    });
+
+  try {
+    const example = await readFile(
+      new URL("../../examples/conditional-discount.json", import.meta.url),
+      "utf8",
+    );
+
+    await writeFile(file, example);
+
+    for (const format of ["text", "json"]) {
+      const result = call(format);
+
+      expect(result.status).toBe(0);
+      expect(result.stderr).toBe("");
+    }
+
+    const invalid = await readFile(
+      new URL(
+        "../../tests/conformance/branches/condition-Integer.input.txt",
+        import.meta.url,
+      ),
+      "utf8",
+    );
+
+    await writeFile(file, invalid);
+
+    for (const format of ["text", "json"]) {
+      const result = call(format);
+
+      expect(result.status).toBe(1);
+      expect(format === "text" ? result.stdout : result.stderr).toBe("");
+      expect(format === "text" ? result.stderr : result.stdout).toContain(
+        "AFIR-BRANCH-001",
+      );
+    }
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test("compiled draft.5 CLI reports data-flow resource excess as exit 2", async () => {
+  const directory = await mkdtemp(join(tmpdir(), "afir-flow-budget-"));
+  const cli = fileURLToPath(new URL("../../dist/cli/main.js", import.meta.url));
+  const file = join(directory, "input.json");
+
+  try {
+    await writeFile(file, JSON.stringify(branchBudgetDocument(1)));
+
+    for (const format of ["text", "json"]) {
+      const result = spawnSync(
+        process.execPath,
+        [cli, "validate", file, "--format", format],
+        { encoding: "utf8", cwd: directory },
+      );
+
+      expect(result.status).toBe(2);
+      expect(format === "text" ? result.stdout : result.stderr).toBe("");
+      expect(format === "text" ? result.stderr : result.stdout).toContain(
+        "AFIR-LIMIT-002",
+      );
+    }
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test.each([
+  "0.1.0-draft.1",
+  "0.1.0-draft.2",
+  "0.1.0-draft.3",
+  "0.1.0-draft.4",
+  "0.1.0-draft.5",
+])(
   "schema initialization failures are structured tool failures: %s",
   async (version) => {
     // Keep the isolated installation beneath the repository for dependency resolution.

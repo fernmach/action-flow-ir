@@ -14,8 +14,8 @@ export default function Home(): ReactNode {
           A typed, language-independent representation of application logic.
         </p>
         <p>
-          IR 0.1.0-draft.4 adds typed expressions and linear assignments.
-          Draft.1, draft.2 and draft.3 validation remains available.
+          IR 0.1.0-draft.5 adds Boolean branches, direct joins and definite
+          initialization. Draft.1 through draft.4 validation remains available.
         </p>
         <p>
           <Link to="/docs/guide/basic-structure">
@@ -23,7 +23,7 @@ export default function Home(): ReactNode {
           </Link>
         </p>
         <p>
-          <Link to="/docs/guide/computation">Compute and assign values</Link>
+          <Link to="/docs/guide/branches">Branch and join paths</Link>
         </p>
         <p>
           <Link to="/docs/spec/">Read the language specification</Link>

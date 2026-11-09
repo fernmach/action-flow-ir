@@ -1,0 +1,11 @@
+{
+  "id": "branches-inherited-inherited-inherited-inherited-full",
+  "rules": [
+    "ENV-004",
+    "ENV-005",
+    "ENV-006"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

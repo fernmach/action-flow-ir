@@ -1,0 +1,9 @@
+{
+  "id": "branches-inherited-inherited-id-valid-2",
+  "rules": [
+    "VAR-002"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

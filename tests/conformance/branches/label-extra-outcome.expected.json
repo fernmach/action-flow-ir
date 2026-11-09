@@ -1,0 +1,15 @@
+{
+  "id": "branches-label-extra-outcome",
+  "rules": [
+    "BRN-003"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-BRANCH-003",
+      "severity": "error",
+      "path": "/actions/0/connections/5/label"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

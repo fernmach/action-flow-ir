@@ -12,6 +12,7 @@ const sidebars: SidebarsConfig = {
         "guide/metadata-and-provenance",
         "guide/variables-and-types",
         "guide/computation",
+        "guide/branches",
       ],
     },
     {
@@ -24,6 +25,7 @@ const sidebars: SidebarsConfig = {
         "spec/variables-and-types",
         "spec/expressions",
         "spec/assignment",
+        "spec/branches",
       ],
     },
     {
@@ -34,6 +36,7 @@ const sidebars: SidebarsConfig = {
         "reference/actions",
         "reference/variables-and-types",
         "reference/computation",
+        "reference/branches",
       ],
     },
     {

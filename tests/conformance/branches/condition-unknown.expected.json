@@ -1,0 +1,15 @@
+{
+  "id": "branches-condition-unknown",
+  "rules": [
+    "BRN-002"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-REF-001",
+      "severity": "error",
+      "path": "/actions/0/nodes/1/condition/variableId"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

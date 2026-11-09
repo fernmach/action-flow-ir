@@ -1,0 +1,15 @@
+{
+  "id": "branches-inherited-completion-one",
+  "rules": [
+    "ASN-006"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-INIT-001",
+      "severity": "error",
+      "path": "/actions/0/outputs/0/id"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

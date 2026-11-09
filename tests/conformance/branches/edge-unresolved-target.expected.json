@@ -1,0 +1,15 @@
+{
+  "id": "branches-edge-unresolved-target",
+  "rules": [
+    "BRN-007"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-REF-001",
+      "severity": "error",
+      "path": "/actions/0/connections/1/toNodeId"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

@@ -1,0 +1,15 @@
+{
+  "id": "branches-inherited-inherited-suppress-reference",
+  "rules": [
+    "VAR-007"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-REF-001",
+      "severity": "error",
+      "path": "/actions/0/entryNodeId"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

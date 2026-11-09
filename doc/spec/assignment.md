@@ -53,3 +53,5 @@ Cases are paired files under `tests/conformance/computation/`. Existing cases re
 ## Compatibility and limits
 
 Draft.4's structural contract is the independent schema named in the expressions chapter. Producers migrating draft.3 must explicitly change version and add valid assignments where outputs require initialization; the validator MUST NOT perform migration. No input defaults, nullable types, branch nodes, conversions, adapters or execution are introduced. Draft.4 resource-limit failures are tool errors under EXP-008, distinct from invalid documents.
+
+Draft.5 [branches and joins](branches.md) extend these assignment/expression rules with direct joins, triple edge identity, acyclicity and path-local initialization recovery. The draft.4 linear contract remains unchanged.

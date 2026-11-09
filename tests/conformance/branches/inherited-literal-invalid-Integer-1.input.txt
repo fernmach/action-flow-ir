@@ -1,0 +1,49 @@
+{
+  "irVersion": "0.1.0-draft.5",
+  "id": "module",
+  "actions": [
+    {
+      "id": "calculate",
+      "entryNodeId": "start",
+      "inputs": [],
+      "outputs": [
+        {
+          "id": "result",
+          "name": "result",
+          "type": "Integer"
+        }
+      ],
+      "locals": [],
+      "nodes": [
+        {
+          "id": "start",
+          "kind": "start"
+        },
+        {
+          "id": "write",
+          "kind": "assign",
+          "targetVariableId": "result",
+          "value": {
+            "kind": "literal",
+            "type": "Integer",
+            "value": "01"
+          }
+        },
+        {
+          "id": "end",
+          "kind": "end"
+        }
+      ],
+      "connections": [
+        {
+          "fromNodeId": "start",
+          "toNodeId": "write"
+        },
+        {
+          "fromNodeId": "write",
+          "toNodeId": "end"
+        }
+      ]
+    }
+  ]
+}

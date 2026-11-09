@@ -63,3 +63,5 @@ Cases below are paired files under `tests/conformance/variables/`; prefixes incl
 | VAR-007  | Independent passes and initialization prerequisites           | `suppress-*`, `combined-*`, structural-first; variables.test.ts determinism                |
 
 No producer value, arithmetic or runtime conformance is claimed by declaration validation. Expressions and assignment remain separately scoped increments.
+
+Draft.4 inherits the declaration/type rules with [expressions](expressions.md) and [assignment](assignment.md); its graph-order initialization replaces only the draft.3-specific completion/staging behavior.

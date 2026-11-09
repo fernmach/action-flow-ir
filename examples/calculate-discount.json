@@ -1,0 +1,82 @@
+{
+  "irVersion": "0.1.0-draft.4",
+  "id": "module",
+  "actions": [
+    {
+      "id": "calculateDiscount",
+      "entryNodeId": "start",
+      "inputs": [
+        {
+          "id": "total",
+          "name": "total",
+          "type": "Decimal"
+        }
+      ],
+      "outputs": [
+        {
+          "id": "discount",
+          "name": "discount",
+          "type": "Decimal"
+        }
+      ],
+      "locals": [
+        {
+          "id": "rate",
+          "name": "rate",
+          "type": "Decimal"
+        }
+      ],
+      "nodes": [
+        {
+          "id": "start",
+          "kind": "start"
+        },
+        {
+          "id": "initializeRate",
+          "kind": "assign",
+          "targetVariableId": "rate",
+          "value": {
+            "kind": "literal",
+            "type": "Decimal",
+            "value": "0.10"
+          }
+        },
+        {
+          "id": "computeDiscount",
+          "kind": "assign",
+          "targetVariableId": "discount",
+          "value": {
+            "kind": "binary",
+            "operator": "multiply",
+            "left": {
+              "kind": "variable",
+              "variableId": "total"
+            },
+            "right": {
+              "kind": "variable",
+              "variableId": "rate"
+            }
+          }
+        },
+        {
+          "id": "end",
+          "kind": "end"
+        }
+      ],
+      "connections": [
+        {
+          "fromNodeId": "start",
+          "toNodeId": "initializeRate"
+        },
+        {
+          "fromNodeId": "initializeRate",
+          "toNodeId": "computeDiscount"
+        },
+        {
+          "fromNodeId": "computeDiscount",
+          "toNodeId": "end"
+        }
+      ]
+    }
+  ]
+}

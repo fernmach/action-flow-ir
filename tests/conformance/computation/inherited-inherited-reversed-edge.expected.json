@@ -1,0 +1,26 @@
+{
+  "id": "computation-inherited-inherited-reversed-edge",
+  "rules": [
+    "ACT-007",
+    "ACT-008"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-FLOW-006",
+      "severity": "error",
+      "path": "/actions/0/nodes/0"
+    },
+    {
+      "code": "AFIR-FLOW-006",
+      "severity": "error",
+      "path": "/actions/0/nodes/1"
+    },
+    {
+      "code": "AFIR-FLOW-007",
+      "severity": "error",
+      "path": "/actions/0/nodes/1"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

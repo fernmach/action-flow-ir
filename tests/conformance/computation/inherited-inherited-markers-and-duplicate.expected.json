@@ -1,0 +1,21 @@
+{
+  "id": "computation-inherited-inherited-markers-and-duplicate",
+  "rules": [
+    "ACT-003",
+    "ACT-004"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-FLOW-001",
+      "severity": "error",
+      "path": "/actions/0/nodes"
+    },
+    {
+      "code": "AFIR-NODE-001",
+      "severity": "error",
+      "path": "/actions/0/nodes/2/id"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

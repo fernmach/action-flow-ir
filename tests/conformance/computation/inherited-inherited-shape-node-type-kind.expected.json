@@ -1,0 +1,20 @@
+{
+  "id": "computation-inherited-inherited-shape-node-type-kind",
+  "rules": [
+    "ACT-001"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/actions/0/nodes/0/kind"
+    },
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/actions/0/nodes/0/kind"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

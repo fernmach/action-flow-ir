@@ -1,0 +1,47 @@
+{
+  "irVersion": "0.1.0-draft.4",
+  "id": "module",
+  "actions": [
+    {
+      "id": "action",
+      "entryNodeId": "missing",
+      "nodes": [
+        {
+          "id": "start",
+          "kind": "start"
+        },
+        {
+          "id": "end",
+          "kind": "end"
+        }
+      ],
+      "connections": [
+        {
+          "fromNodeId": "start",
+          "toNodeId": "end"
+        }
+      ],
+      "inputs": [
+        {
+          "id": "value",
+          "name": "Value",
+          "type": "Decimal"
+        },
+        {
+          "id": "value",
+          "name": "Value",
+          "type": "Decimal"
+        }
+      ],
+      "outputs": [
+        {
+          "id": "value",
+          "name": "Value",
+          "type": "Decimal"
+        }
+      ],
+      "locals": [],
+      "extra": true
+    }
+  ]
+}

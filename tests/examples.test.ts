@@ -17,6 +17,7 @@ test("supported examples exist", () => {
       "minimal-action.json",
       "multiple-actions.json",
       "typed-action.json",
+      "calculate-discount.json",
     ]),
   );
 });

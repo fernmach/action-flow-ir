@@ -1,0 +1,9 @@
+{
+  "id": "computation-literal-integer-valid-2",
+  "rules": [
+    "EXP-002"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

@@ -1,0 +1,9 @@
+{
+  "id": "computation-empty",
+  "rules": [
+    "ASN-005"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

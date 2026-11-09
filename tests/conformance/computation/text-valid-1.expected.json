@@ -1,0 +1,9 @@
+{
+  "id": "computation-text-valid-1",
+  "rules": [
+    "EXP-002"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

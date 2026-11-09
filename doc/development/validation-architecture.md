@@ -36,7 +36,7 @@ Illustrative only:
 
 ```json
 {
-  "code": "AFIR-TYPE-001",
+  "code": "AFIR-TYPE-003",
   "severity": "error",
   "path": "/actions/0/nodes/2/value",
   "actionId": "calculateDiscount",

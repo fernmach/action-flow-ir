@@ -1,0 +1,15 @@
+{
+  "id": "computation-target-input",
+  "rules": [
+    "ASN-002"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-ASSIGN-001",
+      "severity": "error",
+      "path": "/actions/0/nodes/1/targetVariableId"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

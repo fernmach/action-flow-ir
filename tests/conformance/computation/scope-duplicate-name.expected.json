@@ -1,0 +1,15 @@
+{
+  "id": "computation-scope-duplicate-name",
+  "rules": [
+    "ASN-007"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-VAR-002",
+      "severity": "error",
+      "path": "/actions/0/locals/0/name"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

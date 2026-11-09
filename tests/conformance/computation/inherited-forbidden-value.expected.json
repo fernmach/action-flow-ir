@@ -1,0 +1,15 @@
+{
+  "id": "computation-inherited-forbidden-value",
+  "rules": [
+    "VAR-001"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/actions/0/inputs/0/value"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

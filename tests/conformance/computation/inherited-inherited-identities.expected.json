@@ -1,0 +1,10 @@
+{
+  "id": "computation-inherited-inherited-identities",
+  "rules": [
+    "ACT-002",
+    "ACT-003"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

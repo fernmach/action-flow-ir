@@ -132,7 +132,72 @@ test("compiled CLI runs in Node with real filesystem inputs", async () => {
   }
 });
 
-test.each(["0.1.0-draft.1", "0.1.0-draft.2", "0.1.0-draft.3"])(
+test("compiled draft.4 CLI handles computation and tool limits", async () => {
+  const directory = await mkdtemp(join(tmpdir(), "afir-computation-"));
+  const cli = fileURLToPath(new URL("../../dist/cli/main.js", import.meta.url));
+  const file = join(directory, "input.json");
+  const call = (args: string[]) =>
+    spawnSync(process.execPath, [cli, ...args], {
+      encoding: "utf8",
+      cwd: directory,
+    });
+
+  try {
+    const computation = await readFile(
+      new URL("../../examples/calculate-discount.json", import.meta.url),
+      "utf8",
+    );
+
+    await writeFile(file, computation);
+
+    for (const format of ["text", "json"]) {
+      const success = call(["validate", file, "--format", format]);
+
+      expect(success.status).toBe(0);
+      expect(success.stderr).toBe("");
+    }
+
+    await writeFile(
+      file,
+      computation.replace(
+        '"targetVariableId": "discount"',
+        '"targetVariableId": "total"',
+      ),
+    );
+
+    for (const format of ["text", "json"]) {
+      const failure = call(["validate", file, "--format", format]);
+
+      expect(failure.status).toBe(1);
+      expect(format === "text" ? failure.stdout : failure.stderr).toBe("");
+      expect(format === "text" ? failure.stderr : failure.stdout).toContain(
+        "AFIR-ASSIGN-001",
+      );
+    }
+
+    await writeFile(
+      file,
+      JSON.stringify({
+        irVersion: "0.1.0-draft.4",
+        extra: Array.from({ length: 100_000 }, () => ({})),
+      }),
+    );
+
+    for (const format of ["text", "json"]) {
+      const limited = call(["validate", file, "--format", format]);
+
+      expect(limited.status).toBe(2);
+      expect(format === "text" ? limited.stdout : limited.stderr).toBe("");
+      expect(format === "text" ? limited.stderr : limited.stdout).toContain(
+        "AFIR-LIMIT-001",
+      );
+    }
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test.each(["0.1.0-draft.1", "0.1.0-draft.2", "0.1.0-draft.3", "0.1.0-draft.4"])(
   "schema initialization failures are structured tool failures: %s",
   async (version) => {
     // Keep the isolated installation beneath the repository for dependency resolution.

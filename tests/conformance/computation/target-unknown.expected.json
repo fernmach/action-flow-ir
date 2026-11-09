@@ -1,0 +1,15 @@
+{
+  "id": "computation-target-unknown",
+  "rules": [
+    "ASN-002"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-REF-001",
+      "severity": "error",
+      "path": "/actions/0/nodes/1/targetVariableId"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

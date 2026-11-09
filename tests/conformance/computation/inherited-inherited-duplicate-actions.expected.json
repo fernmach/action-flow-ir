@@ -1,0 +1,15 @@
+{
+  "id": "computation-inherited-inherited-duplicate-actions",
+  "rules": [
+    "ACT-003"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-ACTION-001",
+      "severity": "error",
+      "path": "/actions/1/id"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

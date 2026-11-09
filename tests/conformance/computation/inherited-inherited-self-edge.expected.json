@@ -1,0 +1,15 @@
+{
+  "id": "computation-inherited-inherited-self-edge",
+  "rules": [
+    "ACT-006"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-FLOW-005",
+      "severity": "error",
+      "path": "/actions/0/connections/0"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

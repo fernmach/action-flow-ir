@@ -1,0 +1,9 @@
+{
+  "id": "computation-signature-not",
+  "rules": [
+    "EXP-004"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

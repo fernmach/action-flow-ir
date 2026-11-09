@@ -1,0 +1,35 @@
+{
+  "id": "computation-inherited-combined-graph-declaration",
+  "rules": [
+    "VAR-007"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-VAR-001",
+      "severity": "error",
+      "path": "/actions/0/inputs/1/id"
+    },
+    {
+      "code": "AFIR-VAR-002",
+      "severity": "error",
+      "path": "/actions/0/inputs/1/name"
+    },
+    {
+      "code": "AFIR-FLOW-006",
+      "severity": "error",
+      "path": "/actions/0/nodes/0"
+    },
+    {
+      "code": "AFIR-FLOW-006",
+      "severity": "error",
+      "path": "/actions/0/nodes/1"
+    },
+    {
+      "code": "AFIR-FLOW-007",
+      "severity": "error",
+      "path": "/actions/0/nodes/1"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

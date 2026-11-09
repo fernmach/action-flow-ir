@@ -1,0 +1,9 @@
+{
+  "id": "computation-signature-equal-Text",
+  "rules": [
+    "EXP-004"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

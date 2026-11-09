@@ -1,0 +1,58 @@
+{
+  "irVersion": "0.1.0-draft.4",
+  "id": "module",
+  "actions": [
+    {
+      "id": "calculate",
+      "entryNodeId": "start",
+      "inputs": [],
+      "outputs": [
+        {
+          "id": "result",
+          "name": "result",
+          "type": "Boolean"
+        }
+      ],
+      "locals": [],
+      "nodes": [
+        {
+          "id": "start",
+          "kind": "start"
+        },
+        {
+          "id": "write",
+          "kind": "assign",
+          "targetVariableId": "result",
+          "value": {
+            "kind": "binary",
+            "operator": "notEqual",
+            "left": {
+              "kind": "literal",
+              "type": "Boolean",
+              "value": true
+            },
+            "right": {
+              "kind": "literal",
+              "type": "Boolean",
+              "value": true
+            }
+          }
+        },
+        {
+          "id": "end",
+          "kind": "end"
+        }
+      ],
+      "connections": [
+        {
+          "fromNodeId": "start",
+          "toNodeId": "write"
+        },
+        {
+          "fromNodeId": "write",
+          "toNodeId": "end"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "computation-duplicate-action-local",
+  "rules": [
+    "ASN-007"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-ACTION-001",
+      "severity": "error",
+      "path": "/actions/1/id"
+    },
+    {
+      "code": "AFIR-REF-001",
+      "severity": "error",
+      "path": "/actions/1/nodes/1/targetVariableId"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

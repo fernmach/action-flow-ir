@@ -1,0 +1,15 @@
+{
+  "id": "computation-inherited-inherited-inherited-actions-1",
+  "rules": [
+    "ENV-007"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/actions"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

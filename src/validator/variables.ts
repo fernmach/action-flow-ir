@@ -23,7 +23,7 @@ export interface TypedActionDocument extends Omit<
 
 // Called only after structural success; graph eligibility is action-local.
 export function validateVariables(
-  action: TypedAction,
+  action: Pick<TypedAction, "inputs" | "outputs" | "locals">,
   path: string,
   graphValid: boolean,
 ): Diagnostic[] {

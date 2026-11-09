@@ -31,7 +31,7 @@ Use **0.1.0-draft.3** to declare typed inputs and locals. The earlier guide page
 }
 ```
 
-The declarations do not calculate a discount. Inputs are initialized at entry and read-only. Locals start uninitialized, and unused locals are valid. Expressions, assignments and execution are not supported yet.
+The declarations do not calculate a discount. Inputs are initialized at entry and read-only. Locals start uninitialized, and unused locals are valid. Expressions and assignments are supported in [draft.4](computation.md), while this example remains on draft.3. Execution remains unsupported.
 
 Choose `Boolean` for true/false, `Integer` for mathematical integers, `Decimal` for exact finite base-10 numbers, and `Text` for Unicode scalar sequences. All four exclude null. Integer and Decimal are distinct types; this draft defines neither conversions nor value serialization or arithmetic.
 
@@ -51,7 +51,7 @@ Replace the example's empty outputs array with this fragment:
 ]
 ```
 
-The resulting document is **invalid**. The validator reports `AFIR-INIT-001` at `/actions/0/outputs/0/id`: Discount is uninitialized at normal completion. Start and end do not assign values, and there is no automatic zero or empty value. Valid output-producing actions require the future assignment increment.
+The resulting document is **invalid**. The validator reports `AFIR-INIT-001` at `/actions/0/outputs/0/id`: Discount is uninitialized at normal completion. Start and end do not assign values, and there is no automatic zero or empty value. Use [draft.4 assignments](computation.md) for valid output-producing actions.
 
 Adding `default`, `initializer`, `nullable` or `value` to a declaration instead produces `AFIR-SCHEMA-001` at that undeclared field. See the [field and diagnostic reference](../reference/variables-and-types.md).
 

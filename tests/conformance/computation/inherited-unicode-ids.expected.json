@@ -1,0 +1,10 @@
+{
+  "id": "computation-inherited-unicode-ids",
+  "rules": [
+    "VAR-002",
+    "VAR-003"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

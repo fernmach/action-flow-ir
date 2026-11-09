@@ -14,10 +14,11 @@ Updated: 2026-11-09
 - [Step 2](iterations/002-minimal-actions.md): draft.2 minimal actions, scoped identity/reference checks, degree/reachability checks, semantic diagnostics, examples and tutorial; draft.1 remains supported.
 - [Authoring guide follow-up](iterations/002a-authoring-guide.md): example-led draft.2 guide, separate language/field/CLI navigation and homepage entry points. Developer documentation remains GitHub-only; language and validator contracts are unchanged.
 - [Step 3](iterations/003-variables-and-types.md): draft.3 typed inputs, outputs and locals; four non-nullable primitive domains, action-wide variable identities/names, and output-initialization checks. Earlier drafts remain unchanged.
+- [Steps 4 and 5](iterations/004-expressions.md): joint draft.4 expressions and [assignment](iterations/005-assignment.md), exact typing, graph-order initialization, output completion and pre-schema resource protection; all prior drafts preserved.
 
 ## Current iteration
 
-Step 3 complete locally. Supported formats: **0.1.0-draft.1** (unchanged empty envelope), **0.1.0-draft.2** (unchanged minimal start/end action graphs) and **0.1.0-draft.3** (typed declarations). All support optional provenance. Structural validation precedes independent graph/declaration checks; output checks require valid local prerequisites. Outputs and locals start uninitialized; no current node can initialize an output, so eligible output-bearing actions are invalid. Expressions, assignments, adapters and execution remain future work. No release was published.
+Steps 4 and 5 complete locally as **0.1.0-draft.4**: strict typed expression trees, one assignment per node, exact matching types, pure evaluation semantics and finite linear graphs with read/output initialization checks. Supported formats draft.1 (empty envelope), draft.2 (minimal actions) and draft.3 (typed declarations) remain unchanged. All support optional provenance. Draft.4 limits resource excess to tool-error status; validation never executes actions. Branches, loops, calls, adapters and execution remain future work. No release was published.
 
 ## Agreed direction
 
@@ -30,16 +31,16 @@ Step 3 complete locally. Supported formats: **0.1.0-draft.1** (unchanged empty e
 
 ## Pending decisions
 
-| Topic                                                       | Needed by                           |
-| ----------------------------------------------------------- | ----------------------------------- |
-| Literal encoding, numeric operators and read initialization | Steps 4–5                           |
-| Cycles, loops, calls and failure behavior                   | Steps 7–8                           |
-| Hosting URL, remote repository, hosted CI execution         | When connecting a remote/publishing |
+| Topic                                                      | Needed by                           |
+| ---------------------------------------------------------- | ----------------------------------- |
+| Branch labels, merge semantics and definite initialization | Step 6                              |
+| Cycles, loops, calls and failure behavior                  | Steps 7–8                           |
+| Hosting URL, remote repository, hosted CI execution        | When connecting a remote/publishing |
 
 ## Next action
 
-Open Step 4 expressions: typed literals and ID references, a small operator set, exact numeric/literal representation, evaluation rules and read-before-initialization checks. Preserve all three existing draft contracts; public extensions need a new draft version.
+Open Step 6 branches: Boolean conditions, labeled connections, branch coverage/uniqueness, merges and definite initialization. Preserve all four existing draft contracts; public extensions require a new draft. Validate against an authorized real OutSystems action before broad expansion, recording fidelity gaps without importing private content into public examples.
 
 ## Verification
 
-Step 3 checks passed locally on Windows: formatting, zero lint warnings/errors, root/website type checks, Node emit, 606 tests across 12 files (including 558 conformance cases), all three schemas and seven examples. The final `bun run check` passed, including production documentation/link generation. An initial sandbox mkdir failure was resolved; see the iteration record. No dependency or lockfile changes. See the Step 3 iteration record for exact commands and the runtime PATH workaround. Hosted CI/Linux execution has not been observed.
+Final `bun run check` passed locally on Windows: formatting, zero lint warnings/errors, root/website types, Node build, 1,090 tests across 13 files (including 1,030 conformance cases), all four schemas, eight examples and production documentation/link build. Earlier schemas and both lockfiles remain unchanged. See the Step 4/5 records for exact commands, initial corrected failures and the runtime PATH setup. Hosted CI/Linux execution remains unobserved.

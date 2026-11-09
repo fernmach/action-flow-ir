@@ -1,0 +1,16 @@
+{
+  "id": "computation-inherited-duplicate-inputs-inputs-id",
+  "rules": [
+    "VAR-003",
+    "VAR-007"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-VAR-001",
+      "severity": "error",
+      "path": "/actions/0/inputs/1/id"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

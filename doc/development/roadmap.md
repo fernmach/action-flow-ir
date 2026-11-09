@@ -1,6 +1,6 @@
 # Roadmap
 
-Steps 0–3 are implemented locally; Steps 4–10 remain planned. Each follows `iteration-workflow.md` and produces the applicable full deliverable set. The sequence may change through a recorded rationale when dependencies or real examples require it. See [Step 0](iterations/000-tooling-foundation.md), [Step 1](iterations/001-document-envelope.md) [Step 2](iterations/002-minimal-actions.md) and [Step 3](iterations/003-variables-and-types.md) for evidence and limits.
+Steps 0–5 are implemented locally; Steps 6–10 remain planned. Each follows `iteration-workflow.md` and produces the applicable full deliverable set. The sequence may change through a recorded rationale when dependencies or real examples require it. See [Step 0](iterations/000-tooling-foundation.md), [Step 1](iterations/001-document-envelope.md) [Step 2](iterations/002-minimal-actions.md) [Step 3](iterations/003-variables-and-types.md), [Step 4](iterations/004-expressions.md) and [Step 5](iterations/005-assignment.md) for evidence and limits.
 
 | Step | Capability          | Key rules and checks                                                                                                                        | Dependencies                                |
 | ---- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
@@ -34,4 +34,8 @@ Queries, entity operations, exceptions, transactions, client/server context, ada
 
 The first release label is provisional; do not confuse an IR format version, schema dialect, validator package version, and documentation version. Define their relationship during Step 1. Record breaking format/semantic changes and migration expectations. Never reinterpret an already-released version silently.
 
-Step 3 enforces explicit output initialization now: draft.3 supports typed inputs and unused locals, but any otherwise valid action declaring outputs is invalid until assignment support arrives in Step 5. Next: Step 4 expressions, including literal encoding, read-before-initialization checks and precise numeric/operator semantics.
+Step 3 preserves explicit output initialization: draft.3 rejects output-bearing graphs because it has no assignments. Draft.4, delivered in Steps 4/5, permits typed linear computations that initialize locals and outputs. Next: Step 6 branches with precise merge/initialization semantics.
+
+## Joint Step 4/5 delivery
+
+[Expressions](iterations/004-expressions.md) and [assignment](iterations/005-assignment.md) were implemented together as draft.4 with separate acceptance records and a shared verified completion milestone. Assignment supplies a useful expression consumer without a temporary container, preserving the dependency order. The accepted design uses matching types, one update per node, pure expressions, linear graphs, explicit initialization and bounded validator resources. Branches/merges/loops/calls remain unsupported. No execution engine or adapter was introduced.

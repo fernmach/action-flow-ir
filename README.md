@@ -2,7 +2,7 @@
 
 A language-independent, typed representation of application logic, initially focused on OutSystems server actions. The project will include a versioned specification, JSON Schema, reference validator, conformance suite, and documentation.
 
-**Current state:** Step 3 adds **0.1.0-draft.3** typed inputs, outputs and locals with explicit initialization checks. Outputs cannot be initialized by the currently supported start/end graph, so output-bearing actions are invalid. Draft.1 (empty envelope) and draft.2 (minimal actions) remain unchanged. All support optional source provenance. The accepted stack is TypeScript, Node.js, Ajv, custom semantic passes, Vitest, and Docusaurus. See the [stack decision](doc/decisions/001-implementation-stack.md).
+**Current state:** Steps 4 and 5 add **0.1.0-draft.4** typed expressions and linear assignment nodes, with exact type checks, read initialization and output completion. Draft.1 (empty envelope), draft.2 (minimal actions) and draft.3 (typed declarations) remain unchanged. All support optional source provenance. The accepted stack is TypeScript, Node.js, Ajv, custom semantic passes, Vitest, and Docusaurus. See the [stack decision](doc/decisions/001-implementation-stack.md).
 
 ## Development
 
@@ -51,4 +51,4 @@ Both lockfiles belong in version control. CI performs frozen installs and runs c
 | `tests/conformance/` | Implementation-independent documents and expected results               |
 | `examples/`          | Complete examples validated by the toolchain                            |
 
-All three schemas, the conformance corpus, envelope examples, minimal/multiple-action examples and a typed action are implemented. See the [minimal-action tutorial](doc/tutorials/minimal-action.md) and [typed authoring guide](doc/guide/variables-and-types.md). See verification documentation for current tooling availability.
+All four schemas, the conformance corpus, envelope examples, minimal/multiple-action examples a typed action and an output-producing calculation are implemented. See the [minimal-action tutorial](doc/tutorials/minimal-action.md) and [typed authoring guide](doc/guide/variables-and-types.md). See the [computation guide](doc/guide/computation.md) and verification documentation for current tooling availability.

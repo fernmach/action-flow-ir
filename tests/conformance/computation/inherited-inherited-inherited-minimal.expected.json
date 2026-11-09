@@ -1,0 +1,13 @@
+{
+  "id": "computation-inherited-inherited-inherited-minimal",
+  "rules": [
+    "ENV-001",
+    "ENV-002",
+    "ENV-003",
+    "ENV-006",
+    "ENV-008"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

@@ -1,0 +1,11 @@
+{
+  "id": "computation-inherited-typed",
+  "rules": [
+    "VAR-001",
+    "TYPE-001",
+    "VAR-005"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

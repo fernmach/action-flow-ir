@@ -1,0 +1,9 @@
+{
+  "id": "computation-inherited-inherited-inherited-source-version-omitted",
+  "rules": [
+    "ENV-005"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

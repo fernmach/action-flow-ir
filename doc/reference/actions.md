@@ -1,6 +1,6 @@
 # Action field and diagnostic reference
 
-Available in **0.1.0-draft.2** and **0.1.0-draft.3**. Draft.3 additionally requires [inputs, outputs and locals](variables-and-types.md); the table below lists the shared graph fields. See the [normative actions chapter](../spec/actions.md) for all rules and the diagnostic table.
+Available in **0.1.0-draft.2**, **0.1.0-draft.3** and **0.1.0-draft.4**. Draft.4 adds [assignment nodes](computation.md) with linear graph rules. Draft.3 additionally requires [inputs, outputs and locals](variables-and-types.md); the table below lists the shared graph fields. See the [normative actions chapter](../spec/actions.md) for all rules and the diagnostic table.
 
 | Object     | Required fields                     | Meaning                                          |
 | ---------- | ----------------------------------- | ------------------------------------------------ |
@@ -8,7 +8,7 @@ Available in **0.1.0-draft.2** and **0.1.0-draft.3**. Draft.3 additionally requi
 | Node       | id, kind                            | Start or end marker                              |
 | Connection | fromNodeId, toNodeId                | Directed control transfer between local node IDs |
 
-IDs and references are nonempty strings without surrounding ECMAScript whitespace. Action IDs are document-scoped; node IDs are action-scoped. Arrays and objects reject null, and objects reject unknown properties. Connections have no IDs. Each action has exactly one start and one end, connected start → end; declaration order is irrelevant. Empty document action collections are allowed.
+IDs and references are nonempty strings without surrounding ECMAScript whitespace. Action IDs are document-scoped; node IDs are action-scoped. Arrays and objects reject null, and objects reject unknown properties. Connections have no IDs. Each action has exactly one start and one end, connected directly in draft.2/3 or through zero or more assignments in draft.4; declaration order is irrelevant. Empty document action collections are allowed.
 
 Duplicate identities, unresolved references and graph errors produce invalid status and CLI exit 1. Reference and graph checks only run after structural success. The normative chapter specifies dependent-check suppression, pointer locations and deterministic diagnostic ordering. Draft.1 still requires empty actions.
 

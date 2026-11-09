@@ -1,0 +1,15 @@
+{
+  "id": "computation-inherited-forbidden-metadata",
+  "rules": [
+    "VAR-001"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/actions/0/inputs/0/metadata"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

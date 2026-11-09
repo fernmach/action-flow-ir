@@ -1,0 +1,9 @@
+{
+  "id": "computation-output-read",
+  "rules": [
+    "ASN-004"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

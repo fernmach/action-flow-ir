@@ -1,0 +1,15 @@
+{
+  "id": "computation-assignment-Text-to-Integer",
+  "rules": [
+    "ASN-003"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-TYPE-003",
+      "severity": "error",
+      "path": "/actions/0/nodes/1/value"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

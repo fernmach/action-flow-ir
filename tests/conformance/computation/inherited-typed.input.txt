@@ -1,0 +1,51 @@
+{
+  "irVersion": "0.1.0-draft.4",
+  "id": "module",
+  "actions": [
+    {
+      "id": "action",
+      "entryNodeId": "start",
+      "nodes": [
+        {
+          "id": "start",
+          "kind": "start"
+        },
+        {
+          "id": "end",
+          "kind": "end"
+        }
+      ],
+      "connections": [
+        {
+          "fromNodeId": "start",
+          "toNodeId": "end"
+        }
+      ],
+      "inputs": [
+        {
+          "id": "total",
+          "name": "Total",
+          "type": "Decimal"
+        },
+        {
+          "id": "eligible",
+          "name": "Eligible",
+          "type": "Boolean"
+        }
+      ],
+      "outputs": [],
+      "locals": [
+        {
+          "id": "count",
+          "name": "Count",
+          "type": "Integer"
+        },
+        {
+          "id": "label",
+          "name": "Label",
+          "type": "Text"
+        }
+      ]
+    }
+  ]
+}

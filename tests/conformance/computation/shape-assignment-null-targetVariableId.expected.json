@@ -1,0 +1,15 @@
+{
+  "id": "computation-shape-assignment-null-targetVariableId",
+  "rules": [
+    "ASN-001"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/actions/0/nodes/1/targetVariableId"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

@@ -1,0 +1,15 @@
+{
+  "id": "computation-shape-assignment-missing-id",
+  "rules": [
+    "ASN-001"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/actions/0/nodes/1/id"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

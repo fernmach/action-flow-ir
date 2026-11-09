@@ -1,0 +1,15 @@
+{
+  "id": "computation-mismatch-multiply",
+  "rules": [
+    "EXP-004"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-TYPE-002",
+      "severity": "error",
+      "path": "/actions/0/nodes/1/value/operator"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

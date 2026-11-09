@@ -1,0 +1,9 @@
+{
+  "id": "computation-reordered",
+  "rules": [
+    "ASN-005"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

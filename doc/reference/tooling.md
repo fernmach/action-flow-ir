@@ -1,6 +1,6 @@
 # Tooling contract
 
-Tool version: 0.0.0 (development). Supported IR versions: **0.1.0-draft.1** (empty envelope), **0.1.0-draft.2** (minimal actions) and **0.1.0-draft.3** (typed declarations).
+Tool version: 0.0.0 (development). Supported IR versions: **0.1.0-draft.1** (empty envelope), **0.1.0-draft.2** (minimal actions), **0.1.0-draft.3** (typed declarations) and **0.1.0-draft.4** (expressions and assignment).
 
 ## Commands
 
@@ -41,5 +41,7 @@ Diagnostics contain `code`, `severity` (`error` or `warning`), and human-readabl
 See the [semantic diagnostic table](../spec/actions.md#validation-and-diagnostics) for AFIR-ACTION-001, AFIR-NODE-001, AFIR-REF-001 and AFIR-FLOW-001 through 007. All exit 1. Semantic diagnostics sort by path, code, then message and remove identical entries. No action/node context fields are emitted in these drafts.
 
 See the [variable diagnostic reference](variables-and-types.md#diagnostics) for AFIR-VAR-001/002 and AFIR-INIT-001 (all exit 1).
+
+See the [computation diagnostic reference](computation.md#diagnostics) for AFIR-LITERAL-001, AFIR-TYPE-001/002/003, AFIR-ASSIGN-001 and AFIR-INIT-002 (exit 1). Draft.4 pre-schema resource limits report AFIR-LIMIT-001 at root with tool-error status and exit 2; see [resource limits](computation.md#resource-limits).
 
 Missing CLI package metadata also reports TOOL-004. No IR execution, external schema retrieval, target generation, or publication occurs.

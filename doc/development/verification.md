@@ -25,7 +25,7 @@ Node 24.22.1 and Bun 1.4.4 on PATH. Run all commands below from the repository r
 | Aggregate local/CI check         | `bun run check`                                                |
 | Local documentation server       | `bun run docs:dev` (stop with Ctrl+C)                          |
 
-The tooling includes `bun run schema:check` (bundled Draft 2020-12 schema compilation/meta-validation for all three drafts), `bun run test:conformance` (recursive paired corpus), and `bun run examples:check` (all discovered examples, including seven required examples). All are included in `bun run check`.
+The tooling includes `bun run schema:check` (bundled Draft 2020-12 schema compilation/meta-validation for all four drafts), `bun run test:conformance` (recursive paired corpus), and `bun run examples:check` (all discovered examples, including eight required examples). All are included in `bun run check`.
 
 ESLint 10.14.0, typescript-eslint 8.72.1 and @eslint/js 10.0.1 are root development dependencies. Root TypeScript is pinned to 6.0.2, inside typescript-eslint's documented support range. The root flat config enables recommended type-aware rules using each file's TypeScript project. It covers source, tests, Vitest configuration and website TS/TSX; ESLint configuration itself receives ordinary JavaScript checks. Dependencies, emitted code, website build/generated state, coverage and Vitest artifacts are ignored. No React-specific lint plugin is configured.
 

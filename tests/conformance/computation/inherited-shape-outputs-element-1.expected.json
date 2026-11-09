@@ -1,0 +1,15 @@
+{
+  "id": "computation-inherited-shape-outputs-element-1",
+  "rules": [
+    "VAR-001"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/actions/0/outputs/0"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

@@ -1,0 +1,15 @@
+{
+  "id": "computation-inherited-inherited-inherited-source-version-4",
+  "rules": [
+    "ENV-005"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/source/version"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

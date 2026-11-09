@@ -1,0 +1,9 @@
+{
+  "id": "computation-literal-decimal-valid-3",
+  "rules": [
+    "EXP-002"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

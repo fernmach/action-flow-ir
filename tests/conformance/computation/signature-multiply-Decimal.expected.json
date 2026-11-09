@@ -1,0 +1,9 @@
+{
+  "id": "computation-signature-multiply-Decimal",
+  "rules": [
+    "EXP-004"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

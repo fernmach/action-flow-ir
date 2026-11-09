@@ -1,0 +1,20 @@
+{
+  "id": "computation-inherited-field-null-outputs-type",
+  "rules": [
+    "VAR-001"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/actions/0/outputs/0/type"
+    },
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/actions/0/outputs/0/type"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

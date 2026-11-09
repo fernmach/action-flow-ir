@@ -1,0 +1,9 @@
+{
+  "id": "computation-inherited-name-valid-1",
+  "rules": [
+    "VAR-002"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

@@ -1,6 +1,8 @@
 import type { Diagnostic } from "./diagnostics.js";
 import { validateVariables } from "./variables.js";
 import type { TypedActionDocument } from "./variables.js";
+import { validateComputation } from "./computation.js";
+import type { ComputationAction, ComputationDocument } from "./computation.js";
 
 export interface ActionNode {
   id: string;
@@ -27,14 +29,20 @@ export interface ActionDocument {
   actions: Action[];
 }
 
-function checkAction(action: Action, path: string): Diagnostic[] {
+function checkAction(
+  action: Action | ComputationAction,
+  path: string,
+): Diagnostic[] {
   const diagnostics: Diagnostic[] = [];
 
   const report = (code: string, suffix: string, message: string) => {
     diagnostics.push({ code, severity: "error", path: path + suffix, message });
   };
 
-  const nodes = new Map<string, ActionNode>();
+  const nodes = new Map<
+    string,
+    { id: string; kind: "start" | "end" | "assign" }
+  >();
   let duplicateNodes = false;
 
   action.nodes.forEach((node, index) => {
@@ -153,7 +161,9 @@ function checkAction(action: Action, path: string): Diagnostic[] {
     const validDegree =
       node.kind === "start"
         ? inDegree === 0 && outDegree === 1
-        : inDegree === 1 && outDegree === 0;
+        : node.kind === "assign"
+          ? inDegree === 1 && outDegree === 1
+          : inDegree === 1 && outDegree === 0;
 
     if (!validDegree) {
       report(
@@ -177,7 +187,7 @@ function checkAction(action: Action, path: string): Diagnostic[] {
 
 // Called only after the matching structural schema has succeeded.
 export function validateActions(
-  document: ActionDocument | TypedActionDocument,
+  document: ActionDocument | TypedActionDocument | ComputationDocument,
 ): Diagnostic[] {
   const diagnostics: Diagnostic[] = [];
   const actionIds = new Set<string>();
@@ -207,6 +217,20 @@ export function validateActions(
         diagnostics.push(
           ...validateVariables(
             typedAction,
+            path,
+            graphDiagnostics.length === 0,
+          ),
+        );
+      }
+    }
+
+    if (document.irVersion === "0.1.0-draft.4") {
+      const computation = document.actions[index];
+
+      if (computation) {
+        diagnostics.push(
+          ...validateComputation(
+            computation,
             path,
             graphDiagnostics.length === 0,
           ),

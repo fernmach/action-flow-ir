@@ -1,0 +1,442 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:action-flow-ir:schema:0.1.0-draft.4",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["irVersion", "id", "actions"],
+  "properties": {
+    "irVersion": {
+      "const": "0.1.0-draft.4",
+      "type": "string"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^\\S(?:[\\s\\S]*\\S)?$(?![\\s\\S])"
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^\\S(?:[\\s\\S]*\\S)?$(?![\\s\\S])"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["technology"],
+      "properties": {
+        "technology": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$(?![\\s\\S])"
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^\\S(?:[\\s\\S]*\\S)?$(?![\\s\\S])"
+        }
+      }
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "entryNodeId",
+          "nodes",
+          "connections",
+          "inputs",
+          "outputs",
+          "locals"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^\\S(?:[\\s\\S]*\\S)?$(?![\\s\\S])"
+          },
+          "entryNodeId": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^\\S(?:[\\s\\S]*\\S)?$(?![\\s\\S])"
+          },
+          "nodes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id", "kind"],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "^\\S(?:[\\s\\S]*\\S)?$(?![\\s\\S])"
+                },
+                "kind": {
+                  "type": "string",
+                  "enum": ["start", "end", "assign"]
+                }
+              },
+              "allOf": [
+                {
+                  "if": {
+                    "properties": {
+                      "kind": {
+                        "const": "start"
+                      }
+                    },
+                    "required": ["kind"]
+                  },
+                  "then": {
+                    "type": "object",
+                    "required": ["id", "kind"],
+                    "additionalProperties": false,
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "minLength": 1,
+                        "pattern": "^\\S(?:[\\s\\S]*\\S)?$(?![\\s\\S])"
+                      },
+                      "kind": {
+                        "const": "start"
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "kind": {
+                        "const": "end"
+                      }
+                    },
+                    "required": ["kind"]
+                  },
+                  "then": {
+                    "type": "object",
+                    "required": ["id", "kind"],
+                    "additionalProperties": false,
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "minLength": 1,
+                        "pattern": "^\\S(?:[\\s\\S]*\\S)?$(?![\\s\\S])"
+                      },
+                      "kind": {
+                        "const": "end"
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "kind": {
+                        "const": "assign"
+                      }
+                    },
+                    "required": ["kind"]
+                  },
+                  "then": {
+                    "type": "object",
+                    "required": ["id", "kind", "targetVariableId", "value"],
+                    "additionalProperties": false,
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "minLength": 1,
+                        "pattern": "^\\S(?:[\\s\\S]*\\S)?$(?![\\s\\S])"
+                      },
+                      "kind": {
+                        "const": "assign"
+                      },
+                      "targetVariableId": {
+                        "type": "string",
+                        "minLength": 1,
+                        "pattern": "^\\S(?:[\\s\\S]*\\S)?$(?![\\s\\S])"
+                      },
+                      "value": {
+                        "$ref": "#/$defs/expression"
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "connections": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["fromNodeId", "toNodeId"],
+              "properties": {
+                "fromNodeId": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "^\\S(?:[\\s\\S]*\\S)?$(?![\\s\\S])"
+                },
+                "toNodeId": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "^\\S(?:[\\s\\S]*\\S)?$(?![\\s\\S])"
+                }
+              }
+            }
+          },
+          "inputs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/variable"
+            }
+          },
+          "outputs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/variable"
+            }
+          },
+          "locals": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/variable"
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "variable": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "type"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^\\S(?:[\\s\\S]*\\S)?$(?![\\s\\S])"
+        },
+        "name": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_]*$(?![\\s\\S])"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["Boolean", "Integer", "Decimal", "Text"]
+        }
+      }
+    },
+    "expression": {
+      "type": "object",
+      "required": ["kind"],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": ["literal", "variable", "unary", "binary"]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "literal"
+              }
+            },
+            "required": ["kind"]
+          },
+          "then": {
+            "type": "object",
+            "required": ["kind", "type", "value"],
+            "additionalProperties": false,
+            "properties": {
+              "kind": {
+                "const": "literal"
+              },
+              "type": {
+                "type": "string",
+                "enum": ["Boolean", "Integer", "Decimal", "Text"]
+              },
+              "value": {}
+            },
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "Boolean"
+                    }
+                  },
+                  "required": ["type"]
+                },
+                "then": {
+                  "properties": {
+                    "value": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "Text"
+                    }
+                  },
+                  "required": ["type"]
+                },
+                "then": {
+                  "properties": {
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "Integer"
+                    }
+                  },
+                  "required": ["type"]
+                },
+                "then": {
+                  "properties": {
+                    "value": {
+                      "type": "string",
+                      "pattern": "^-?(0|[1-9][0-9]*)$(?![\\s\\S])"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "Decimal"
+                    }
+                  },
+                  "required": ["type"]
+                },
+                "then": {
+                  "properties": {
+                    "value": {
+                      "type": "string",
+                      "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$(?![\\s\\S])"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "variable"
+              }
+            },
+            "required": ["kind"]
+          },
+          "then": {
+            "type": "object",
+            "required": ["kind", "variableId"],
+            "additionalProperties": false,
+            "properties": {
+              "kind": {
+                "const": "variable"
+              },
+              "variableId": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "^\\S(?:[\\s\\S]*\\S)?$(?![\\s\\S])"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "unary"
+              }
+            },
+            "required": ["kind"]
+          },
+          "then": {
+            "type": "object",
+            "required": ["kind", "operator", "operand"],
+            "additionalProperties": false,
+            "properties": {
+              "kind": {
+                "const": "unary"
+              },
+              "operator": {
+                "type": "string",
+                "enum": ["negate", "not"]
+              },
+              "operand": {
+                "$ref": "#/$defs/expression"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "binary"
+              }
+            },
+            "required": ["kind"]
+          },
+          "then": {
+            "type": "object",
+            "required": ["kind", "operator", "left", "right"],
+            "additionalProperties": false,
+            "properties": {
+              "kind": {
+                "const": "binary"
+              },
+              "operator": {
+                "type": "string",
+                "enum": [
+                  "add",
+                  "subtract",
+                  "multiply",
+                  "equal",
+                  "notEqual",
+                  "lessThan",
+                  "lessThanOrEqual",
+                  "greaterThan",
+                  "greaterThanOrEqual",
+                  "and",
+                  "or"
+                ]
+              },
+              "left": {
+                "$ref": "#/$defs/expression"
+              },
+              "right": {
+                "$ref": "#/$defs/expression"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

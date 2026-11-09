@@ -1,0 +1,14 @@
+{
+  "id": "computation-inherited-inherited-minimal",
+  "rules": [
+    "ACT-001",
+    "ACT-004",
+    "ACT-005",
+    "ACT-006",
+    "ACT-007",
+    "ACT-008"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

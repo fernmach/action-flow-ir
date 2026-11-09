@@ -1,6 +1,6 @@
 # Metadata and source provenance
 
-Metadata describes the document for readers. Source provenance records the technology from which it originated. Both are optional in **0.1.0-draft.1**, **0.1.0-draft.2** and **0.1.0-draft.3**.
+Metadata describes the document for readers. Source provenance records the technology from which it originated. Both are optional in **0.1.0-draft.1**, **0.1.0-draft.2**, **0.1.0-draft.3** and **0.1.0-draft.4**.
 
 ## A complete envelope
 

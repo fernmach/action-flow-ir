@@ -1,0 +1,15 @@
+{
+  "id": "computation-shape-literal-missing-type",
+  "rules": [
+    "EXP-001"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/actions/0/nodes/1/value/type"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

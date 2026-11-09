@@ -5,6 +5,8 @@ import { schemas } from "./schema.js";
 import { validateActions } from "./actions.js";
 import type { ActionDocument } from "./actions.js";
 import type { TypedActionDocument } from "./variables.js";
+import type { ComputationDocument } from "./computation.js";
+import { exceedsContainerLimits } from "./limits.js";
 
 const versionPattern =
   /^(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)(?:-draft\.[1-9][0-9]*)?$(?![\s\S])/;
@@ -99,10 +101,25 @@ export function validateDocument(text: string): ValidationResult {
     );
   }
 
+  if (value.irVersion === "0.1.0-draft.4" && exceedsContainerLimits(value)) {
+    return failure(
+      "tool-error",
+      "AFIR-LIMIT-001",
+      "",
+      "Document exceeds validator container limits.",
+    );
+  }
+
+  const version = value.irVersion;
+
   if (validateEnvelope(value)) {
     const diagnostics =
-      value.irVersion === "0.1.0-draft.2" || value.irVersion === "0.1.0-draft.3"
-        ? validateActions(value as ActionDocument | TypedActionDocument)
+      value.irVersion === "0.1.0-draft.2" ||
+      value.irVersion === "0.1.0-draft.3" ||
+      value.irVersion === "0.1.0-draft.4"
+        ? validateActions(
+            value as ActionDocument | TypedActionDocument | ComputationDocument,
+          )
         : [];
 
     return {
@@ -111,7 +128,9 @@ export function validateDocument(text: string): ValidationResult {
     };
   }
 
-  const errors = (validateEnvelope.errors ?? []).map(normalize);
+  const errors = (validateEnvelope.errors ?? [])
+    .filter((error) => version !== "0.1.0-draft.4" || error.keyword !== "if")
+    .map(normalize);
 
   errors.sort((a, b) => {
     for (const key of ["path", "keyword", "parameters"] as const) {

@@ -1,0 +1,9 @@
+{
+  "id": "variables-multiple-actions",
+  "rules": [
+    "VAR-003"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

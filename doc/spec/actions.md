@@ -1,6 +1,6 @@
 # Minimal actions and connections
 
-Normative for **0.1.0-draft.2**. Its independent Draft 2020-12 schema is `schema/0.1.0-draft.2/action-flow.schema.json`, identified by `urn:action-flow-ir:schema:0.1.0-draft.2`. Draft.1 remains supported unchanged.
+Normative for **0.1.0-draft.2**. Its independent Draft 2020-12 schema is `schema/0.1.0-draft.2/action-flow.schema.json`, identified by `urn:action-flow-ir:schema:0.1.0-draft.2`. Draft.1 remains supported unchanged. [Draft.3](variables-and-types.md) inherits these graph rules and adds required variable declarations without changing draft.2.
 
 ## Representation and rules
 
@@ -67,4 +67,4 @@ Cases are paired files under `tests/conformance/actions/`; prefixes denote all m
 | ACT-008 | Iterative graph traversal; AFIR-FLOW-007                        | minimal, missing-edge, reversed-edge                                             |
 | ACT-009 | Explicit entry and references                                   | reordered, multiple; semantic nonmutation/order regressions                      |
 
-The implementation checks supported rules now; variables, expressions, assignment, branching, loops and calls await future drafts.
+The implementation checks supported rules now. Variables are supported by draft.3; expressions, assignment, branching, loops and calls await future drafts.

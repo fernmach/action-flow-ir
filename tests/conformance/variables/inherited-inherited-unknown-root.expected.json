@@ -1,0 +1,15 @@
+{
+  "id": "variables-inherited-inherited-unknown-root",
+  "rules": [
+    "ENV-006"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/extra"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

@@ -1,6 +1,6 @@
 # Roadmap
 
-Steps 0–2 are implemented locally; Steps 3–10 remain planned. Each follows `iteration-workflow.md` and produces the applicable full deliverable set. The sequence may change through a recorded rationale when dependencies or real examples require it. See [Step 0](iterations/000-tooling-foundation.md), [Step 1](iterations/001-document-envelope.md) and [Step 2](iterations/002-minimal-actions.md) for evidence and limits.
+Steps 0–3 are implemented locally; Steps 4–10 remain planned. Each follows `iteration-workflow.md` and produces the applicable full deliverable set. The sequence may change through a recorded rationale when dependencies or real examples require it. See [Step 0](iterations/000-tooling-foundation.md), [Step 1](iterations/001-document-envelope.md) [Step 2](iterations/002-minimal-actions.md) and [Step 3](iterations/003-variables-and-types.md) for evidence and limits.
 
 | Step | Capability          | Key rules and checks                                                                                                                        | Dependencies                                |
 | ---- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
@@ -33,3 +33,5 @@ Queries, entity operations, exceptions, transactions, client/server context, ada
 ## Release discipline
 
 The first release label is provisional; do not confuse an IR format version, schema dialect, validator package version, and documentation version. Define their relationship during Step 1. Record breaking format/semantic changes and migration expectations. Never reinterpret an already-released version silently.
+
+Step 3 enforces explicit output initialization now: draft.3 supports typed inputs and unused locals, but any otherwise valid action declaring outputs is invalid until assignment support arrives in Step 5. Next: Step 4 expressions, including literal encoding, read-before-initialization checks and precise numeric/operator semantics.

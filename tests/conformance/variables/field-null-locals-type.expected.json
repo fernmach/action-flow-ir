@@ -1,0 +1,20 @@
+{
+  "id": "variables-field-null-locals-type",
+  "rules": [
+    "VAR-001"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/actions/0/locals/0/type"
+    },
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/actions/0/locals/0/type"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

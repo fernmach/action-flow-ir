@@ -1,0 +1,56 @@
+{
+  "id": "variables-inherited-inherited-multiple",
+  "rules": [
+    "ENV-003",
+    "ENV-004",
+    "ENV-005",
+    "ENV-006",
+    "ENV-007",
+    "ENV-009",
+    "ACT-001"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/id"
+    },
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/metadata/a~1b~0c"
+    },
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/metadata/title"
+    },
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/source/technology"
+    },
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/actions/0/id"
+    },
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/actions/0/entryNodeId"
+    },
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/actions/0/nodes"
+    },
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/actions/0/connections"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

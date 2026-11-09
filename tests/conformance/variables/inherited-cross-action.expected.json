@@ -1,0 +1,15 @@
+{
+  "id": "variables-inherited-cross-action",
+  "rules": [
+    "ACT-005"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-REF-001",
+      "severity": "error",
+      "path": "/actions/0/connections/0/toNodeId"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

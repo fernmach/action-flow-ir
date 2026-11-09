@@ -16,6 +16,7 @@ test("supported examples exist", () => {
       "javascript.json",
       "minimal-action.json",
       "multiple-actions.json",
+      "typed-action.json",
     ]),
   );
 });

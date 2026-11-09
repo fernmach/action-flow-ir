@@ -1,0 +1,31 @@
+{
+  "id": "variables-triple-duplicate",
+  "rules": [
+    "VAR-003",
+    "VAR-007"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-VAR-001",
+      "severity": "error",
+      "path": "/actions/0/locals/0/id"
+    },
+    {
+      "code": "AFIR-VAR-002",
+      "severity": "error",
+      "path": "/actions/0/locals/0/name"
+    },
+    {
+      "code": "AFIR-VAR-001",
+      "severity": "error",
+      "path": "/actions/0/outputs/0/id"
+    },
+    {
+      "code": "AFIR-VAR-002",
+      "severity": "error",
+      "path": "/actions/0/outputs/0/name"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

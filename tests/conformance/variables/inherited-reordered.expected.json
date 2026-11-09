@@ -1,0 +1,9 @@
+{
+  "id": "variables-inherited-reordered",
+  "rules": [
+    "ACT-009"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

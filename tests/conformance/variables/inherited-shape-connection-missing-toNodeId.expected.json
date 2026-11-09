@@ -1,0 +1,15 @@
+{
+  "id": "variables-inherited-shape-connection-missing-toNodeId",
+  "rules": [
+    "ACT-001"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/actions/0/connections/0/toNodeId"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

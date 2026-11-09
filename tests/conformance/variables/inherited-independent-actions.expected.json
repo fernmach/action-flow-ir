@@ -1,0 +1,32 @@
+{
+  "id": "variables-inherited-independent-actions",
+  "rules": [
+    "ACT-005",
+    "ACT-007",
+    "ACT-008"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-REF-001",
+      "severity": "error",
+      "path": "/actions/0/entryNodeId"
+    },
+    {
+      "code": "AFIR-FLOW-006",
+      "severity": "error",
+      "path": "/actions/1/nodes/0"
+    },
+    {
+      "code": "AFIR-FLOW-006",
+      "severity": "error",
+      "path": "/actions/1/nodes/1"
+    },
+    {
+      "code": "AFIR-FLOW-007",
+      "severity": "error",
+      "path": "/actions/1/nodes/1"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

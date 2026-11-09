@@ -1,0 +1,9 @@
+{
+  "id": "variables-inherited-inherited-technology-only",
+  "rules": [
+    "ENV-005"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

@@ -1,0 +1,29 @@
+{
+  "irVersion": "0.1.0-draft.3",
+  "id": "module",
+  "actions": [
+    {
+      "id": "internal space",
+      "entryNodeId": "é",
+      "nodes": [
+        {
+          "id": "é",
+          "kind": "start"
+        },
+        {
+          "id": "é",
+          "kind": "end"
+        }
+      ],
+      "connections": [
+        {
+          "fromNodeId": "é",
+          "toNodeId": "é"
+        }
+      ],
+      "inputs": [],
+      "outputs": [],
+      "locals": []
+    }
+  ]
+}

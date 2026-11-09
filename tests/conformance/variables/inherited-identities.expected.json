@@ -1,0 +1,10 @@
+{
+  "id": "variables-inherited-identities",
+  "rules": [
+    "ACT-002",
+    "ACT-003"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

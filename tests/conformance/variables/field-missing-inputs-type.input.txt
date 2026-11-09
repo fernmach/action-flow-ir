@@ -1,0 +1,34 @@
+{
+  "irVersion": "0.1.0-draft.3",
+  "id": "module",
+  "actions": [
+    {
+      "id": "action",
+      "entryNodeId": "start",
+      "nodes": [
+        {
+          "id": "start",
+          "kind": "start"
+        },
+        {
+          "id": "end",
+          "kind": "end"
+        }
+      ],
+      "connections": [
+        {
+          "fromNodeId": "start",
+          "toNodeId": "end"
+        }
+      ],
+      "inputs": [
+        {
+          "id": "value",
+          "name": "Value"
+        }
+      ],
+      "outputs": [],
+      "locals": []
+    }
+  ]
+}

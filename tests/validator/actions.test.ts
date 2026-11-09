@@ -53,8 +53,12 @@ test("semantic validation is nonmutating, deterministic and independent of decla
   ).toEqual(result);
 });
 
-test("both bundled schemas validate against Draft 2020-12 and preserve inputs", () => {
-  expect([...schemas.keys()]).toEqual(["0.1.0-draft.1", "0.1.0-draft.2"]);
+test("all bundled schemas validate against Draft 2020-12 and preserve inputs", () => {
+  expect([...schemas.keys()]).toEqual([
+    "0.1.0-draft.1",
+    "0.1.0-draft.2",
+    "0.1.0-draft.3",
+  ]);
 
   for (const [version, validate] of schemas) {
     const valid = { irVersion: version, id: "test", actions: [] };

@@ -2,7 +2,7 @@
 
 A language-independent, typed representation of application logic, initially focused on OutSystems server actions. The project will include a versioned specification, JSON Schema, reference validator, conformance suite, and documentation.
 
-**Current state:** Step 2 supports **0.1.0-draft.2** minimal actions and connections, plus the unchanged **0.1.0-draft.1** empty envelope. Both support optional source provenance. The accepted stack is TypeScript, Node.js, Ajv, custom semantic passes, Vitest, and Docusaurus. See the [stack decision](doc/decisions/001-implementation-stack.md).
+**Current state:** Step 3 adds **0.1.0-draft.3** typed inputs, outputs and locals with explicit initialization checks. Outputs cannot be initialized by the currently supported start/end graph, so output-bearing actions are invalid. Draft.1 (empty envelope) and draft.2 (minimal actions) remain unchanged. All support optional source provenance. The accepted stack is TypeScript, Node.js, Ajv, custom semantic passes, Vitest, and Docusaurus. See the [stack decision](doc/decisions/001-implementation-stack.md).
 
 ## Development
 
@@ -51,4 +51,4 @@ Both lockfiles belong in version control. CI performs frozen installs and runs c
 | `tests/conformance/` | Implementation-independent documents and expected results               |
 | `examples/`          | Complete examples validated by the toolchain                            |
 
-Both schemas, the conformance corpus, envelope examples and minimal/multiple-action examples are implemented. See the [minimal-action tutorial](doc/tutorials/minimal-action.md). See verification documentation for current tooling availability.
+All three schemas, the conformance corpus, envelope examples, minimal/multiple-action examples and a typed action are implemented. See the [minimal-action tutorial](doc/tutorials/minimal-action.md) and [typed authoring guide](doc/guide/variables-and-types.md). See verification documentation for current tooling availability.

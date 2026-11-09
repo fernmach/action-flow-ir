@@ -1,0 +1,9 @@
+{
+  "id": "variables-inherited-unicode-distinct",
+  "rules": [
+    "ACT-002"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

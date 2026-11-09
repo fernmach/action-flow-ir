@@ -1,0 +1,16 @@
+{
+  "id": "variables-inherited-inherited-description-null",
+  "rules": [
+    "ENV-004",
+    "ENV-006"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/metadata/description"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

@@ -1,0 +1,15 @@
+{
+  "id": "variables-id-invalid-5",
+  "rules": [
+    "VAR-002"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/actions/0/inputs/0/id"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

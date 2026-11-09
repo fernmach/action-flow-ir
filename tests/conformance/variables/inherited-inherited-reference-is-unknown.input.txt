@@ -1,0 +1,6 @@
+{
+  "irVersion": "0.1.0-draft.3",
+  "id": "test",
+  "actions": [],
+  "$ref": "https://invalid.example/untrusted"
+}

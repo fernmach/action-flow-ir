@@ -6,7 +6,7 @@ export default function Home(): ReactNode {
   return (
     <Layout
       title="Action-Flow IR"
-      description="Specification and validator development"
+      description="Write Action-Flow IR documents and validate their structure"
     >
       <main className="container margin-vert--xl">
         <h1>Action-Flow IR</h1>
@@ -14,10 +14,27 @@ export default function Home(): ReactNode {
           A typed, language-independent representation of application logic.
         </p>
         <p>
-          IR 0.1.0-draft.2 supports minimal actions and connections. Draft.1
-          envelope validation remains available.
+          IR 0.1.0-draft.3 adds typed inputs and locals to minimal action
+          graphs. Draft.1 and draft.2 validation remains available.
         </p>
-        <Link to="/docs/spec/">Read the specification status</Link>
+        <p>
+          <Link to="/docs/guide/basic-structure">
+            Write your first IR document
+          </Link>
+        </p>
+        <p>
+          <Link to="/docs/guide/variables-and-types">
+            Declare typed variables
+          </Link>
+        </p>
+        <p>
+          <Link to="/docs/spec/">Read the language specification</Link>
+        </p>
+        <p>
+          <Link to="/docs/tutorials/validate-document">
+            Validate a document with the CLI
+          </Link>
+        </p>
       </main>
     </Layout>
   );

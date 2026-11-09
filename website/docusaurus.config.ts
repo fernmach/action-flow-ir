@@ -13,7 +13,16 @@ const config: Config = {
     [
       "classic",
       {
-        docs: { path: "../doc", sidebarPath: "./sidebars.ts" },
+        docs: {
+          path: "../doc",
+          sidebarPath: "./sidebars.ts",
+          include: [
+            "guide/**/*.md",
+            "spec/**/*.md",
+            "reference/**/*.md",
+            "tutorials/**/*.md",
+          ],
+        },
         blog: false,
         theme: { customCss: "./src/css/custom.css" },
       } satisfies Preset.Options,

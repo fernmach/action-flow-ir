@@ -1,0 +1,21 @@
+{
+  "id": "variables-inherited-inherited-id-3",
+  "rules": [
+    "ENV-003",
+    "ENV-006"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/id"
+    },
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/id"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

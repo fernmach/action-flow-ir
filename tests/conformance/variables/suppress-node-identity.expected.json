@@ -1,0 +1,15 @@
+{
+  "id": "variables-suppress-node-identity",
+  "rules": [
+    "VAR-007"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-NODE-001",
+      "severity": "error",
+      "path": "/actions/0/nodes/1/id"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

@@ -1,4 +1,6 @@
 import type { Diagnostic } from "./diagnostics.js";
+import { validateVariables } from "./variables.js";
+import type { TypedActionDocument } from "./variables.js";
 
 export interface ActionNode {
   id: string;
@@ -174,7 +176,9 @@ function checkAction(action: Action, path: string): Diagnostic[] {
 }
 
 // Called only after the matching structural schema has succeeded.
-export function validateActions(document: ActionDocument): Diagnostic[] {
+export function validateActions(
+  document: ActionDocument | TypedActionDocument,
+): Diagnostic[] {
   const diagnostics: Diagnostic[] = [];
   const actionIds = new Set<string>();
 
@@ -191,7 +195,24 @@ export function validateActions(document: ActionDocument): Diagnostic[] {
     }
 
     actionIds.add(action.id);
-    diagnostics.push(...checkAction(action, path));
+
+    const graphDiagnostics = checkAction(action, path);
+
+    diagnostics.push(...graphDiagnostics);
+
+    if (document.irVersion === "0.1.0-draft.3") {
+      const typedAction = document.actions[index];
+
+      if (typedAction) {
+        diagnostics.push(
+          ...validateVariables(
+            typedAction,
+            path,
+            graphDiagnostics.length === 0,
+          ),
+        );
+      }
+    }
   });
 
   diagnostics.sort((a, b) => {

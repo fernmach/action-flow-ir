@@ -1,0 +1,22 @@
+{
+  "id": "variables-duplicate-action-output",
+  "rules": [
+    "VAR-006",
+    "VAR-007",
+    "ACT-003"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-ACTION-001",
+      "severity": "error",
+      "path": "/actions/1/id"
+    },
+    {
+      "code": "AFIR-INIT-001",
+      "severity": "error",
+      "path": "/actions/1/outputs/0/id"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

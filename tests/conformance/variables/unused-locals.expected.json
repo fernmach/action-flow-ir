@@ -1,0 +1,9 @@
+{
+  "id": "variables-unused-locals",
+  "rules": [
+    "VAR-005"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

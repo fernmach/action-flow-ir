@@ -1,12 +1,12 @@
 # Document envelope and source provenance
 
-Normative for **0.1.0-draft.1**. Draft.2 inherits this envelope with the explicitly versioned changes in [Minimal actions and connections](actions.md). The structural contract is `schema/0.1.0-draft.1/action-flow.schema.json`, Draft 2020-12, identifier `urn:action-flow-ir:schema:0.1.0-draft.1`. No schema hosting is required.
+Normative for **0.1.0-draft.1**. Draft.2 inherits this envelope with the explicitly versioned changes in [Minimal actions and connections](actions.md). Draft.3 inherits it with the changes in [Variables and primitive types](variables-and-types.md). The structural contract is `schema/0.1.0-draft.1/action-flow.schema.json`, Draft 2020-12, identifier `urn:action-flow-ir:schema:0.1.0-draft.1`. No schema hosting is required.
 
 ## Requirements
 
 **ENV-001 — Root:** A document MUST be JSON with a non-null object root, excluding arrays. Malformed JSON is invalid.
 
-**ENV-002 — Version:** The root MUST declare string `irVersion`. Declarations MUST use MAJOR.MINOR.PATCH, optionally followed by `-draft.N`. Components are decimal integers without leading zeros (zero is allowed); N starts at 1. Other prereleases, build metadata and surrounding whitespace are invalid. This chapter defines `0.1.0-draft.1`; the validator also supports `0.1.0-draft.2` as specified in the actions chapter. A well-formed unimplemented version is unsupported, regardless of remaining content. Root/version failures stop dependent validation. Public contract changes MUST receive a new immutable draft version; editorial corrections and implementation bug fixes do not. CLI package version 0.0.0 is independent of the format and schema dialect.
+**ENV-002 — Version:** The root MUST declare string `irVersion`. Declarations MUST use MAJOR.MINOR.PATCH, optionally followed by `-draft.N`. Components are decimal integers without leading zeros (zero is allowed); N starts at 1. Other prereleases, build metadata and surrounding whitespace are invalid. This chapter defines `0.1.0-draft.1`; the validator also supports `0.1.0-draft.2` as specified in the actions chapter and `0.1.0-draft.3` as specified in the variables/types chapter. A well-formed unimplemented version is unsupported, regardless of remaining content. Root/version failures stop dependent validation. Public contract changes MUST receive a new immutable draft version; editorial corrections and implementation bug fixes do not. CLI package version 0.0.0 is independent of the format and schema dialect.
 
 **ENV-003 — Identity:** Required `id` MUST be a nonempty string without leading or trailing ECMAScript regular-expression whitespace (the `\s` character class). Internal whitespace is permitted; no UUID shape is required.
 

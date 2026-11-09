@@ -93,6 +93,38 @@ test("compiled CLI runs in Node with real filesystem inputs", async () => {
       );
     }
 
+    const typedExample = await readFile(
+      new URL("../../examples/typed-action.json", import.meta.url),
+      "utf8",
+    );
+
+    await writeFile(file, typedExample);
+
+    for (const format of ["text", "json"]) {
+      const success = call(["validate", file, "--format", format]);
+
+      expect(success.status).toBe(0);
+      expect(success.stderr).toBe("");
+    }
+
+    await writeFile(
+      file,
+      typedExample.replace(
+        '"outputs": []',
+        '"outputs": [{"id":"result","name":"Result","type":"Decimal"}]',
+      ),
+    );
+
+    for (const format of ["text", "json"]) {
+      const failure = call(["validate", file, "--format", format]);
+
+      expect(failure.status).toBe(1);
+      expect(format === "text" ? failure.stdout : failure.stderr).toBe("");
+      expect(format === "text" ? failure.stderr : failure.stdout).toContain(
+        "AFIR-INIT-001",
+      );
+    }
+
     expect(call(["validate", join(directory, "missing")]).status).toBe(2);
     expect(call(["validate", directory]).status).toBe(2);
   } finally {
@@ -100,7 +132,7 @@ test("compiled CLI runs in Node with real filesystem inputs", async () => {
   }
 });
 
-test.each(["0.1.0-draft.1", "0.1.0-draft.2"])(
+test.each(["0.1.0-draft.1", "0.1.0-draft.2", "0.1.0-draft.3"])(
   "schema initialization failures are structured tool failures: %s",
   async (version) => {
     // Keep the isolated installation beneath the repository for dependency resolution.

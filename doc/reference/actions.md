@@ -1,6 +1,6 @@
 # Action field and diagnostic reference
 
-Available in **0.1.0-draft.2**. See the [normative actions chapter](../spec/actions.md) for all rules and the diagnostic table.
+Available in **0.1.0-draft.2** and **0.1.0-draft.3**. Draft.3 additionally requires [inputs, outputs and locals](variables-and-types.md); the table below lists the shared graph fields. See the [normative actions chapter](../spec/actions.md) for all rules and the diagnostic table.
 
 | Object     | Required fields                     | Meaning                                          |
 | ---------- | ----------------------------------- | ------------------------------------------------ |

@@ -1,0 +1,15 @@
+{
+  "id": "variables-inherited-inherited-technology-7",
+  "rules": [
+    "ENV-005"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/source/technology"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

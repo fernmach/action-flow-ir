@@ -1,0 +1,15 @@
+{
+  "id": "variables-shape-outputs-2",
+  "rules": [
+    "VAR-001"
+  ],
+  "status": "invalid",
+  "diagnostics": [
+    {
+      "code": "AFIR-SCHEMA-001",
+      "severity": "error",
+      "path": "/actions/0/outputs"
+    }
+  ],
+  "allowAdditionalDiagnostics": false
+}

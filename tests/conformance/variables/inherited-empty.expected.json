@@ -1,0 +1,9 @@
+{
+  "id": "variables-inherited-empty",
+  "rules": [
+    "ACT-001"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}

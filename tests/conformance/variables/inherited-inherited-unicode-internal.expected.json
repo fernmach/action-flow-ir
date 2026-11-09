@@ -1,0 +1,11 @@
+{
+  "id": "variables-inherited-inherited-unicode-internal",
+  "rules": [
+    "ENV-003",
+    "ENV-004",
+    "ENV-005"
+  ],
+  "status": "valid",
+  "diagnostics": [],
+  "allowAdditionalDiagnostics": false
+}
